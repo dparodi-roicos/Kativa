@@ -3,41 +3,1908 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KATIVA · Dashboards · ROICOS</title>
+<title>KATIVA · Cross-Border por Almacén · Ene–Jul 2026</title>
 <style>
+:root{
+  --orange:#E8691A;--orange-l:#F5A668;--orange-xl:#FFF4EC;
+  --dark:#2D2D2D;--gray:#6B6B6B;--gray-l:#E8E8E8;--bg:#F5F5F5;
+  --green:#1E7E34;--green-l:#EAFAF1;--blue:#1A2E4A;--red:#C0392B;--red-l:#FDEDEC;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#F5F5F5;color:#2D2D2D;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px}
-.logo{font-size:13px;font-weight:700;letter-spacing:2px;color:#E8691A;margin-bottom:8px}
-h1{font-size:22px;font-weight:700;color:#1A2E4A;margin-bottom:4px}
-.sub{font-size:13px;color:#6B6B6B;margin-bottom:40px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;width:100%;max-width:700px}
-.card{background:#fff;border-radius:12px;border:1px solid #E8E8E8;padding:24px 28px;text-decoration:none;color:inherit;transition:box-shadow .15s,transform .15s;border-top:4px solid #E8691A}
-.card:hover{box-shadow:0 6px 24px rgba(0,0,0,.1);transform:translateY(-2px)}
-.card-icon{font-size:28px;margin-bottom:10px}
-.card h2{font-size:15px;font-weight:700;color:#1A2E4A;margin-bottom:6px}
-.card p{font-size:12px;color:#6B6B6B;line-height:1.5}
-.card-tag{display:inline-block;margin-top:12px;font-size:10px;font-weight:700;color:#E8691A;text-transform:uppercase;letter-spacing:.5px}
-footer{margin-top:48px;font-size:11px;color:#aaa}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--dark);font-size:13px}
+a{color:var(--orange);text-decoration:none}
+a:hover{text-decoration:underline}
+.hdr{background:var(--blue);color:#fff;padding:22px 32px;display:flex;align-items:center;gap:16px}
+.hdr-logo{font-size:22px;font-weight:700;letter-spacing:1px;color:var(--orange-l)}
+.hdr-sep{width:1px;height:36px;background:rgba(255,255,255,.25)}
+.hdr-info h1{font-size:16px;font-weight:700;margin-bottom:2px}
+.hdr-info p{font-size:11px;color:rgba(255,255,255,.65)}
+.hdr-badge{margin-left:auto;background:var(--orange);color:#fff;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700}
+.nota{background:#FFF8E1;border-left:4px solid #F59E0B;padding:10px 18px;margin:16px 24px;border-radius:4px;font-size:12px;color:#555}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:0 24px 20px}
+.kpi-card{background:#fff;border-radius:10px;padding:16px 18px;border:2px solid var(--gray-l);position:relative;overflow:hidden}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.kpi-it::before{background:#3498DB}.kpi-fr::before{background:#E74C3C}
+.kpi-de::before{background:#2ECC71}.kpi-nl::before{background:#9B59B6}
+.kpi-flag{font-size:20px;margin-bottom:6px}
+.kpi-label{font-size:10px;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.kpi-name{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:8px}
+.kpi-pct{font-size:32px;font-weight:700;line-height:1}
+.kpi-pct.high{color:var(--red)}.kpi-pct.med{color:#E67E22}.kpi-pct.low{color:var(--green)}
+.kpi-sub{font-size:10px;color:var(--gray);margin-top:2px}
+.kpi-bar-bg{height:6px;background:var(--gray-l);border-radius:3px;margin-top:10px}
+.kpi-bar-fill{height:6px;border-radius:3px}
+.kpi-nums{display:flex;gap:12px;margin-top:10px}
+.kpi-num-item{flex:1;border-left:2px solid var(--gray-l);padding-left:8px}
+.kpi-num-item span{display:block;font-size:10px;color:var(--gray)}
+.kpi-num-item strong{font-size:12px}
+.section{background:#fff;border-radius:10px;margin:0 24px 20px;padding:0;border:1px solid var(--gray-l);overflow:hidden}
+.sec-hdr{padding:14px 20px;display:flex;align-items:center;gap:12px}
+.sec-hdr.it{background:#EBF5FB;border-bottom:2px solid #3498DB}
+.sec-hdr.fr{background:#FDEDEC;border-bottom:2px solid #E74C3C}
+.sec-hdr.de{background:#EAFAF1;border-bottom:2px solid #2ECC71}
+.sec-hdr.nl{background:#F5EEF8;border-bottom:2px solid #9B59B6}
+.sec-flag{font-size:26px}.sec-title-block h2{font-size:14px;font-weight:700;color:var(--blue)}
+.sec-title-block p{font-size:11px;color:var(--gray)}
+.sec-meta{margin-left:auto;text-align:right}
+.sec-meta .pct-big{font-size:28px;font-weight:700}
+.sec-meta .pct-big.high{color:var(--red)}.sec-meta .pct-big.med{color:#E67E22}.sec-meta .pct-big.low{color:var(--green)}
+.sec-meta small{font-size:10px;color:var(--gray);display:block}
+.flows{display:grid;grid-template-columns:220px 1fr;gap:0;border-top:1px solid var(--gray-l)}
+.flows-left{padding:14px 16px;border-right:1px solid var(--gray-l);background:#FAFAFA}
+.flows-left h3{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--gray);margin-bottom:10px}
+.flow-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.flow-store{font-weight:700;font-size:12px;min-width:30px}
+.flow-bar-wrap{flex:1;background:var(--gray-l);border-radius:3px;height:7px;overflow:hidden}
+.flow-bar{height:7px;border-radius:3px;background:var(--orange)}
+.flow-val{font-size:11px;color:var(--gray);min-width:70px;text-align:right}
+.flow-units{font-size:10px;color:#aaa;min-width:55px;text-align:right}
+.flows-right{padding:14px 16px;overflow-x:auto}
+.flows-right h3{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--gray);margin-bottom:10px}
+.store-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.tab-btn{padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;cursor:pointer;border:1px solid var(--gray-l);background:#fff;color:var(--gray)}
+.tab-btn.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+.asin-table{width:100%;border-collapse:collapse;min-width:520px}
+.asin-table th{background:var(--blue);color:#fff;padding:6px 10px;font-size:11px;text-align:left;font-weight:600}
+.asin-table td{padding:6px 10px;border-bottom:1px solid var(--gray-l);font-size:11px;vertical-align:middle}
+.asin-table tr:last-child td{border-bottom:none}
+.asin-table tr:nth-child(even) td{background:#FAFAFA}
+.asin-link{font-family:monospace;font-size:11px;color:var(--orange);font-weight:600}
+.rev-cell{font-weight:700;color:var(--blue)}.units-cell{color:var(--gray)}
+.rev-bar-wrap{height:5px;background:var(--gray-l);border-radius:3px;margin-top:2px;min-width:80px}
+.rev-bar{height:5px;border-radius:3px;background:var(--orange-l)}
+.local-strip{border-top:1px solid var(--gray-l);padding:14px 16px;background:#F8FFF9}
+.local-strip h3{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--green);margin-bottom:8px}
+.local-asins{display:flex;flex-wrap:wrap;gap:6px}
+.local-asin-chip{background:#fff;border:1px solid #C8E6C9;border-radius:6px;padding:6px 10px;font-size:11px;min-width:200px;max-width:260px}
+.local-asin-chip .chip-asin{font-family:monospace;color:var(--orange);font-size:10px}
+.local-asin-chip .chip-title{color:var(--dark);margin:1px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.local-asin-chip .chip-nums{color:var(--gray);font-size:10px}
+footer{text-align:center;padding:18px;font-size:11px;color:#aaa}
 </style>
 </head>
 <body>
-<div class="logo">ROICOS</div>
-<h1>KATIVA · Panel de Dashboards</h1>
-<p class="sub">Informes internos · Uso exclusivo Roicos</p>
-<div class="cards">
-  <a class="card" href="crossborder.html">
-    <div class="card-icon">🌍</div>
-    <h2>Cross-Border por Almacén</h2>
-    <p>Análisis de flujos cross-border desde almacenes IT, FR, DE, NL. Revenue, unidades y top ASINs por destino.</p>
-    <span class="card-tag">Ene – Jul 2026 →</span>
-  </a>
-  <a class="card" href="competencia-fr.html">
-    <div class="card-icon">📊</div>
-    <h2>Análisis Competencia Francia</h2>
-    <p>Estudio competitivo Kativa en Amazon Francia. Share of voice, precios y posicionamiento vs competidores.</p>
-    <span class="card-tag">2026 →</span>
-  </a>
+<div class="hdr">
+  <span class="hdr-logo">ROICOS</span>
+  <div class="hdr-sep"></div>
+  <div class="hdr-info">
+    <h1>KATIVA Pan-EU · Análisis Cross-Border por Almacén</h1>
+    <p>Vendor Central · Dispatched Revenue · Enero – 26 Julio 2026 · FR / IT / DE / NL</p>
+  </div>
+  <span class="hdr-badge">Uso interno</span>
 </div>
-<footer>ROICOS · No distribuir externamente</footer>
+<div class="nota">
+  <strong>Cómo leer este informe:</strong> Cada fila del CSV de Vendor incluye el <em>Child Vendor Code</em> (almacén de origen) y el <em>Store Code</em> (país de venta). Cuando no coinciden, Amazon ha despachado cross-border. Datos 100% del CSV de Vendor Central (586 filas · 0 estimaciones). Periodo: 01/01/2026 – 26/07/2026.
+</div>
+<div class="kpi-grid">
+  <div class="kpi-card kpi-it">
+    <div class="kpi-flag">🇮🇹</div>
+    <div class="kpi-label">Almacén · TL8WA</div>
+    <div class="kpi-name">STARBRANDS IT (Pan-EU)</div>
+    <div class="kpi-pct low">39.3%</div>
+    <div class="kpi-sub">de las ventas va fuera de IT · 43.4% en uds.</div>
+    <div class="kpi-bar-bg"><div class="kpi-bar-fill" style="width:39.3%;background:#27AE60"></div></div>
+    <div class="kpi-nums">
+      <div class="kpi-num-item"><span>Total revenue</span><strong>€263.338</strong></div>
+      <div class="kpi-num-item"><span>Cross-border</span><strong>€103.477</strong></div>
+      <div class="kpi-num-item"><span>Uds. cross</span><strong>8,176</strong></div>
+    </div>
+  </div>
+  <div class="kpi-card kpi-fr">
+    <div class="kpi-flag">🇫🇷</div>
+    <div class="kpi-label">Almacén · XG7HS</div>
+    <div class="kpi-name">STARBRANDS FR</div>
+    <div class="kpi-pct high">63.6%</div>
+    <div class="kpi-sub">de las ventas va fuera de FR · 66.6% en uds.</div>
+    <div class="kpi-bar-bg"><div class="kpi-bar-fill" style="width:63.6%;background:#E74C3C"></div></div>
+    <div class="kpi-nums">
+      <div class="kpi-num-item"><span>Total revenue</span><strong>€269.180</strong></div>
+      <div class="kpi-num-item"><span>Cross-border</span><strong>€171.300</strong></div>
+      <div class="kpi-num-item"><span>Uds. cross</span><strong>13,958</strong></div>
+    </div>
+  </div>
+  <div class="kpi-card kpi-de">
+    <div class="kpi-flag">🇩🇪</div>
+    <div class="kpi-label">Almacén · FY8R1</div>
+    <div class="kpi-name">STARBRANDS DE (Pan-EU)</div>
+    <div class="kpi-pct med">53.9%</div>
+    <div class="kpi-sub">de las ventas va fuera de DE · 59.2% en uds.</div>
+    <div class="kpi-bar-bg"><div class="kpi-bar-fill" style="width:53.9%;background:#E67E22"></div></div>
+    <div class="kpi-nums">
+      <div class="kpi-num-item"><span>Total revenue</span><strong>€135.785</strong></div>
+      <div class="kpi-num-item"><span>Cross-border</span><strong>€73.226</strong></div>
+      <div class="kpi-num-item"><span>Uds. cross</span><strong>6,785</strong></div>
+    </div>
+  </div>
+  <div class="kpi-card kpi-nl">
+    <div class="kpi-flag">🇳🇱</div>
+    <div class="kpi-label">Almacén · LM8YW</div>
+    <div class="kpi-name">STARBRANDS NL (Pan-EU)</div>
+    <div class="kpi-pct high">96.4%</div>
+    <div class="kpi-sub">de las ventas va fuera de NL · 96.3% en uds.</div>
+    <div class="kpi-bar-bg"><div class="kpi-bar-fill" style="width:96.4%;background:#E74C3C"></div></div>
+    <div class="kpi-nums">
+      <div class="kpi-num-item"><span>Total revenue</span><strong>€112.080</strong></div>
+      <div class="kpi-num-item"><span>Cross-border</span><strong>€108.098</strong></div>
+      <div class="kpi-num-item"><span>Uds. cross</span><strong>8,846</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="sec-hdr it">
+    <span class="sec-flag">🇮🇹</span>
+    <div class="sec-title-block">
+      <h2>Almacén IT · TL8WA · STARBRANDS IT (Pan-EU)</h2>
+      <p>Local: €159.860 · 10,674 uds. &nbsp;|&nbsp; Cross-border: €103.477 · 8,176 uds.</p>
+    </div>
+    <div class="sec-meta">
+      <div class="pct-big low">39.3%</div>
+      <small>% revenue cross-border</small>
+    </div>
+  </div>
+  <div class="flows">
+    <div class="flows-left">
+      <h3>Destinos cross-border (€)</h3>
+      <div class="flow-row"><span class="flow-store">🇫🇷 FR</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:100%"></div></div><span class="flow-val">€58.049</span><span class="flow-units">4,208 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇪🇸 ES</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:32%"></div></div><span class="flow-val">€18.709</span><span class="flow-units">2,030 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇩🇪 DE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:28%"></div></div><span class="flow-val">€15.998</span><span class="flow-units">1,092 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇧🇪 BE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:10%"></div></div><span class="flow-val">€5.660</span><span class="flow-units">423 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇳🇱 NL</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:5%"></div></div><span class="flow-val">€3.106</span><span class="flow-units">243 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇮🇪 IE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:2%"></div></div><span class="flow-val">€1.389</span><span class="flow-units">134 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇸🇪 SE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:1%"></div></div><span class="flow-val">€464</span><span class="flow-units">37 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇵🇱 PL</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:0%"></div></div><span class="flow-val">€76</span><span class="flow-units">7 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇬🇧 GB</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:0%"></div></div><span class="flow-val">€26</span><span class="flow-units">2 uds.</span></div>
+    </div>
+    <div class="flows-right">
+      <h3>ASINs más vendidos cross-border — selecciona destino</h3>
+      <div class="store-tabs">
+        <button class="tab-btn active" onclick="showTab('it','FR',this)">🇫🇷 FR €58.049</button>
+<button class="tab-btn " onclick="showTab('it','ES',this)">🇪🇸 ES €18.709</button>
+<button class="tab-btn " onclick="showTab('it','DE',this)">🇩🇪 DE €15.998</button>
+<button class="tab-btn " onclick="showTab('it','BE',this)">🇧🇪 BE €5.660</button>
+<button class="tab-btn " onclick="showTab('it','NL',this)">🇳🇱 NL €3.106</button>
+<button class="tab-btn " onclick="showTab('it','IE',this)">🇮🇪 IE €1.389</button>
+<button class="tab-btn " onclick="showTab('it','SE',this)">🇸🇪 SE €464</button>
+<button class="tab-btn " onclick="showTab('it','PL',this)">🇵🇱 PL €76</button>
+<button class="tab-btn " onclick="showTab('it','GB',this)">🇬🇧 GB €26</button>
+      </div>
+      <div id="it-table"></div>
+    </div>
+  </div>
+  <div class="local-strip">
+    <h3>✅ Ventas locales en IT — top ASINs (€159.860 · 10,674 uds.)</h3>
+    <div class="local-asins">
+      <div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.it/dp/B0CB1KQ8Q4" target="_blank">B0CB1KQ8Q4</a></div><div class="chip-title" title="KATIVA Kit Lisciante Brasiliano alla Cheratina con Acido Ialuronico e Siero Term">KATIVA Kit Lisciante Brasiliano alla Cheratina con Acido Ial</div><div class="chip-nums">€132.944 · 8,415 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.it/dp/B0D6W6BBDX" target="_blank">B0D6W6BBDX</a></div><div class="chip-title" title="KATIVA – Set Trattamento Lisciante Brasiliano 3 Pezzi 225 ml | Shampoo + Balsamo">KATIVA – Set Trattamento Lisciante Brasiliano 3 Pezzi 225 ml</div><div class="chip-nums">€11.718 · 865 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.it/dp/B0BS1Q47QW" target="_blank">B0BS1Q47QW</a></div><div class="chip-title" title="KATIVA Lisciante Brasiliano con Acido Ialuronico Shampoo za Kativa Kit version 2">KATIVA Lisciante Brasiliano con Acido Ialuronico Shampoo za </div><div class="chip-nums">€6.673 · 543 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.it/dp/B0CCW75P91" target="_blank">B0CCW75P91</a></div><div class="chip-title" title="KATIVA – Kit di riparazione Total Plex Bond | Concentrato ricostruttore 70 ml + ">KATIVA – Kit di riparazione Total Plex Bond | Concentrato ri</div><div class="chip-nums">€3.583 · 263 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.it/dp/B07VM7L1VN" target="_blank">B07VM7L1VN</a></div><div class="chip-title" title="KATIVA Kit Lisciante Brasiliano – Trattamento alla Cheratina versione 2019">KATIVA Kit Lisciante Brasiliano – Trattamento alla Cheratina</div><div class="chip-nums">€1.783 · 141 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.it/dp/B0D8QBGK3J" target="_blank">B0D8QBGK3J</a></div><div class="chip-title" title="KATIVA Balsamo Post Lisciante 300 ml – Trattamento Riparatore Intensivo per Cape">KATIVA Balsamo Post Lisciante 300 ml – Trattamento Riparator</div><div class="chip-nums">€877 · 119 uds.</div></div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="sec-hdr fr">
+    <span class="sec-flag">🇫🇷</span>
+    <div class="sec-title-block">
+      <h2>Almacén FR · XG7HS · STARBRANDS FR</h2>
+      <p>Local: €97.879 · 6,995 uds. &nbsp;|&nbsp; Cross-border: €171.300 · 13,958 uds.</p>
+    </div>
+    <div class="sec-meta">
+      <div class="pct-big high">63.6%</div>
+      <small>% revenue cross-border</small>
+    </div>
+  </div>
+  <div class="flows">
+    <div class="flows-left">
+      <h3>Destinos cross-border (€)</h3>
+      <div class="flow-row"><span class="flow-store">🇮🇹 IT</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:100%"></div></div><span class="flow-val">€113.944</span><span class="flow-units">8,569 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇪🇸 ES</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:20%"></div></div><span class="flow-val">€22.589</span><span class="flow-units">2,591 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇩🇪 DE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:17%"></div></div><span class="flow-val">€19.704</span><span class="flow-units">1,532 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇧🇪 BE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:6%"></div></div><span class="flow-val">€7.019</span><span class="flow-units">558 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇳🇱 NL</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:3%"></div></div><span class="flow-val">€3.656</span><span class="flow-units">311 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇸🇪 SE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:2%"></div></div><span class="flow-val">€2.154</span><span class="flow-units">177 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇮🇪 IE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:2%"></div></div><span class="flow-val">€1.992</span><span class="flow-units">191 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇵🇱 PL</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:0%"></div></div><span class="flow-val">€230</span><span class="flow-units">28 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇬🇧 GB</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:0%"></div></div><span class="flow-val">€12</span><span class="flow-units">1 uds.</span></div>
+    </div>
+    <div class="flows-right">
+      <h3>ASINs más vendidos cross-border — selecciona destino</h3>
+      <div class="store-tabs">
+        <button class="tab-btn active" onclick="showTab('fr','IT',this)">🇮🇹 IT €113.944</button>
+<button class="tab-btn " onclick="showTab('fr','ES',this)">🇪🇸 ES €22.589</button>
+<button class="tab-btn " onclick="showTab('fr','DE',this)">🇩🇪 DE €19.704</button>
+<button class="tab-btn " onclick="showTab('fr','BE',this)">🇧🇪 BE €7.019</button>
+<button class="tab-btn " onclick="showTab('fr','NL',this)">🇳🇱 NL €3.656</button>
+<button class="tab-btn " onclick="showTab('fr','SE',this)">🇸🇪 SE €2.154</button>
+<button class="tab-btn " onclick="showTab('fr','IE',this)">🇮🇪 IE €1.992</button>
+<button class="tab-btn " onclick="showTab('fr','PL',this)">🇵🇱 PL €230</button>
+<button class="tab-btn " onclick="showTab('fr','GB',this)">🇬🇧 GB €12</button>
+      </div>
+      <div id="fr-table"></div>
+    </div>
+  </div>
+  <div class="local-strip">
+    <h3>✅ Ventas locales en FR — top ASINs (€97.879 · 6,995 uds.)</h3>
+    <div class="local-asins">
+      <div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.fr/dp/B0CB1KQ8Q4" target="_blank">B0CB1KQ8Q4</a></div><div class="chip-title" title="KATIVA Kit Lissage Brésilien à la Kératine avec Acide Hyaluronique + Sérum Therm">KATIVA Kit Lissage Brésilien à la Kératine avec Acide Hyalur</div><div class="chip-nums">€79.714 · 5,356 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.fr/dp/B0D6W6BBDX" target="_blank">B0D6W6BBDX</a></div><div class="chip-title" title="KATIVA Lot 3 Soins Lissage Brésilien – Shampooing + Après-Shampooing + Masque – ">KATIVA Lot 3 Soins Lissage Brésilien – Shampooing + Après-Sh</div><div class="chip-nums">€6.827 · 506 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.fr/dp/B07VQT61H3" target="_blank">B07VQT61H3</a></div><div class="chip-title" title="KATIVA – Kit Lissage Brésilien Végétalien Xpress Shampoo za Kativa Kit version 2">KATIVA – Kit Lissage Brésilien Végétalien Xpress Shampoo za </div><div class="chip-nums">€6.809 · 550 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.fr/dp/B0D6W7V95J" target="_blank">B0D6W7V95J</a></div><div class="chip-title" title="KATIVA Lot 2 Soins Lissage Brésilien – Shampooing + Après-Shampooing – Kératine ">KATIVA Lot 2 Soins Lissage Brésilien – Shampooing + Après-Sh</div><div class="chip-nums">€1.349 · 122 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.fr/dp/B0D8QBG8FZ" target="_blank">B0D8QBG8FZ</a></div><div class="chip-title" title="NOVA ENGEL Keratin Post Alisado Shampoo 355 ml">NOVA ENGEL Keratin Post Alisado Shampoo 355 ml</div><div class="chip-nums">€755 · 103 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.fr/dp/B0BS1Q47QW" target="_blank">B0BS1Q47QW</a></div><div class="chip-title" title="Kativa Kit lissage brésilien - Traitement lissé professionnel à la maison - Jusq">Kativa Kit lissage brésilien - Traitement lissé professionne</div><div class="chip-nums">€648 · 52 uds.</div></div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="sec-hdr de">
+    <span class="sec-flag">🇩🇪</span>
+    <div class="sec-title-block">
+      <h2>Almacén DE · FY8R1 · STARBRANDS DE (Pan-EU)</h2>
+      <p>Local: €62.559 · 4,668 uds. &nbsp;|&nbsp; Cross-border: €73.226 · 6,785 uds.</p>
+    </div>
+    <div class="sec-meta">
+      <div class="pct-big med">53.9%</div>
+      <small>% revenue cross-border</small>
+    </div>
+  </div>
+  <div class="flows">
+    <div class="flows-left">
+      <h3>Destinos cross-border (€)</h3>
+      <div class="flow-row"><span class="flow-store">🇪🇸 ES</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:100%"></div></div><span class="flow-val">€32.665</span><span class="flow-units">3,486 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇮🇹 IT</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:51%"></div></div><span class="flow-val">€16.820</span><span class="flow-units">1,405 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇫🇷 FR</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:37%"></div></div><span class="flow-val">€12.240</span><span class="flow-units">933 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇳🇱 NL</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:11%"></div></div><span class="flow-val">€3.718</span><span class="flow-units">326 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇧🇪 BE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:11%"></div></div><span class="flow-val">€3.696</span><span class="flow-units">302 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇸🇪 SE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:8%"></div></div><span class="flow-val">€2.646</span><span class="flow-units">200 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇮🇪 IE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:3%"></div></div><span class="flow-val">€993</span><span class="flow-units">95 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇵🇱 PL</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:1%"></div></div><span class="flow-val">€391</span><span class="flow-units">34 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇬🇧 GB</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:0%"></div></div><span class="flow-val">€56</span><span class="flow-units">4 uds.</span></div>
+    </div>
+    <div class="flows-right">
+      <h3>ASINs más vendidos cross-border — selecciona destino</h3>
+      <div class="store-tabs">
+        <button class="tab-btn active" onclick="showTab('de','ES',this)">🇪🇸 ES €32.665</button>
+<button class="tab-btn " onclick="showTab('de','IT',this)">🇮🇹 IT €16.820</button>
+<button class="tab-btn " onclick="showTab('de','FR',this)">🇫🇷 FR €12.240</button>
+<button class="tab-btn " onclick="showTab('de','NL',this)">🇳🇱 NL €3.718</button>
+<button class="tab-btn " onclick="showTab('de','BE',this)">🇧🇪 BE €3.696</button>
+<button class="tab-btn " onclick="showTab('de','SE',this)">🇸🇪 SE €2.646</button>
+<button class="tab-btn " onclick="showTab('de','IE',this)">🇮🇪 IE €993</button>
+<button class="tab-btn " onclick="showTab('de','PL',this)">🇵🇱 PL €391</button>
+<button class="tab-btn " onclick="showTab('de','GB',this)">🇬🇧 GB €56</button>
+      </div>
+      <div id="de-table"></div>
+    </div>
+  </div>
+  <div class="local-strip">
+    <h3>✅ Ventas locales en DE — top ASINs (€62.559 · 4,668 uds.)</h3>
+    <div class="local-asins">
+      <div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.de/dp/B0CB1KQ8Q4" target="_blank">B0CB1KQ8Q4</a></div><div class="chip-title" title="KATIVA Brasilianisches Keratin Haarglättungs-Set mit Hyaluronsäure & Potion 4 Hi">KATIVA Brasilianisches Keratin Haarglättungs-Set mit Hyaluro</div><div class="chip-nums">€33.028 · 2,363 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.de/dp/B07VM7L1VN" target="_blank">B07VM7L1VN</a></div><div class="chip-title" title="KATIVA Brasilianisches Lissageset 12 Wochen – Komplettes Haarglättungs-Kit für a">KATIVA Brasilianisches Lissageset 12 Wochen – Komplettes Haa</div><div class="chip-nums">€10.564 · 788 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.de/dp/B0D6W6BBDX" target="_blank">B0D6W6BBDX</a></div><div class="chip-title" title="KATIVA 3er-Set Brasilianische Lissage-Pflege – Shampoo + Spülung + Maske – Pflan">KATIVA 3er-Set Brasilianische Lissage-Pflege – Shampoo + Spü</div><div class="chip-nums">€7.208 · 512 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.de/dp/B0D6W7V95J" target="_blank">B0D6W7V95J</a></div><div class="chip-title" title="KATIVA Brasilianische After-Glättungs-Behandlung, Shampoo und Conditioner, verlä">KATIVA Brasilianische After-Glättungs-Behandlung, Shampoo un</div><div class="chip-nums">€3.406 · 281 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.de/dp/B08CB4QDHB" target="_blank">B08CB4QDHB</a></div><div class="chip-title" title="Kativa – Brasilianisches Keratin-Glättungsset mit Arganöl und Hyaluronsäure | Pr">Kativa – Brasilianisches Keratin-Glättungsset mit Arganöl un</div><div class="chip-nums">€2.211 · 178 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.de/dp/B0BS1Q47QW" target="_blank">B0BS1Q47QW</a></div><div class="chip-title" title="KATIVA Brasilianische Keratin Glättung mit Hyaluronsäure – 12 Wochen Glattes Haa">KATIVA Brasilianische Keratin Glättung mit Hyaluronsäure – 1</div><div class="chip-nums">€2.186 · 134 uds.</div></div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="sec-hdr nl">
+    <span class="sec-flag">🇳🇱</span>
+    <div class="sec-title-block">
+      <h2>Almacén NL · LM8YW · STARBRANDS NL (Pan-EU)</h2>
+      <p>Local: €3.982 · 336 uds. &nbsp;|&nbsp; Cross-border: €108.098 · 8,846 uds. <strong style="color:#9B59B6">— Hub Pan-EU</strong></p>
+    </div>
+    <div class="sec-meta">
+      <div class="pct-big high">96.4%</div>
+      <small>% revenue cross-border</small>
+    </div>
+  </div>
+  <div class="flows">
+    <div class="flows-left">
+      <h3>Destinos cross-border (€)</h3>
+      <div class="flow-row"><span class="flow-store">🇩🇪 DE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:100%"></div></div><span class="flow-val">€36.339</span><span class="flow-units">2,829 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇮🇹 IT</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:72%"></div></div><span class="flow-val">€26.162</span><span class="flow-units">2,122 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇫🇷 FR</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:58%"></div></div><span class="flow-val">€20.999</span><span class="flow-units">1,670 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇪🇸 ES</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:47%"></div></div><span class="flow-val">€16.901</span><span class="flow-units">1,582 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇧🇪 BE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:11%"></div></div><span class="flow-val">€4.117</span><span class="flow-units">334 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇸🇪 SE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:5%"></div></div><span class="flow-val">€1.978</span><span class="flow-units">166 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇮🇪 IE</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:4%"></div></div><span class="flow-val">€1.401</span><span class="flow-units">127 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇵🇱 PL</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:1%"></div></div><span class="flow-val">€189</span><span class="flow-units">15 uds.</span></div>
+<div class="flow-row"><span class="flow-store">🇬🇧 GB</span><div class="flow-bar-wrap"><div class="flow-bar" style="width:0%"></div></div><span class="flow-val">€12</span><span class="flow-units">1 uds.</span></div>
+    </div>
+    <div class="flows-right">
+      <h3>ASINs más vendidos cross-border — selecciona destino</h3>
+      <div class="store-tabs">
+        <button class="tab-btn active" onclick="showTab('nl','DE',this)">🇩🇪 DE €36.339</button>
+<button class="tab-btn " onclick="showTab('nl','IT',this)">🇮🇹 IT €26.162</button>
+<button class="tab-btn " onclick="showTab('nl','FR',this)">🇫🇷 FR €20.999</button>
+<button class="tab-btn " onclick="showTab('nl','ES',this)">🇪🇸 ES €16.901</button>
+<button class="tab-btn " onclick="showTab('nl','BE',this)">🇧🇪 BE €4.117</button>
+<button class="tab-btn " onclick="showTab('nl','SE',this)">🇸🇪 SE €1.978</button>
+<button class="tab-btn " onclick="showTab('nl','IE',this)">🇮🇪 IE €1.401</button>
+<button class="tab-btn " onclick="showTab('nl','PL',this)">🇵🇱 PL €189</button>
+<button class="tab-btn " onclick="showTab('nl','GB',this)">🇬🇧 GB €12</button>
+      </div>
+      <div id="nl-table"></div>
+    </div>
+  </div>
+  <div class="local-strip">
+    <h3>✅ Ventas locales en NL — top ASINs (€3.982 · 336 uds.)</h3>
+    <div class="local-asins">
+      <div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.nl/dp/B07VQT61H3" target="_blank">B07VQT61H3</a></div><div class="chip-title" title="KATIVA – Xpress Vegan Braziliaanse Keratine Smoothing Kit | Formaldehydevrij | L">KATIVA – Xpress Vegan Braziliaanse Keratine Smoothing Kit | </div><div class="chip-nums">€2.709 · 223 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.nl/dp/B0CB1KQ8Q4" target="_blank">B0CB1KQ8Q4</a></div><div class="chip-title" title="KATIVA Braziliaanse Keratine Behandeling + Potion 4 Heat Protectant Serum – Glad">KATIVA Braziliaanse Keratine Behandeling + Potion 4 Heat Pro</div><div class="chip-nums">€698 · 52 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.nl/dp/B0BS1Q47QW" target="_blank">B0BS1Q47QW</a></div><div class="chip-title" title="KATIVA Braziliaanse Keratine Behandeling met Hyaluronzuur – 12 Weken Glad Haar –">KATIVA Braziliaanse Keratine Behandeling met Hyaluronzuur – </div><div class="chip-nums">€223 · 20 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.nl/dp/B0D6W6BBDX" target="_blank">B0D6W6BBDX</a></div><div class="chip-title" title="KATIVA – 3-delige Braziliaanse gladmakende behandelingsset 225 ml | Shampoo + Co">KATIVA – 3-delige Braziliaanse gladmakende behandelingsset 2</div><div class="chip-nums">€126 · 9 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.nl/dp/B0D8QBGK3J" target="_blank">B0D8QBGK3J</a></div><div class="chip-title" title="NOVA ENGEL Keratin Post Alisado Deep Treatment 300 Ml">NOVA ENGEL Keratin Post Alisado Deep Treatment 300 Ml</div><div class="chip-nums">€57 · 8 uds.</div></div>
+<div class="local-asin-chip"><div class="chip-asin"><a href="https://www.amazon.nl/dp/B0D6W7V95J" target="_blank">B0D6W7V95J</a></div><div class="chip-title" title="KATIVA – Professionele nazorgset voor steil haar (2 stuks) | Keratine shampoo & ">KATIVA – Professionele nazorgset voor steil haar (2 stuks) |</div><div class="chip-nums">€54 · 6 uds.</div></div>
+    </div>
+  </div>
+</div>
+<footer>ROICOS · Análisis interno · Datos: Vendor Central Dispatched Revenue · Ene–Jul 2026 · No distribuir externamente</footer>
+<script>
+const MKT = {"IT": "amazon.it", "FR": "amazon.fr", "DE": "amazon.de", "NL": "amazon.nl", "ES": "amazon.es", "BE": "amazon.com.be", "SE": "amazon.se", "IE": "amazon.ie", "PL": "amazon.pl", "GB": "amazon.co.uk"};
+const DATA = {
+  "it": {
+    "FR": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Kit Lissage Brésilien à la Kératine avec Acide Hyaluronique + Sérum Therm",
+        "rev": 48256.47,
+        "units": 3408
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA Lot 3 Soins Lissage Brésilien – Shampooing + Après-Shampooing + Masque – ",
+        "rev": 4376.91,
+        "units": 321
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "Kativa Kit lissage brésilien - Traitement lissé professionnel à la maison - Jusq",
+        "rev": 3463.88,
+        "units": 278
+      },
+      {
+        "asin": "B07VM7L1VN",
+        "title": "EASO MAGNO Kativa Kit Alisado Brasileño Hialurónico",
+        "rev": 1122.18,
+        "units": 84
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "KATIVA - Huile (Kératine)",
+        "rev": 192.0,
+        "units": 32
+      },
+      {
+        "asin": "B0DHL95VCC",
+        "title": "KATIVA Curly Plex Spray Réactivateur de Boucles 225 ml – Refreshe, Redéfinit & A",
+        "rev": 149.8,
+        "units": 20
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Masque Post Lissage Keraliss Complex 300 ml – Soin Profond pour Cheveux L",
+        "rev": 135.92,
+        "units": 17
+      },
+      {
+        "asin": "B0DPHBGGH1",
+        "title": "Kativa Shampooing Hydratant à la Kératine, Acide Hyaluronique et Coenzyme Q10, R",
+        "rev": 58.22,
+        "units": 10
+      }
+    ],
+    "ES": [
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA Tratamiento Post Alisado Brasileño | Champú, Acondicionador y Mascarilla ",
+        "rev": 4430.41,
+        "units": 358
+      },
+      {
+        "asin": "B08CB4QDHB",
+        "title": "Kativa Kit Alisado Brasileño - Tratamiento Alisado Profesional en casa - Hasta 1",
+        "rev": 4152.71,
+        "units": 336
+      },
+      {
+        "asin": "B07VM7L1VN",
+        "title": "Kativa Kit Alisado Brasileño Hialurónico",
+        "rev": 3217.19,
+        "units": 266
+      },
+      {
+        "asin": "B0D73T13LJ",
+        "title": "KATIVA KERATINA CYSTEIN PROT DEEP TREATMENT | 300mL | Tratamiento intensivo que ",
+        "rev": 1767.33,
+        "units": 269
+      },
+      {
+        "asin": "B0D73V1TYY",
+        "title": "KATIVA KERATINA CYSTEIN PROT CHAMPÚ| 355mL | Vegetal keratin, cysteine, proteins",
+        "rev": 1131.93,
+        "units": 171
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Kativa Keratina Líquida 60 ml | Aceite Revitalizador y Nutritivo | Reconstrucció",
+        "rev": 1020.78,
+        "units": 248
+      },
+      {
+        "asin": "B0CCW75P91",
+        "title": "KATIVA Total Plex Bond Repair Kit – 2 etapas de reconstrucción capilar | Reconst",
+        "rev": 568.96,
+        "units": 52
+      },
+      {
+        "asin": "B0BH956TJ1",
+        "title": "Coconut Deep Treatment 300 Ml",
+        "rev": 499.32,
+        "units": 76
+      }
+    ],
+    "DE": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Brasilianisches Keratin Haarglättungs-Set mit Hyaluronsäure & Potion 4 Hi",
+        "rev": 12905.56,
+        "units": 824
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA 3er-Set Brasilianische Lissage-Pflege – Shampoo + Spülung + Maske – Pflan",
+        "rev": 1457.48,
+        "units": 100
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "KATIVA Brasilianische Keratin Glättung mit Hyaluronsäure – 12 Wochen Glattes Haa",
+        "rev": 466.37,
+        "units": 28
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Brasilianisches Deep Treatment Haarglättung, nährt und feuchtigkeitsspend",
+        "rev": 339.62,
+        "units": 45
+      },
+      {
+        "asin": "B07VM7L1VN",
+        "title": "KATIVA Brasilianisches Lissageset 12 Wochen – Komplettes Haarglättungs-Kit für a",
+        "rev": 242.82,
+        "units": 18
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Kativa Keratina Liquid Keratin, Haaröl mit Keratin 60 ml",
+        "rev": 122.44,
+        "units": 21
+      },
+      {
+        "asin": "B0DHL95VCC",
+        "title": "KATIVA Curly Plex Locken Refresher Spray 225 ml – reaktiviert & definiert Locken",
+        "rev": 90.6,
+        "units": 12
+      },
+      {
+        "asin": "B0CCW75P91",
+        "title": "KATIVA Total Kativa Plex Bond Repair Kit | 70 ml reconstructive Concentrate + Se",
+        "rev": 65.0,
+        "units": 6
+      }
+    ],
+    "BE": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Premium Brazilian Straightening Kit – New Formula with Hyaluronic Acid – ",
+        "rev": 4153.21,
+        "units": 312
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA Lot 3 Soins Lissage Brésilien – Shampooing + Après-Shampooing + Masque – ",
+        "rev": 954.84,
+        "units": 58
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "Kativa Kit lissage brésilien - Traitement lissé professionnel à la maison - Jusq",
+        "rev": 359.31,
+        "units": 29
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Masque Post Lissage Keraliss Complex 300 ml – Soin Profond pour Cheveux L",
+        "rev": 49.67,
+        "units": 6
+      },
+      {
+        "asin": "B0CCW75P91",
+        "title": "Kativa Total Plex Estuche 2 Pz",
+        "rev": 38.11,
+        "units": 3
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Kativa Kératine liquide – Huile Treatment et revitalizante – 60 ml",
+        "rev": 35.07,
+        "units": 6
+      },
+      {
+        "asin": "B0D73T13LJ",
+        "title": "KATIVA Kératine CYSTEIN PROT DEEP TREATMENT | 300 ml | Traitement intensif qui a",
+        "rev": 15.95,
+        "units": 2
+      },
+      {
+        "asin": "B0DHL98WG4",
+        "title": "KATIVA Curly Plex Shampoing sans sulfate Cheveux Bouclés 355 ml – Shampoing Hydr",
+        "rev": 14.98,
+        "units": 2
+      }
+    ],
+    "NL": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Braziliaanse Keratine Behandeling + Potion 4 Heat Protectant Serum – Glad",
+        "rev": 2229.38,
+        "units": 166
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "KATIVA Braziliaanse Keratine Behandeling met Hyaluronzuur – 12 Weken Glad Haar –",
+        "rev": 371.67,
+        "units": 31
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA – 3-delige Braziliaanse gladmakende behandelingsset 225 ml | Shampoo + Co",
+        "rev": 351.94,
+        "units": 25
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Kativa Kératine liquide – Huile Treatment et revitalizante – 60 ml",
+        "rev": 77.64,
+        "units": 10
+      },
+      {
+        "asin": "B0DHL98WG4",
+        "title": "KATIVA Curly Plex Krullenshampoo Zonder Sulfaten 355 ml – Definieert Krullen & A",
+        "rev": 22.05,
+        "units": 3
+      },
+      {
+        "asin": "B0DPHBGGH1",
+        "title": "KATIVA Hyaluronshampoo voor haar met keratine & co-enzym Q10, diepe vochtigheid ",
+        "rev": 13.99,
+        "units": 2
+      },
+      {
+        "asin": "B0DHLBRCBB",
+        "title": "KATIVA Curly Plex Krullen Activator Crème 240 ml – Leave-in voor kruldefinitie, ",
+        "rev": 9.08,
+        "units": 1
+      },
+      {
+        "asin": "B0DHL6HJD8",
+        "title": "KATIVA Arganolie Haarmasker 300 ml – Intensief herstel, beschermt & versterkt ve",
+        "rev": 6.6,
+        "units": 1
+      }
+    ],
+    "IE": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Brazilian Keratin Straightening Kit with Hyaluronic Acid + Potion 4 Therm",
+        "rev": 977.41,
+        "units": 90
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "Kativa Kit Post Alisado Keratina, Beauty Essential for Everyday Routine",
+        "rev": 405.8,
+        "units": 43
+      },
+      {
+        "asin": "B0GGTF7YW1",
+        "title": "KATIVA Hair Oil with Argan & Olive Oil + Peptides 100 ml – Protection, Strength ",
+        "rev": 6.24,
+        "units": 1
+      }
+    ],
+    "SE": [
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "KATIVA Brasiliansk keratin utjämning med hyaluronsyra – 12 veckor rakt hår – uta",
+        "rev": 259.11,
+        "units": 19
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA 3 flaskor med 225 ml brasiliansk utjämning med vegetabiliskt keratin och ",
+        "rev": 136.62,
+        "units": 9
+      },
+      {
+        "asin": "B0D73V1TYY",
+        "title": "KATIVA KERATIN CYSTEIN PROT Shampoo | 355 ml | Keratin grönsaker, cystein, prote",
+        "rev": 25.49,
+        "units": 4
+      },
+      {
+        "asin": "B0CCW75P91",
+        "title": "KATIVA Total Kativa Plex Bond Repair Kit | 70 ml rekonstruktivt koncentrat + hår",
+        "rev": 13.5,
+        "units": 1
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Nova Engel Keratina Líquida Nutrition 60 Ml, Modern Innovation, För Daglig Använ",
+        "rev": 12.69,
+        "units": 2
+      },
+      {
+        "asin": "B0DHLC87N5",
+        "title": "Kativa Curly Plex Curl Activator Gel Cream 240 ml | Curly Plex Curl eller Afro| ",
+        "rev": 8.86,
+        "units": 1
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "Nova Engel Keratin Post Alisado Deep Treatment 300, Mild Formula, För Resor, Med",
+        "rev": 7.65,
+        "units": 1
+      }
+    ],
+    "PL": [
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "Kativa Zestaw Alisado Brazylijczyk - Profesjonalne leczenie prostownicze w domu ",
+        "rev": 49.36,
+        "units": 4
+      },
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Premium Brazylijskie Prostowanie Włosów | Nowa Formuła z Kwasem Hialurono",
+        "rev": 13.99,
+        "units": 1
+      },
+      {
+        "asin": "B0CCW75P91",
+        "title": "Kativa Total Plex Bond Zestaw naprawczy | Koncentrat odbudowujący 70 ml + odbudo",
+        "rev": 6.38,
+        "units": 1
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Kativa Płynna keratyna - Treatment and Revitalization Oil - 60 ml",
+        "rev": 5.91,
+        "units": 1
+      }
+    ],
+    "GB": [
+      {
+        "asin": "B08CB4QDHB",
+        "title": "Kativa - Brazilian Keratin Smoothing Kit with Argan Oil and Hyaluronic Acid | Pr",
+        "rev": 25.7,
+        "units": 2
+      }
+    ]
+  },
+  "fr": {
+    "IT": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Kit Lisciante Brasiliano alla Cheratina con Acido Ialuronico e Siero Term",
+        "rev": 52722.28,
+        "units": 3244
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA – Set Trattamento Lisciante Brasiliano 3 Pezzi 225 ml | Shampoo + Balsamo",
+        "rev": 22630.69,
+        "units": 1683
+      },
+      {
+        "asin": "B07VQT61H3",
+        "title": "Kativa Kit versione 2016 shampoos",
+        "rev": 18299.63,
+        "units": 1318
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Trattamento Post Lisciante Brasiliano | Shampoo e Balsamo | Prolunga la L",
+        "rev": 12517.22,
+        "units": 1227
+      },
+      {
+        "asin": "B0D8QBG8FZ",
+        "title": "KATIVA Shampoo Post Lisciatura – Mantenimento e Prolungamento dell’Effetto Lisci",
+        "rev": 4595.53,
+        "units": 686
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Balsamo Post Lisciante 300 ml – Trattamento Riparatore Intensivo per Cape",
+        "rev": 1024.39,
+        "units": 139
+      },
+      {
+        "asin": "B0CCW31HD7",
+        "title": "KATIVA TOTAL PLEX – Concentrato Ricostruttore 70 mL | Ripara, Rinforza e Protegg",
+        "rev": 396.34,
+        "units": 54
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Keratina Líquida Nutrition 60 Ml",
+        "rev": 325.76,
+        "units": 44
+      }
+    ],
+    "ES": [
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Tratamiento Post Alisado Brasileño | Champú y Acondicionador | Prolonga e",
+        "rev": 9637.18,
+        "units": 1136
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA Tratamiento Post Alisado Brasileño | Champú, Acondicionador y Mascarilla ",
+        "rev": 4450.85,
+        "units": 360
+      },
+      {
+        "asin": "B0D8QBG8FZ",
+        "title": "Keratin Post Alisado Shampoo 355 Ml",
+        "rev": 976.5,
+        "units": 148
+      },
+      {
+        "asin": "B08CB4QDHB",
+        "title": "Kativa Kit Alisado Brasileño - Tratamiento Alisado Profesional en casa - Hasta 1",
+        "rev": 840.46,
+        "units": 68
+      },
+      {
+        "asin": "B0CCW4T2M8",
+        "title": "Kativa Total Plex Acondicionador Reconstructor 355 Ml",
+        "rev": 807.36,
+        "units": 101
+      },
+      {
+        "asin": "B0DHLC7R1M",
+        "title": "Kativa Curly Plex Deep Conditioner 450 ml | Todo Tipo de Rizos | Definición de R",
+        "rev": 652.66,
+        "units": 61
+      },
+      {
+        "asin": "B07VM7L1VN",
+        "title": "Kativa Kit Alisado Brasileño Hialurónico",
+        "rev": 623.3,
+        "units": 50
+      },
+      {
+        "asin": "B0D73T13LJ",
+        "title": "KATIVA KERATINA CYSTEIN PROT DEEP TREATMENT | 300mL | Tratamiento intensivo que ",
+        "rev": 512.46,
+        "units": 78
+      }
+    ],
+    "DE": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Brasilianisches Keratin Haarglättungs-Set mit Hyaluronsäure & Potion 4 Hi",
+        "rev": 10074.41,
+        "units": 695
+      },
+      {
+        "asin": "B07VQT61H3",
+        "title": "KATIVA Keratin Brasilianische Glättung Haarbehandlung, Glattes Ergebnis bis zu 1",
+        "rev": 5121.05,
+        "units": 412
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA 3er-Set Brasilianische Lissage-Pflege – Shampoo + Spülung + Maske – Pflan",
+        "rev": 2026.76,
+        "units": 144
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Brasilianische After-Glättungs-Behandlung, Shampoo und Conditioner, verlä",
+        "rev": 742.09,
+        "units": 64
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Brasilianisches Deep Treatment Haarglättung, nährt und feuchtigkeitsspend",
+        "rev": 674.86,
+        "units": 89
+      },
+      {
+        "asin": "B0D8QBG8FZ",
+        "title": "NOVA ENGEL Keratin Post Alisado Shampoo 355 ml – natürliche Pflege",
+        "rev": 279.5,
+        "units": 25
+      },
+      {
+        "asin": "B0CCW6C2TV",
+        "title": "KATIVA Total Plex Bond Reconstruction Shampoo 355 ml – Bond Repair & Keratin-Rek",
+        "rev": 161.14,
+        "units": 19
+      },
+      {
+        "asin": "B08CB4QDHB",
+        "title": "Kativa – Brasilianisches Keratin-Glättungsset mit Arganöl und Hyaluronsäure | Pr",
+        "rev": 113.7,
+        "units": 8
+      }
+    ],
+    "BE": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Premium Brazilian Straightening Kit – New Formula with Hyaluronic Acid – ",
+        "rev": 3577.57,
+        "units": 270
+      },
+      {
+        "asin": "B07VQT61H3",
+        "title": "KATIVA Keratin Kit Lissage Brésilien Xpress | Nouvelle Formule à Double Kératine",
+        "rev": 1573.59,
+        "units": 124
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA Lot 3 Soins Lissage Brésilien – Shampooing + Après-Shampooing + Masque – ",
+        "rev": 942.87,
+        "units": 63
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "Kativa Profesional Post Alisado Lote 2 Pz Santé et soins personnels",
+        "rev": 287.04,
+        "units": 26
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Masque Post Lissage Keraliss Complex 300 ml – Soin Profond pour Cheveux L",
+        "rev": 211.07,
+        "units": 28
+      },
+      {
+        "asin": "B083SLQX36",
+        "title": "Kativa | Kit lissage brésilien Kativa Kératine et Argan 145 ml",
+        "rev": 129.24,
+        "units": 10
+      },
+      {
+        "asin": "B0D8QBG8FZ",
+        "title": "Keratin Post Alisado Shampoo 355 Ml",
+        "rev": 104.51,
+        "units": 14
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "Kativa Kit lissage brésilien - Traitement lissé professionnel à la maison - Jusq",
+        "rev": 86.73,
+        "units": 7
+      }
+    ],
+    "NL": [
+      {
+        "asin": "B07VQT61H3",
+        "title": "KATIVA – Xpress Vegan Braziliaanse Keratine Smoothing Kit | Formaldehydevrij | L",
+        "rev": 1589.58,
+        "units": 130
+      },
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Braziliaanse Keratine Behandeling + Potion 4 Heat Protectant Serum – Glad",
+        "rev": 1268.32,
+        "units": 95
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA – 3-delige Braziliaanse gladmakende behandelingsset 225 ml | Shampoo + Co",
+        "rev": 348.47,
+        "units": 25
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "NOVA ENGEL Keratin Post Alisado Deep Treatment 300 Ml",
+        "rev": 120.76,
+        "units": 17
+      },
+      {
+        "asin": "B0D8QBG8FZ",
+        "title": "Keratin Post Alisado Shampoo 355 Ml",
+        "rev": 65.11,
+        "units": 10
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "KATIVA Braziliaanse Keratine Behandeling met Hyaluronzuur – 12 Weken Glad Haar –",
+        "rev": 55.05,
+        "units": 5
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA – Professionele nazorgset voor steil haar (2 stuks) | Keratine shampoo & ",
+        "rev": 54.48,
+        "units": 6
+      },
+      {
+        "asin": "B0DHL6HJD8",
+        "title": "KATIVA Arganolie Haarmasker 300 ml – Intensief herstel, beschermt & versterkt ve",
+        "rev": 26.4,
+        "units": 4
+      }
+    ],
+    "SE": [
+      {
+        "asin": "B07VQT61H3",
+        "title": "Kativa Keratin brasilianskt strykset Express",
+        "rev": 1930.69,
+        "units": 159
+      },
+      {
+        "asin": "B0D8QBG8FZ",
+        "title": "KATIVA Brasilianskt utjämnat schampo | Mjukhet och glans | Frizzy Effekt | 335 m",
+        "rev": 72.61,
+        "units": 6
+      },
+      {
+        "asin": "B00NDR4R8S",
+        "title": "Kativa Postalisado – kit utan salt – paket med 2 flaskor x 250 ml – total: scham",
+        "rev": 30.61,
+        "units": 1
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "Nova Engel Keratin Post Alisado Deep Treatment 300, Mild Formula, För Resor, Med",
+        "rev": 23.96,
+        "units": 3
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Brasiliansk efter utjämningsbehandling, schampo och balsam, förlänger utj",
+        "rev": 23.48,
+        "units": 2
+      },
+      {
+        "asin": "B00PIOOTLE",
+        "title": "Kativa Set med Schampo, Balsam och Mask, 250 ml",
+        "rev": 18.95,
+        "units": 1
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA 3 flaskor med 225 ml brasiliansk utjämning med vegetabiliskt keratin och ",
+        "rev": 15.42,
+        "units": 1
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Nova Engel Keratina Líquida Nutrition 60 Ml, Modern Innovation, För Daglig Använ",
+        "rev": 14.29,
+        "units": 1
+      }
+    ],
+    "IE": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Brazilian Keratin Straightening Kit with Hyaluronic Acid + Potion 4 Therm",
+        "rev": 914.37,
+        "units": 82
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "Kativa Kit Post Alisado Keratina, Beauty Essential for Everyday Routine",
+        "rev": 464.33,
+        "units": 51
+      },
+      {
+        "asin": "B07VQT61H3",
+        "title": "Kativa Keratin Express Brazilian Ironing Set",
+        "rev": 379.55,
+        "units": 39
+      },
+      {
+        "asin": "B08CB4QDHB",
+        "title": "Kativa Kit Alisado Brasileã‘o, Beauty Essential for Everyday Routine",
+        "rev": 139.23,
+        "units": 8
+      },
+      {
+        "asin": "B083SLQX36",
+        "title": "Kativa | Brazilian Hair Straightening Kit with Keratin and Argan 145ml",
+        "rev": 58.99,
+        "units": 4
+      },
+      {
+        "asin": "B0D8QBG8FZ",
+        "title": "Keratin Post Alisado Shampoo 355 Ml, Hair Care Essential for Routine Styling",
+        "rev": 20.75,
+        "units": 5
+      },
+      {
+        "asin": "B0D8Q9MCBJ",
+        "title": "Keratin Post Alisado Conditioner 355 Ml, Hair Care Essential for Routine Styling",
+        "rev": 7.61,
+        "units": 1
+      },
+      {
+        "asin": "B0DPHBGGH1",
+        "title": "KATIVA Hyaluronic Hair Shampoo with Keratin & Coenzyme Q10 | Deep Hydration & An",
+        "rev": 7.28,
+        "units": 1
+      }
+    ],
+    "PL": [
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Brazylijski środek wygładzający po prostowaniu | szampon i odżywka | prze",
+        "rev": 154.98,
+        "units": 19
+      },
+      {
+        "asin": "B07VQT61H3",
+        "title": "KATIVA Keratin Brazylijskie Prostowanie Xpress | Nowa Formuła z Podwójną Keratyn",
+        "rev": 37.36,
+        "units": 3
+      },
+      {
+        "asin": "B0FPR8C5YG",
+        "title": "UNIQ MADE Odżywka do włosów prostych, 350 ml, w płynie, wygładzająca pielęgnacja",
+        "rev": 13.06,
+        "units": 2
+      },
+      {
+        "asin": "B0CCW6C2TV",
+        "title": "KATIVA CAŁKOWITA PLEX CHAMPU 355ml",
+        "rev": 9.63,
+        "units": 2
+      },
+      {
+        "asin": "B0DHL95VCC",
+        "title": "Kativa Curly Plex Next Day Curl Refreser 225 ml, wszystkie rodzaje loków, środek",
+        "rev": 7.55,
+        "units": 1
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Brazylijskie prostowanie po głębokim traktowaniu | Odżywianie i nawilżeni",
+        "rev": 7.55,
+        "units": 1
+      }
+    ],
+    "GB": [
+      {
+        "asin": "B08CB4QDHB",
+        "title": "Kativa - Brazilian Keratin Smoothing Kit with Argan Oil and Hyaluronic Acid | Pr",
+        "rev": 12.07,
+        "units": 1
+      }
+    ]
+  },
+  "de": {
+    "ES": [
+      {
+        "asin": "B07VM7L1VN",
+        "title": "Kativa Kit Alisado Brasileño Hialurónico",
+        "rev": 13245.13,
+        "units": 1093
+      },
+      {
+        "asin": "B08CB4QDHB",
+        "title": "Kativa Kit Alisado Brasileño - Tratamiento Alisado Profesional en casa - Hasta 1",
+        "rev": 5882.81,
+        "units": 476
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA Tratamiento Post Alisado Brasileño | Champú, Acondicionador y Mascarilla ",
+        "rev": 3066.29,
+        "units": 248
+      },
+      {
+        "asin": "B0D73T13LJ",
+        "title": "KATIVA KERATINA CYSTEIN PROT DEEP TREATMENT | 300mL | Tratamiento intensivo que ",
+        "rev": 2338.94,
+        "units": 356
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Tratamiento Post Alisado Brasileño | Champú y Acondicionador | Prolonga e",
+        "rev": 2170.13,
+        "units": 263
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Kativa Keratina Líquida 60 ml | Aceite Revitalizador y Nutritivo | Reconstrucció",
+        "rev": 1836.18,
+        "units": 446
+      },
+      {
+        "asin": "B0D73V1TYY",
+        "title": "KATIVA KERATINA CYSTEIN PROT CHAMPÚ| 355mL | Vegetal keratin, cysteine, proteins",
+        "rev": 1083.91,
+        "units": 163
+      },
+      {
+        "asin": "B0DHL98WG4",
+        "title": "Kativa Curly Plex Champú 335 ml | Todo Tipo de Rizos | Definición de Rizos y Rec",
+        "rev": 470.82,
+        "units": 57
+      }
+    ],
+    "IT": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Kit Lisciante Brasiliano alla Cheratina con Acido Ialuronico e Siero Term",
+        "rev": 4529.51,
+        "units": 277
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA – Set Trattamento Lisciante Brasiliano 3 Pezzi 225 ml | Shampoo + Balsamo",
+        "rev": 3493.68,
+        "units": 269
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Trattamento Post Lisciante Brasiliano | Shampoo e Balsamo | Prolunga la L",
+        "rev": 3438.24,
+        "units": 320
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "KATIVA Lisciante Brasiliano con Acido Ialuronico Shampoo za Kativa Kit version 2",
+        "rev": 1511.44,
+        "units": 126
+      },
+      {
+        "asin": "B07VM7L1VN",
+        "title": "KATIVA Kit Lisciante Brasiliano – Trattamento alla Cheratina versione 2019",
+        "rev": 1351.37,
+        "units": 104
+      },
+      {
+        "asin": "B0D73V1TYY",
+        "title": "KATIVA Shampoo alla Cheratina 355 mL – Nutrizione e Riparazione Intensa – Protei",
+        "rev": 384.86,
+        "units": 58
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Balsamo Post Lisciante 300 ml – Trattamento Riparatore Intensivo per Cape",
+        "rev": 361.11,
+        "units": 49
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Keratina Líquida Nutrition 60 Ml",
+        "rev": 360.41,
+        "units": 51
+      }
+    ],
+    "FR": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Kit Lissage Brésilien à la Kératine avec Acide Hyaluronique + Sérum Therm",
+        "rev": 4308.23,
+        "units": 283
+      },
+      {
+        "asin": "B07VM7L1VN",
+        "title": "EASO MAGNO Kativa Kit Alisado Brasileño Hialurónico",
+        "rev": 3372.23,
+        "units": 250
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA Lot 3 Soins Lissage Brésilien – Shampooing + Après-Shampooing + Masque – ",
+        "rev": 1541.22,
+        "units": 118
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "Kativa Kit lissage brésilien - Traitement lissé professionnel à la maison - Jusq",
+        "rev": 1183.67,
+        "units": 95
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Lot 2 Soins Lissage Brésilien – Shampooing + Après-Shampooing – Kératine ",
+        "rev": 779.04,
+        "units": 73
+      },
+      {
+        "asin": "B07VQT61H3",
+        "title": "KATIVA – Kit Lissage Brésilien Végétalien Xpress Shampoo za Kativa Kit version 2",
+        "rev": 551.62,
+        "units": 44
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "KATIVA - Huile (Kératine)",
+        "rev": 186.0,
+        "units": 31
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Masque Post Lissage Keraliss Complex 300 ml – Soin Profond pour Cheveux L",
+        "rev": 72.15,
+        "units": 9
+      }
+    ],
+    "NL": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Braziliaanse Keratine Behandeling + Potion 4 Heat Protectant Serum – Glad",
+        "rev": 1333.85,
+        "units": 100
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "KATIVA Braziliaanse Keratine Behandeling met Hyaluronzuur – 12 Weken Glad Haar –",
+        "rev": 759.78,
+        "units": 66
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA – 3-delige Braziliaanse gladmakende behandelingsset 225 ml | Shampoo + Co",
+        "rev": 639.18,
+        "units": 46
+      },
+      {
+        "asin": "B07VQT61H3",
+        "title": "KATIVA – Xpress Vegan Braziliaanse Keratine Smoothing Kit | Formaldehydevrij | L",
+        "rev": 411.95,
+        "units": 33
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA – Professionele nazorgset voor steil haar (2 stuks) | Keratine shampoo & ",
+        "rev": 217.92,
+        "units": 24
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Kativa Kératine liquide – Huile Treatment et revitalizante – 60 ml",
+        "rev": 95.78,
+        "units": 14
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "NOVA ENGEL Keratin Post Alisado Deep Treatment 300 Ml",
+        "rev": 56.48,
+        "units": 8
+      },
+      {
+        "asin": "B0D73V1TYY",
+        "title": "KATIVA Keratin Shampoo 355 mL – Herstellende Shampoo met Keratine & Cysteïneprot",
+        "rev": 52.01,
+        "units": 9
+      }
+    ],
+    "BE": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Premium Brazilian Straightening Kit – New Formula with Hyaluronic Acid – ",
+        "rev": 1336.86,
+        "units": 100
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "Kativa Kit lissage brésilien - Traitement lissé professionnel à la maison - Jusq",
+        "rev": 891.96,
+        "units": 76
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA Lot 3 Soins Lissage Brésilien – Shampooing + Après-Shampooing + Masque – ",
+        "rev": 617.92,
+        "units": 42
+      },
+      {
+        "asin": "B07VQT61H3",
+        "title": "KATIVA Keratin Kit Lissage Brésilien Xpress | Nouvelle Formule à Double Kératine",
+        "rev": 284.62,
+        "units": 19
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "Kativa Profesional Post Alisado Lote 2 Pz Santé et soins personnels",
+        "rev": 204.89,
+        "units": 19
+      },
+      {
+        "asin": "B0D73T13LJ",
+        "title": "KATIVA Kératine CYSTEIN PROT DEEP TREATMENT | 300 ml | Traitement intensif qui a",
+        "rev": 64.18,
+        "units": 7
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Kativa Kératine liquide – Huile Treatment et revitalizante – 60 ml",
+        "rev": 53.85,
+        "units": 9
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Masque Post Lissage Keraliss Complex 300 ml – Soin Profond pour Cheveux L",
+        "rev": 50.48,
+        "units": 6
+      }
+    ],
+    "SE": [
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "KATIVA Brasiliansk keratin utjämning med hyaluronsyra – 12 veckor rakt hår – uta",
+        "rev": 1808.95,
+        "units": 131
+      },
+      {
+        "asin": "B07VQT61H3",
+        "title": "Kativa Keratin brasilianskt strykset Express",
+        "rev": 290.29,
+        "units": 26
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA 3 flaskor med 225 ml brasiliansk utjämning med vegetabiliskt keratin och ",
+        "rev": 232.09,
+        "units": 16
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Brasiliansk efter utjämningsbehandling, schampo och balsam, förlänger utj",
+        "rev": 151.92,
+        "units": 13
+      },
+      {
+        "asin": "B0D73T13LJ",
+        "title": "KATIVA KERATIN CYSTEIN PROT DEEP TREATMENT | 300 ml | Intensiv behandling som hj",
+        "rev": 58.11,
+        "units": 2
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Nova Engel Keratina Líquida Nutrition 60 Ml, Modern Innovation, För Daglig Använ",
+        "rev": 40.43,
+        "units": 5
+      },
+      {
+        "asin": "B0D73V1TYY",
+        "title": "KATIVA KERATIN CYSTEIN PROT Shampoo | 355 ml | Keratin grönsaker, cystein, prote",
+        "rev": 25.17,
+        "units": 4
+      },
+      {
+        "asin": "B0CCW75P91",
+        "title": "KATIVA Total Kativa Plex Bond Repair Kit | 70 ml rekonstruktivt koncentrat + hår",
+        "rev": 13.52,
+        "units": 1
+      }
+    ],
+    "IE": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Brazilian Keratin Straightening Kit with Hyaluronic Acid + Potion 4 Therm",
+        "rev": 543.0,
+        "units": 50
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "Kativa Kit Post Alisado Keratina, Beauty Essential for Everyday Routine",
+        "rev": 315.75,
+        "units": 34
+      },
+      {
+        "asin": "B07VQT61H3",
+        "title": "Kativa Keratin Express Brazilian Ironing Set",
+        "rev": 65.5,
+        "units": 5
+      },
+      {
+        "asin": "B08CB4QDHB",
+        "title": "Kativa Kit Alisado Brasileã‘o, Beauty Essential for Everyday Routine",
+        "rev": 48.6,
+        "units": 3
+      },
+      {
+        "asin": "B0D73V1TYY",
+        "title": "Kativa Keratina Shampoo Nutrition Softeness & Shine 355 Ml, Hair Care Essential ",
+        "rev": 12.62,
+        "units": 2
+      },
+      {
+        "asin": "B0D8Q9MCBJ",
+        "title": "Keratin Post Alisado Conditioner 355 Ml, Hair Care Essential for Routine Styling",
+        "rev": 7.61,
+        "units": 1
+      }
+    ],
+    "PL": [
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Brazylijski środek wygładzający po prostowaniu | szampon i odżywka | prze",
+        "rev": 187.4,
+        "units": 17
+      },
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Premium Brazylijskie Prostowanie Włosów | Nowa Formuła z Kwasem Hialurono",
+        "rev": 114.25,
+        "units": 8
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "Kativa Zestaw Alisado Brazylijczyk - Profesjonalne leczenie prostownicze w domu ",
+        "rev": 61.69,
+        "units": 5
+      },
+      {
+        "asin": "B06XRZX5WY",
+        "title": "Kativa Płynna keratyna - Treatment and Revitalization Oil - 60 ml",
+        "rev": 11.76,
+        "units": 2
+      },
+      {
+        "asin": "B0DHLC87N5",
+        "title": "Kativa Curly Plex Curl Activator Gel Cream 240 ml, loki, pętle lub Afro| Definic",
+        "rev": 8.82,
+        "units": 1
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Brazylijskie prostowanie po głębokim traktowaniu | Odżywianie i nawilżeni",
+        "rev": 7.33,
+        "units": 1
+      }
+    ],
+    "GB": [
+      {
+        "asin": "B08CB4QDHB",
+        "title": "Kativa - Brazilian Keratin Smoothing Kit with Argan Oil and Hyaluronic Acid | Pr",
+        "rev": 56.23,
+        "units": 4
+      }
+    ]
+  },
+  "nl": {
+    "DE": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Brasilianisches Keratin Haarglättungs-Set mit Hyaluronsäure & Potion 4 Hi",
+        "rev": 18303.72,
+        "units": 1353
+      },
+      {
+        "asin": "B07VQT61H3",
+        "title": "KATIVA Keratin Brasilianische Glättung Haarbehandlung, Glattes Ergebnis bis zu 1",
+        "rev": 13027.07,
+        "units": 1042
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA 3er-Set Brasilianische Lissage-Pflege – Shampoo + Spülung + Maske – Pflan",
+        "rev": 1638.75,
+        "units": 108
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Brasilianische After-Glättungs-Behandlung, Shampoo und Conditioner, verlä",
+        "rev": 1009.16,
+        "units": 88
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Brasilianisches Deep Treatment Haarglättung, nährt und feuchtigkeitsspend",
+        "rev": 618.19,
+        "units": 82
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "KATIVA Brasilianische Keratin Glättung mit Hyaluronsäure – 12 Wochen Glattes Haa",
+        "rev": 584.87,
+        "units": 39
+      },
+      {
+        "asin": "B07VM7L1VN",
+        "title": "KATIVA Brasilianisches Lissageset 12 Wochen – Komplettes Haarglättungs-Kit für a",
+        "rev": 405.7,
+        "units": 31
+      },
+      {
+        "asin": "B08CB4QDHB",
+        "title": "Kativa – Brasilianisches Keratin-Glättungsset mit Arganöl und Hyaluronsäure | Pr",
+        "rev": 356.56,
+        "units": 30
+      }
+    ],
+    "IT": [
+      {
+        "asin": "B07VQT61H3",
+        "title": "Kativa Kit versione 2016 shampoos",
+        "rev": 14949.2,
+        "units": 1094
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Trattamento Post Lisciante Brasiliano | Shampoo e Balsamo | Prolunga la L",
+        "rev": 6481.32,
+        "units": 635
+      },
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Kit Lisciante Brasiliano alla Cheratina con Acido Ialuronico e Siero Term",
+        "rev": 3019.18,
+        "units": 186
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Balsamo Post Lisciante 300 ml – Trattamento Riparatore Intensivo per Cape",
+        "rev": 560.12,
+        "units": 76
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "KATIVA Lisciante Brasiliano con Acido Ialuronico Shampoo za Kativa Kit version 2",
+        "rev": 334.81,
+        "units": 28
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA – Set Trattamento Lisciante Brasiliano 3 Pezzi 225 ml | Shampoo + Balsamo",
+        "rev": 321.78,
+        "units": 26
+      },
+      {
+        "asin": "B0D8QBG8FZ",
+        "title": "KATIVA Shampoo Post Lisciatura – Mantenimento e Prolungamento dell’Effetto Lisci",
+        "rev": 131.0,
+        "units": 20
+      },
+      {
+        "asin": "B0DPHB249V",
+        "title": "KATIVA Balsamo alla Cheratina con Proteine di Cisteina | Nutrizione Intensa & Ri",
+        "rev": 80.22,
+        "units": 14
+      }
+    ],
+    "FR": [
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Kit Lissage Brésilien à la Kératine avec Acide Hyaluronique + Sérum Therm",
+        "rev": 10665.36,
+        "units": 772
+      },
+      {
+        "asin": "B07VQT61H3",
+        "title": "KATIVA – Kit Lissage Brésilien Végétalien Xpress Shampoo za Kativa Kit version 2",
+        "rev": 8335.75,
+        "units": 706
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Lot 2 Soins Lissage Brésilien – Shampooing + Après-Shampooing – Kératine ",
+        "rev": 547.96,
+        "units": 52
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA Lot 3 Soins Lissage Brésilien – Shampooing + Après-Shampooing + Masque – ",
+        "rev": 535.61,
+        "units": 40
+      },
+      {
+        "asin": "B07VM7L1VN",
+        "title": "EASO MAGNO Kativa Kit Alisado Brasileño Hialurónico",
+        "rev": 278.24,
+        "units": 22
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "Kativa Kit lissage brésilien - Traitement lissé professionnel à la maison - Jusq",
+        "rev": 274.12,
+        "units": 22
+      },
+      {
+        "asin": "B0FPRFG25Z",
+        "title": "UNIQ MADE – Shampooing pour Cheveux Ondulés 350 mL | Soin Professionnel Hydratan",
+        "rev": 86.32,
+        "units": 11
+      },
+      {
+        "asin": "B0GCF99L8H",
+        "title": "KATIVA Shampooing Huile d’Argan 355 ml – Nettoie en douceur, protège & fortifie ",
+        "rev": 81.5,
+        "units": 14
+      }
+    ],
+    "ES": [
+      {
+        "asin": "B08CB4QDHB",
+        "title": "Kativa Kit Alisado Brasileño - Tratamiento Alisado Profesional en casa - Hasta 1",
+        "rev": 6983.02,
+        "units": 565
+      },
+      {
+        "asin": "B07VM7L1VN",
+        "title": "Kativa Kit Alisado Brasileño Hialurónico",
+        "rev": 4251.02,
+        "units": 360
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Tratamiento Post Alisado Brasileño | Champú y Acondicionador | Prolonga e",
+        "rev": 4172.58,
+        "units": 479
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA Tratamiento Post Alisado Brasileño | Champú, Acondicionador y Mascarilla ",
+        "rev": 407.9,
+        "units": 33
+      },
+      {
+        "asin": "B0D73V1TYY",
+        "title": "KATIVA KERATINA CYSTEIN PROT CHAMPÚ| 355mL | Vegetal keratin, cysteine, proteins",
+        "rev": 257.92,
+        "units": 37
+      },
+      {
+        "asin": "B0DHL6HJD8",
+        "title": "Kativa Argan Oil Olive Peptides Mascarilla 300 gr | Tratamiento Intensivo Repara",
+        "rev": 236.5,
+        "units": 36
+      },
+      {
+        "asin": "B0DHLC7R1M",
+        "title": "Kativa Curly Plex Deep Conditioner 450 ml | Todo Tipo de Rizos | Definición de R",
+        "rev": 225.52,
+        "units": 21
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Post Alisado Brasileño Deep Treatment | Nutrición e Hidratación | Efecto ",
+        "rev": 118.4,
+        "units": 16
+      }
+    ],
+    "BE": [
+      {
+        "asin": "B07VQT61H3",
+        "title": "KATIVA Keratin Kit Lissage Brésilien Xpress | Nouvelle Formule à Double Kératine",
+        "rev": 1849.22,
+        "units": 149
+      },
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Premium Brazilian Straightening Kit – New Formula with Hyaluronic Acid – ",
+        "rev": 1423.77,
+        "units": 110
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "Kativa Kit lissage brésilien - Traitement lissé professionnel à la maison - Jusq",
+        "rev": 297.36,
+        "units": 24
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "Kativa Profesional Post Alisado Lote 2 Pz Santé et soins personnels",
+        "rev": 231.01,
+        "units": 19
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA Lot 3 Soins Lissage Brésilien – Shampooing + Après-Shampooing + Masque – ",
+        "rev": 196.18,
+        "units": 14
+      },
+      {
+        "asin": "B0D8Q9MCBJ",
+        "title": "KATIVA Après-shampooing lissant 355 ml | Douceur et brillance | Effet anti-friso",
+        "rev": 57.23,
+        "units": 9
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Masque Post Lissage Keraliss Complex 300 ml – Soin Profond pour Cheveux L",
+        "rev": 36.53,
+        "units": 5
+      },
+      {
+        "asin": "B0D8QBG8FZ",
+        "title": "Keratin Post Alisado Shampoo 355 Ml",
+        "rev": 19.52,
+        "units": 3
+      }
+    ],
+    "SE": [
+      {
+        "asin": "B07VQT61H3",
+        "title": "Kativa Keratin brasilianskt strykset Express",
+        "rev": 1440.29,
+        "units": 125
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "KATIVA Brasiliansk keratin utjämning med hyaluronsyra – 12 veckor rakt hår – uta",
+        "rev": 415.7,
+        "units": 30
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "KATIVA 3 flaskor med 225 ml brasiliansk utjämning med vegetabiliskt keratin och ",
+        "rev": 44.11,
+        "units": 3
+      },
+      {
+        "asin": "B0D6W7V95J",
+        "title": "KATIVA Brasiliansk efter utjämningsbehandling, schampo och balsam, förlänger utj",
+        "rev": 35.76,
+        "units": 3
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "Nova Engel Keratin Post Alisado Deep Treatment 300, Mild Formula, För Resor, Med",
+        "rev": 18.61,
+        "units": 2
+      },
+      {
+        "asin": "B0DHL95VCC",
+        "title": "Kativa Curly Plex nästa dag Curl uppdaterar 225 ml | Alla typer av lockar | Anti",
+        "rev": 16.17,
+        "units": 2
+      },
+      {
+        "asin": "B0D8Q9MCBJ",
+        "title": "Nova Engel Keratin Post Alisado Conditioner 355 Ml, Daglig Komfort, För Resor, M",
+        "rev": 7.19,
+        "units": 1
+      }
+    ],
+    "IE": [
+      {
+        "asin": "B07VQT61H3",
+        "title": "Kativa Keratin Express Brazilian Ironing Set",
+        "rev": 815.4,
+        "units": 72
+      },
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Brazilian Keratin Straightening Kit with Hyaluronic Acid + Potion 4 Therm",
+        "rev": 423.55,
+        "units": 39
+      },
+      {
+        "asin": "B0D6W6BBDX",
+        "title": "Kativa Kit Post Alisado Keratina, Beauty Essential for Everyday Routine",
+        "rev": 76.32,
+        "units": 8
+      },
+      {
+        "asin": "B08CB4QDHB",
+        "title": "Kativa Kit Alisado Brasileã‘o, Beauty Essential for Everyday Routine",
+        "rev": 58.76,
+        "units": 4
+      },
+      {
+        "asin": "B0D73V1TYY",
+        "title": "Kativa Keratina Shampoo Nutrition Softeness & Shine 355 Ml, Hair Care Essential ",
+        "rev": 18.19,
+        "units": 2
+      },
+      {
+        "asin": "B0DPHB249V",
+        "title": "KATIVA Keratin Hair Conditioner with Cysteine Proteins, Intensive Care & Repair,",
+        "rev": 8.34,
+        "units": 2
+      }
+    ],
+    "PL": [
+      {
+        "asin": "B07VQT61H3",
+        "title": "KATIVA Keratin Brazylijskie Prostowanie Xpress | Nowa Formuła z Podwójną Keratyn",
+        "rev": 108.14,
+        "units": 9
+      },
+      {
+        "asin": "B0CB1KQ8Q4",
+        "title": "KATIVA Premium Brazylijskie Prostowanie Włosów | Nowa Formuła z Kwasem Hialurono",
+        "rev": 61.29,
+        "units": 4
+      },
+      {
+        "asin": "B0BS1Q47QW",
+        "title": "Kativa Zestaw Alisado Brazylijczyk - Profesjonalne leczenie prostownicze w domu ",
+        "rev": 12.34,
+        "units": 1
+      },
+      {
+        "asin": "B0D8QBGK3J",
+        "title": "KATIVA Brazylijskie prostowanie po głębokim traktowaniu | Odżywianie i nawilżeni",
+        "rev": 7.33,
+        "units": 1
+      }
+    ],
+    "GB": [
+      {
+        "asin": "B08CB4QDHB",
+        "title": "Kativa - Brazilian Keratin Smoothing Kit with Argan Oil and Hyaluronic Acid | Pr",
+        "rev": 11.98,
+        "units": 1
+      }
+    ]
+  }
+};
+
+function fmt(n){return '€'+Math.round(n).toLocaleString('es-ES')}
+
+function buildTable(wh, store) {
+  const rows = DATA[wh] && DATA[wh][store] ? DATA[wh][store] : [];
+  if(!rows.length) return '<p style="color:#aaa;padding:10px">Sin datos</p>';
+  const maxRev = Math.max(...rows.map(r=>r.rev));
+  const mkt = MKT[store] || 'amazon.com';
+  let html = '<table class="asin-table"><thead><tr><th>ASIN</th><th>Producto</th><th style="text-align:right">Revenue</th><th style="text-align:right">Uds.</th></tr></thead><tbody>';
+  rows.forEach(r=>{
+    const pct = Math.round(r.rev/maxRev*100);
+    html += `<tr>
+      <td><a class="asin-link" href="https://www.${mkt}/dp/${r.asin}" target="_blank">${r.asin}</a></td>
+      <td><span>${r.title}</span><div class="rev-bar-wrap"><div class="rev-bar" style="width:${pct}%"></div></div></td>
+      <td class="rev-cell" style="text-align:right">${fmt(r.rev)}</td>
+      <td class="units-cell" style="text-align:right">${r.units.toLocaleString('es-ES')}</td>
+    </tr>`;
+  });
+  html += '</tbody></table>';
+  return html;
+}
+
+function showTab(wh, store, btn) {
+  btn.closest('.flows-right').querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(wh+'-table').innerHTML = buildTable(wh, store);
+}
+
+// init default tabs (first cross-border destination)
+['it','fr','de','nl'].forEach(wh => {
+  const el = document.getElementById(wh+'-table');
+  if (!el) return;
+  const keys = Object.keys(DATA[wh] || {});
+  if (keys.length) el.innerHTML = buildTable(wh, keys[0]);
+});
+</script>
 </body>
 </html>
