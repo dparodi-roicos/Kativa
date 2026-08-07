@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KATIVA · Análisis Competitivo Amazon.fr · Julio 2026</title>
+<style>
+:root{
+  --orange:#E8691A;--orange-l:#F5A668;--orange-xl:#FFF4EC;
+  --dark:#2D2D2D;--gray:#6B6B6B;--gray-l:#E8E8E8;--bg:#F5F5F5;--white:#FFFFFF;
+  --green:#27AE60;--red:#C0392B;
+  --blue:#1A73E8;--purple:#7B1FA2;--teal:#00796B;--amber:#D97706;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--dark);font-size:14px;line-height:1.5;}
+
+/* HEADER */
+.header{background:var(--white);border-bottom:3px solid var(--orange);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;}
+.logo-block{display:flex;flex-direction:column;}
+.logo{font-size:28px;font-weight:900;color:var(--orange);letter-spacing:6px;line-height:1;}
+.logo-sub{font-size:9px;color:var(--orange-l);letter-spacing:3px;font-weight:700;text-transform:uppercase;margin-top:2px;}
+.hdr-mid{text-align:center;}
+.hdr-mid h1{font-size:18px;font-weight:700;color:var(--dark);}
+.hdr-mid p{font-size:12px;color:var(--gray);margin-top:3px;}
+.hdr-right{text-align:right;font-size:12px;color:var(--gray);}
+.hdr-right strong{display:block;font-size:14px;font-weight:700;color:var(--dark);}
+.hdr-right span{display:block;font-size:10px;margin-top:2px;letter-spacing:.5px;}
+
+/* HERO BAR */
+.hero-bar{display:grid;grid-template-columns:repeat(6,1fr);background:var(--dark);}
+.hero-card{padding:16px 18px;border-right:1px solid rgba(255,255,255,.07);}
+.hero-card:last-child{border-right:none;}
+.hero-lbl{font-size:9px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.45);text-transform:uppercase;margin-bottom:3px;}
+.hero-val{font-size:22px;font-weight:800;color:var(--orange-l);margin-bottom:2px;line-height:1.1;}
+.hero-val.g{color:#6EDB95;}
+.hero-val.r{color:#F1948A;}
+.hero-val.b{color:#74B9FF;}
+.hero-ctx{font-size:10px;color:rgba(255,255,255,.35);}
+
+/* LAYOUT */
+.page{padding:0 32px 48px;}
+.section{background:var(--white);border-radius:8px;padding:22px;margin:16px 0;box-shadow:0 1px 4px rgba(0,0,0,.07);}
+.sec-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;padding-bottom:14px;margin-bottom:18px;border-bottom:2px solid var(--orange-xl);display:flex;align-items:center;gap:10px;color:var(--dark);}
+.sec-title::before{content:'';display:inline-block;width:4px;height:16px;background:var(--orange);border-radius:2px;flex-shrink:0;}
+.sec-badge{background:var(--orange);color:#fff;border-radius:3px;padding:2px 9px;font-size:9px;font-weight:700;letter-spacing:.5px;}
+.sec-badge.green{background:var(--green);}
+.sec-badge.red{background:var(--red);}
+
+/* ALERT STRIP */
+.alert-strip{background:#FFF3CD;border:1px solid #FBBF24;border-left:4px solid #D97706;border-radius:6px;padding:12px 16px;display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;}
+.alert-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.alert-text{font-size:13px;line-height:1.5;}
+.alert-text strong{color:#92400E;}
+
+/* KPI GRID */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px;}
+.kpi-card{background:var(--bg);border:1px solid var(--gray-l);border-radius:8px;padding:16px;border-top:3px solid var(--orange);}
+.kpi-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--gray);margin-bottom:4px;}
+.kpi-val{font-size:24px;font-weight:800;color:var(--dark);margin-bottom:3px;line-height:1.1;}
+.kpi-ctx{font-size:11px;color:var(--gray);}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+th{background:var(--dark);color:#fff;padding:9px 11px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;white-space:nowrap;}
+td{padding:8px 11px;border-bottom:1px solid var(--gray-l);vertical-align:middle;}
+tr:hover td{background:var(--orange-xl);}
+tr:last-child td{border-bottom:none;}
+.t-center{text-align:center;}
+.t-right{text-align:right;}
+.t-mono{font-family:monospace;font-size:11.5px;}
+.asin-link{color:var(--orange);text-decoration:none;font-family:monospace;font-size:11px;font-weight:700;}
+.asin-link:hover{text-decoration:underline;}
+.brand-strong{font-weight:700;color:var(--dark);}
+.kativa-row td{background:#FFF8F2;}
+
+/* BADGES */
+.badge{display:inline-block;padding:2px 7px;border-radius:3px;font-size:10px;font-weight:700;white-space:nowrap;}
+.b-red{background:#FDEDEC;color:var(--red);}
+.b-orange{background:var(--orange-xl);color:var(--orange);}
+.b-green{background:#EAFAF1;color:var(--green);}
+.b-gray{background:#F2F3F4;color:var(--gray);}
+.b-blue{background:#EAF2FF;color:var(--blue);}
+.b-purple{background:#F5EEF8;color:var(--purple);}
+.b-amber{background:#FEF9E7;color:var(--amber);}
+.b-kativa{background:#FFF3E0;color:#BF6000;}
+
+/* SEGMENT CARDS */
+.seg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.seg-card{background:var(--bg);border:1px solid var(--gray-l);border-radius:8px;padding:16px;border-top:4px solid;}
+.seg-card.bres{border-top-color:var(--blue);}
+.seg-card.ind{border-top-color:var(--purple);}
+.seg-card.prem{border-top-color:var(--amber);}
+.seg-card.def{border-top-color:var(--teal);}
+.seg-label{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:3px;display:inline-block;margin-bottom:10px;}
+.sl-bres{background:#EAF2FF;color:var(--blue);}
+.sl-ind{background:#F5EEF8;color:var(--purple);}
+.sl-prem{background:#FEF9E7;color:var(--amber);}
+.sl-def{background:#E0F2F1;color:var(--teal);}
+.seg-brand{font-size:12px;font-weight:700;color:var(--dark);margin:5px 0 2px;}
+.seg-rev{font-size:18px;font-weight:800;margin:4px 0 2px;}
+.seg-meta{font-size:11px;color:var(--gray);}
+.seg-item{padding:7px 0;border-bottom:1px solid var(--gray-l);}
+.seg-item:last-child{border-bottom:none;}
+
+/* THREAT CARDS */
+.threat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.threat-card{border:1px solid;border-radius:8px;padding:18px;border-left:4px solid;}
+.threat-crit{border-color:#FDEDEC;border-left-color:var(--red);}
+.threat-warn{border-color:#FEF9E7;border-left-color:var(--amber);}
+.threat-level{display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;}
+.threat-badge-crit{background:var(--red);color:#fff;border-radius:4px;padding:2px 9px;font-size:10px;font-weight:700;letter-spacing:.5px;}
+.threat-badge-warn{background:var(--amber);color:#fff;border-radius:4px;padding:2px 9px;font-size:10px;font-weight:700;letter-spacing:.5px;}
+.threat-brand{font-size:16px;font-weight:800;color:var(--dark);}
+.threat-rev{font-size:26px;font-weight:900;margin:6px 0 2px;}
+.threat-rev.r{color:var(--red);}
+.threat-rev.a{color:var(--amber);}
+.threat-meta{font-size:12px;color:var(--gray);margin-bottom:10px;}
+.threat-bullets{list-style:none;padding:0;margin:0;}
+.threat-bullets li{font-size:12px;line-height:1.6;padding:2px 0 2px 14px;position:relative;}
+.threat-bullets li::before{content:'→';position:absolute;left:0;color:var(--gray);}
+
+/* KEYWORD TABLE */
+.kw-iq-bar{height:7px;border-radius:3px;background:var(--gray-l);overflow:hidden;}
+.kw-iq-fill{height:100%;border-radius:3px;background:var(--orange);}
+.kw-vol-bar{height:7px;border-radius:3px;background:var(--gray-l);overflow:hidden;margin-top:3px;}
+.kw-vol-fill{height:100%;border-radius:3px;background:var(--blue);}
+.kw-trend-up{color:var(--green);font-weight:700;}
+.kw-trend-flat{color:var(--gray);}
+.kw-trend-dn{color:var(--red);}
+.opp-pill{display:inline-block;border-radius:20px;padding:2px 10px;font-size:10px;font-weight:700;}
+.opp-max{background:#EAFAF1;color:var(--green);}
+.opp-high{background:#FFF3E0;color:#BF6000;}
+.opp-med{background:#EAF2FF;color:var(--blue);}
+.opp-pro{background:#FFF3CD;color:#92400E;}
+
+/* POSITIONING CHART */
+.chart-wrap{background:var(--bg);border:1px solid var(--gray-l);border-radius:8px;padding:20px;}
+.chart-wrap h3{font-size:13px;font-weight:700;margin-bottom:4px;}
+.chart-sub{font-size:11px;color:var(--gray);margin-bottom:14px;}
+canvas{display:block;width:100%;max-width:100%;}
+
+/* REVENUE BARS */
+.rev-bars{display:flex;flex-direction:column;gap:6px;}
+.rev-row{display:flex;align-items:center;gap:10px;}
+.rev-lbl{font-size:11px;width:130px;flex-shrink:0;text-align:right;color:var(--dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rev-wrap{flex:1;background:var(--gray-l);border-radius:3px;height:20px;overflow:hidden;position:relative;}
+.rev-fill{height:100%;border-radius:3px;position:relative;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;}
+.rev-fill span{font-size:10px;font-weight:700;color:#fff;white-space:nowrap;}
+
+/* ADS TABLE */
+.acos-g{color:var(--green);font-weight:700;}
+.acos-y{color:var(--amber);font-weight:700;}
+.acos-r{color:var(--red);font-weight:700;}
+
+/* ACTION PLAN */
+.action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.action-card{border:1px solid var(--gray-l);border-radius:8px;overflow:hidden;}
+.action-hdr{padding:11px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#fff;}
+.ah-g{background:var(--green);}
+.ah-o{background:var(--orange);}
+.ah-b{background:var(--blue);}
+.action-body{padding:14px 16px;display:flex;flex-direction:column;gap:10px;}
+.action-item{display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.6;}
+.adot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.adot.g{background:var(--green);}
+.adot.o{background:var(--orange);}
+.adot.b{background:var(--blue);}
+
+/* CONCLUSION BOXES */
+.concl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;}
+.concl-card{background:var(--bg);border:1px solid var(--gray-l);border-radius:8px;padding:16px;border-top:3px solid var(--orange);}
+.concl-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;}
+.concl-num{min-width:26px;height:26px;border-radius:50%;background:var(--orange);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.concl-text{font-size:12px;color:var(--gray);line-height:1.6;}
+
+/* FOOTER */
+.footer{background:var(--dark);color:rgba(255,255,255,.5);font-size:11px;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;margin-top:8px;}
+
+/* LEGEND ROW */
+.legend-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:10px;}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--gray);}
+.legend-dot{width:10px;height:10px;border-radius:50%;}
+
+@media print{.page{padding:0 16px;}body{background:#fff;}.section{box-shadow:none;}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo-block">
+    <div class="logo">KATIVA</div>
+    <div class="logo-sub">Amazon.fr · Beauté</div>
+  </div>
+  <div class="hdr-mid">
+    <h1>Análisis Competitivo · Amazon Francia</h1>
+    <p>Lissage Brésilien · Indien · Tanin · Défrisants · 65 productos analizados</p>
+  </div>
+  <div class="hdr-right">
+    <strong>Roicos Agency</strong>
+    <span>Julio 2026 · Helium 10 + Pacvue</span>
+  </div>
+</div>
+
+<!-- KPI HERO BAR -->
+<div class="hero-bar">
+  <div class="hero-card">
+    <div class="hero-lbl">Revenue Kativa FR</div>
+    <div class="hero-val">€57K</div>
+    <div class="hero-ctx">Estimado mensual · todos ASINs</div>
+  </div>
+  <div class="hero-card">
+    <div class="hero-lbl">ABA Position #1</div>
+    <div class="hero-val g">#1 Lissage</div>
+    <div class="hero-ctx">B0CB1KQ8Q4 · 1.236 ventas/mes</div>
+  </div>
+  <div class="hero-card">
+    <div class="hero-lbl">Amenaza Crítica</div>
+    <div class="hero-val r">SI SHINY</div>
+    <div class="hero-ctx">€35.358/mes · 15 meses · ABA #2</div>
+  </div>
+  <div class="hero-card">
+    <div class="hero-lbl">Keyword Top IQ</div>
+    <div class="hero-val b">58.882</div>
+    <div class="hero-ctx">"kavira cheveux" +386% — protección marca</div>
+  </div>
+  <div class="hero-card">
+    <div class="hero-lbl">ACOS Ads H1 2026</div>
+    <div class="hero-val g">17,3%</div>
+    <div class="hero-ctx">ROAS 5,8x · 9 campañas</div>
+  </div>
+  <div class="hero-card">
+    <div class="hero-lbl">Nuevos Entrantes</div>
+    <div class="hero-val r">4</div>
+    <div class="hero-ctx">Garnier · Baaliso · Choü · SI SHINY</div>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- ALERT STRIP -->
+<div class="alert-strip" style="margin-top:18px;">
+  <div class="alert-icon">⚠️</div>
+  <div class="alert-text">
+    <strong>ALERTA COMPETITIVA:</strong> SI SHINY (B0F68KGQ59) ha pasado de 0 a €35.358/mes en solo 15 meses, superando a Kativa en revenue individual con un precio 2,3x superior y posición ABA #2. Lanzado en abril 2025, ya tiene 275 reseñas y patrocina activamente. Es la mayor amenaza de segmento detectada en esta actualización.
+  </div>
+</div>
+
+<!-- SECTION 1: RESUMEN EJECUTIVO -->
+<div class="section">
+  <div class="sec-title">Resumen Ejecutivo <span class="sec-badge">Helium 10 · 24 Jul 2026</span></div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-lbl">Revenue Kativa · ASIN líder</div>
+      <div class="kpi-val" style="color:var(--orange)">€19.718/mes</div>
+      <div class="kpi-ctx">B0CB1KQ8Q4 · BSR 235 · 1.236 ventas · ABA #1</div>
+    </div>
+    <div class="kpi-card" style="border-top-color:var(--red)">
+      <div class="kpi-lbl">Competidor #1 por Revenue</div>
+      <div class="kpi-val" style="color:var(--red)">€35.358/mes</div>
+      <div class="kpi-ctx">SI SHINY B0F68KGQ59 · BSR 1.137 · ABA #2</div>
+    </div>
+    <div class="kpi-card" style="border-top-color:var(--amber)">
+      <div class="kpi-lbl">Mejor Oportunidad Keyword</div>
+      <div class="kpi-val" style="color:var(--amber)">IQ 52.017</div>
+      <div class="kpi-ctx">"lissage indien" · 8.999 vol · solo 173 competidores</div>
+    </div>
+    <div class="kpi-card" style="border-top-color:var(--green)">
+      <div class="kpi-lbl">Protección Marca Urgente</div>
+      <div class="kpi-val" style="color:var(--green)">+386%</div>
+      <div class="kpi-ctx">"kavira cheveux" · IQ 58.882 · 3.003 búsquedas/mes</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SECTION 2: MAPA COMPETITIVO COMPLETO -->
+<div class="section">
+  <div class="sec-title">Mapa Competitivo Completo <span class="sec-badge">Top 15 · Todos los Segmentos</span></div>
+
+  <div style="overflow-x:auto;">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Marca</th>
+        <th>ASIN</th>
+        <th>Segmento</th>
+        <th class="t-right">Precio</th>
+        <th class="t-right">Revenue/mes</th>
+        <th class="t-center">BSR</th>
+        <th class="t-center">★ Rating</th>
+        <th class="t-center">Reviews</th>
+        <th class="t-center">ABA</th>
+        <th class="t-center">Fulfil.</th>
+        <th class="t-center">Lanzamiento</th>
+        <th class="t-center">Amenaza</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="t-center"><span class="badge b-red">⚠ 1</span></td>
+        <td class="brand-strong">SI SHINY</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B0F68KGQ59" target="_blank">B0F68KGQ59</a></td>
+        <td><span class="badge b-purple">Liss. Brésilien</span></td>
+        <td class="t-right">€34,99</td>
+        <td class="t-right"><strong>€35.358</strong></td>
+        <td class="t-center"><strong>1.137</strong></td>
+        <td class="t-center">★4,0</td>
+        <td class="t-center">275</td>
+        <td class="t-center"><span class="badge b-orange">#2 ABA</span></td>
+        <td class="t-center">FBA</td>
+        <td class="t-center">Abr 2025</td>
+        <td class="t-center"><span class="badge b-red">CRÍTICA</span></td>
+      </tr>
+      <tr class="kativa-row">
+        <td class="t-center">—</td>
+        <td class="brand-strong" style="color:var(--orange)">★ KATIVA</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B0CB1KQ8Q4" target="_blank">B0CB1KQ8Q4</a></td>
+        <td><span class="badge b-kativa">Kativa · Líder</span></td>
+        <td class="t-right">€15,22</td>
+        <td class="t-right"><strong style="color:var(--orange)">€19.718</strong></td>
+        <td class="t-center"><strong>235</strong></td>
+        <td class="t-center">★3,9</td>
+        <td class="t-center">5.739</td>
+        <td class="t-center"><span class="badge b-kativa">#1 ABA</span></td>
+        <td class="t-center">AMZ</td>
+        <td class="t-center">Nov 2023</td>
+        <td class="t-center"><span class="badge b-kativa">KATIVA</span></td>
+      </tr>
+      <tr>
+        <td class="t-center"><span class="badge b-red">⚠ 2</span></td>
+        <td class="brand-strong">Garnier Fructis</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B0FVG2YLD1" target="_blank">B0FVG2YLD1</a></td>
+        <td><span class="badge b-green">Masivo Nuevo</span></td>
+        <td class="t-right">€19,90</td>
+        <td class="t-right"><strong>€13.175</strong></td>
+        <td class="t-center"><strong>478</strong></td>
+        <td class="t-center">★4,5</td>
+        <td class="t-center">97</td>
+        <td class="t-center">—</td>
+        <td class="t-center">AMZ</td>
+        <td class="t-center">Dic 2025</td>
+        <td class="t-center"><span class="badge b-red">ALTA</span></td>
+      </tr>
+      <tr>
+        <td class="t-center">3</td>
+        <td class="brand-strong">Demeliss</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B0BK9L8DN9" target="_blank">B0BK9L8DN9</a></td>
+        <td><span class="badge b-amber">Premium Kit</span></td>
+        <td class="t-right">€59,90</td>
+        <td class="t-right">€12.927</td>
+        <td class="t-center"><strong>269</strong></td>
+        <td class="t-center">★4,4</td>
+        <td class="t-center">491</td>
+        <td class="t-center">—</td>
+        <td class="t-center">AMZ</td>
+        <td class="t-center">Oct 2022</td>
+        <td class="t-center"><span class="badge b-orange">MEDIA</span></td>
+      </tr>
+      <tr>
+        <td class="t-center">4</td>
+        <td class="brand-strong">Dark &amp; Lovely</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B014MI40JC" target="_blank">B014MI40JC</a></td>
+        <td><span class="badge b-blue">Défrisants</span></td>
+        <td class="t-right">€15,00</td>
+        <td class="t-right">€10.594</td>
+        <td class="t-center"><strong>1.450</strong></td>
+        <td class="t-center">★4,3</td>
+        <td class="t-center">516</td>
+        <td class="t-center">—</td>
+        <td class="t-center">MFN</td>
+        <td class="t-center">Feb 2016</td>
+        <td class="t-center"><span class="badge b-gray">BAJA</span></td>
+      </tr>
+      <tr>
+        <td class="t-center">5</td>
+        <td class="brand-strong">OGX Keratin</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B004ISW5YY" target="_blank">B004ISW5YY</a></td>
+        <td><span class="badge b-blue">Post-Lissage</span></td>
+        <td class="t-right">€7,95</td>
+        <td class="t-right">€10.213</td>
+        <td class="t-center"><strong>610</strong></td>
+        <td class="t-center">★4,4</td>
+        <td class="t-center">12.982</td>
+        <td class="t-center">—</td>
+        <td class="t-center">AMZ</td>
+        <td class="t-center">Jun 2012</td>
+        <td class="t-center"><span class="badge b-gray">BAJA</span></td>
+      </tr>
+      <tr>
+        <td class="t-center">6</td>
+        <td class="brand-strong">EM2H Cosmetics</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B076YCFG53" target="_blank">B076YCFG53</a></td>
+        <td><span class="badge b-amber">Premium Kit</span></td>
+        <td class="t-right">€101,98</td>
+        <td class="t-right">€7.736</td>
+        <td class="t-center">13.424</td>
+        <td class="t-center">★3,9</td>
+        <td class="t-center">597</td>
+        <td class="t-center">—</td>
+        <td class="t-center">FBA</td>
+        <td class="t-center">Oct 2017</td>
+        <td class="t-center"><span class="badge b-gray">BAJA</span></td>
+      </tr>
+      <tr class="kativa-row">
+        <td class="t-center">—</td>
+        <td class="brand-strong" style="color:var(--orange)">KATIVA</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B08CB4QDHB" target="_blank">B08CB4QDHB</a></td>
+        <td><span class="badge b-kativa">Kativa · Classic</span></td>
+        <td class="t-right">€21,90</td>
+        <td class="t-right"><strong style="color:var(--orange)">€7.573</strong></td>
+        <td class="t-center">4.613</td>
+        <td class="t-center">★4,0</td>
+        <td class="t-center">7.567</td>
+        <td class="t-center">—</td>
+        <td class="t-center">FBA</td>
+        <td class="t-center">Sep 2020</td>
+        <td class="t-center"><span class="badge b-kativa">KATIVA</span></td>
+      </tr>
+      <tr>
+        <td class="t-center">7</td>
+        <td class="brand-strong">SALVATORE</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B077WBYPFS" target="_blank">B077WBYPFS</a></td>
+        <td><span class="badge b-amber">Taninoplastie</span></td>
+        <td class="t-right">€130,00</td>
+        <td class="t-right">€15.708</td>
+        <td class="t-center">6.961</td>
+        <td class="t-center">★3,9</td>
+        <td class="t-center">1.058</td>
+        <td class="t-center">—</td>
+        <td class="t-center">FBA</td>
+        <td class="t-center">Dic 2017</td>
+        <td class="t-center"><span class="badge b-orange">MEDIA</span></td>
+      </tr>
+      <tr>
+        <td class="t-center">8</td>
+        <td class="brand-strong">Iniya</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B0CMKP7BJJ" target="_blank">B0CMKP7BJJ</a></td>
+        <td><span class="badge b-purple">Liss. Indien</span></td>
+        <td class="t-right">€49,90</td>
+        <td class="t-right">€6.496 <span style="font-size:10px;color:var(--gray)">(€34.545 parent)</span></td>
+        <td class="t-center">2.411</td>
+        <td class="t-center">★3,8</td>
+        <td class="t-center">299</td>
+        <td class="t-center">—</td>
+        <td class="t-center">FBA</td>
+        <td class="t-center">Nov 2023</td>
+        <td class="t-center"><span class="badge b-orange">MEDIA</span></td>
+      </tr>
+      <tr>
+        <td class="t-center">9</td>
+        <td class="brand-strong">Luxéol</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B0D87RL5BN" target="_blank">B0D87RL5BN</a></td>
+        <td><span class="badge b-blue">Post-Lissage</span></td>
+        <td class="t-right">€10,90</td>
+        <td class="t-right">€6.377</td>
+        <td class="t-center">2.529</td>
+        <td class="t-center">★4,4</td>
+        <td class="t-center">187</td>
+        <td class="t-center">—</td>
+        <td class="t-center">AMZ</td>
+        <td class="t-center">Jun 2024</td>
+        <td class="t-center"><span class="badge b-gray">BAJA</span></td>
+      </tr>
+      <tr>
+        <td class="t-center"><span class="badge b-orange">⚠ 10</span></td>
+        <td class="brand-strong">Baaliso</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B0FYQ7Z695" target="_blank">B0FYQ7Z695</a></td>
+        <td><span class="badge b-purple">Liss. Brésilien</span></td>
+        <td class="t-right">€35,99</td>
+        <td class="t-right">€5.596</td>
+        <td class="t-center">6.779</td>
+        <td class="t-center">★3,8</td>
+        <td class="t-center">138</td>
+        <td class="t-center">—</td>
+        <td class="t-center">FBA</td>
+        <td class="t-center">Oct 2025</td>
+        <td class="t-center"><span class="badge b-orange">CRECIENTE</span></td>
+      </tr>
+      <tr>
+        <td class="t-center">11</td>
+        <td class="brand-strong">Luxéol Masque</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B0D87QWHS5" target="_blank">B0D87QWHS5</a></td>
+        <td><span class="badge b-blue">Post-Lissage</span></td>
+        <td class="t-right">€19,90</td>
+        <td class="t-right">€5.563</td>
+        <td class="t-center">3.585</td>
+        <td class="t-center">★4,5</td>
+        <td class="t-center">144</td>
+        <td class="t-center">—</td>
+        <td class="t-center">AMZ</td>
+        <td class="t-center">Jun 2024</td>
+        <td class="t-center"><span class="badge b-gray">BAJA</span></td>
+      </tr>
+      <tr>
+        <td class="t-center"><span class="badge b-orange">⚠ 12</span></td>
+        <td class="brand-strong">Choü</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B0FBBYPN1Z" target="_blank">B0FBBYPN1Z</a></td>
+        <td><span class="badge b-purple">Liss. Brésilien</span></td>
+        <td class="t-right">€54,90</td>
+        <td class="t-right">€4.371</td>
+        <td class="t-center">9.928</td>
+        <td class="t-center">★3,6</td>
+        <td class="t-center">148</td>
+        <td class="t-center">—</td>
+        <td class="t-center">FBA</td>
+        <td class="t-center">Jul 2025</td>
+        <td class="t-center"><span class="badge b-orange">EMERGENTE</span></td>
+      </tr>
+      <tr>
+        <td class="t-center">13</td>
+        <td class="brand-strong">AMR Professional</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B07TL6K1Q9" target="_blank">B07TL6K1Q9</a></td>
+        <td><span class="badge b-amber">Pro 1L</span></td>
+        <td class="t-right">€89,00</td>
+        <td class="t-right">€4.611</td>
+        <td class="t-center">16.192</td>
+        <td class="t-center">★4,0</td>
+        <td class="t-center">166</td>
+        <td class="t-center">—</td>
+        <td class="t-center">FBA</td>
+        <td class="t-center">Nov 2020</td>
+        <td class="t-center"><span class="badge b-gray">BAJA</span></td>
+      </tr>
+      <tr>
+        <td class="t-center">14</td>
+        <td class="brand-strong">African Pride</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B00LG2X2Q0" target="_blank">B00LG2X2Q0</a></td>
+        <td><span class="badge b-blue">Défrisants</span></td>
+        <td class="t-right">€15,79</td>
+        <td class="t-right">€3.849</td>
+        <td class="t-center">6.062</td>
+        <td class="t-center">★4,0</td>
+        <td class="t-center">1.613</td>
+        <td class="t-center">—</td>
+        <td class="t-center">FBA</td>
+        <td class="t-center">Ago 2012</td>
+        <td class="t-center"><span class="badge b-gray">BAJA</span></td>
+      </tr>
+      <tr>
+        <td class="t-center">15</td>
+        <td class="brand-strong">Romanti-K</td>
+        <td><a class="asin-link" href="https://www.amazon.fr/dp/B09NQNP5SD" target="_blank">B09NQNP5SD</a></td>
+        <td><span class="badge b-purple">Tanin</span></td>
+        <td class="t-right">€24,99</td>
+        <td class="t-right">€1.637</td>
+        <td class="t-center">13.116</td>
+        <td class="t-center">★3,8</td>
+        <td class="t-center">452</td>
+        <td class="t-center">—</td>
+        <td class="t-center">FBA</td>
+        <td class="t-center">Oct 2022</td>
+        <td class="t-center"><span class="badge b-gray">BAJA</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:10px;color:var(--gray);margin-top:10px;">* Revenue = ASIN Revenue mensual estimado por Helium 10 Xray · 24 jul 2026. Filas en naranja = ASINs Kativa.</p>
+</div>
+
+<!-- SECTION 3: REVENUE MAP (bars) -->
+<div class="section">
+  <div class="sec-title">Revenue por Competidor <span class="sec-badge">€/mes estimado H10</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div>
+      <p style="font-size:11px;color:var(--gray);margin-bottom:12px;">Competidores principales (ASIN revenue individual)</p>
+      <div class="rev-bars" id="rev-bars-comp"></div>
+    </div>
+    <div>
+      <p style="font-size:11px;color:var(--gray);margin-bottom:12px;">Portfolio Kativa — ASINs activos</p>
+      <div class="rev-bars" id="rev-bars-kativa"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: ANÁLISIS POR SEGMENTO -->
+<div class="section">
+  <div class="sec-title">Análisis por Segmento de Competencia</div>
+  <div class="seg-grid">
+
+    <!-- BRÉSILIEN MASIVO -->
+    <div class="seg-card bres">
+      <span class="seg-label sl-bres">Lissage Brésilien</span>
+      <div style="font-size:11px;color:var(--gray);margin-bottom:8px;">Competencia más directa · Volumen + KPIs críticos</div>
+      <div class="seg-item">
+        <div class="seg-brand">SI SHINY <span class="badge b-red" style="margin-left:4px;">⚠ CRÍTICO</span></div>
+        <div class="seg-rev" style="color:var(--red)">€35.358/mes</div>
+        <div class="seg-meta"><a class="asin-link" href="https://www.amazon.fr/dp/B0F68KGQ59" target="_blank">B0F68KGQ59</a> · €34,99 · BSR 1.137 · ★4,0 · ABA #2 · 275 rev.</div>
+        <div class="seg-meta" style="color:var(--red);font-size:10px;margin-top:2px;">15 meses · Sponsoreado · Supera Kativa en revenue</div>
+      </div>
+      <div class="seg-item">
+        <div class="seg-brand">Garnier Fructis <span class="badge b-red" style="margin-left:4px;">NUEVO</span></div>
+        <div class="seg-rev" style="color:var(--amber)">€13.175/mes</div>
+        <div class="seg-meta"><a class="asin-link" href="https://www.amazon.fr/dp/B0FVG2YLD1" target="_blank">B0FVG2YLD1</a> · €19,90 · BSR 478 · ★4,5 · 97 rev.</div>
+        <div class="seg-meta" style="font-size:10px;color:var(--gray);">7 meses · Respaldo L'Oréal · AMZ Fulfillment</div>
+      </div>
+      <div class="seg-item">
+        <div class="seg-brand">Baaliso <span class="badge b-orange" style="margin-left:4px;">EMERGENTE</span></div>
+        <div class="seg-rev" style="color:var(--amber)">€5.596/mes</div>
+        <div class="seg-meta"><a class="asin-link" href="https://www.amazon.fr/dp/B0FYQ7Z695" target="_blank">B0FYQ7Z695</a> · €35,99 · BSR 6.779 · ★3,8 · 138 rev.</div>
+      </div>
+      <div class="seg-item">
+        <div class="seg-brand">Choü · Made in France</div>
+        <div class="seg-rev" style="color:var(--gray)">€4.371/mes</div>
+        <div class="seg-meta"><a class="asin-link" href="https://www.amazon.fr/dp/B0FBBYPN1Z" target="_blank">B0FBBYPN1Z</a> · €54,90 · BSR 9.928 · ★3,6 · 148 rev.</div>
+      </div>
+    </div>
+
+    <!-- INDIEN / TANIN -->
+    <div class="seg-card ind">
+      <span class="seg-label sl-ind">Indien · Tanin</span>
+      <div style="font-size:11px;color:var(--gray);margin-bottom:8px;">Segmento de mayor oportunidad de keyword · baja cobertura</div>
+      <div class="seg-item">
+        <div class="seg-brand">Iniya <span class="badge b-purple" style="margin-left:4px;">LÍDER SEGMENTO</span></div>
+        <div class="seg-rev" style="color:var(--purple)">€34.545/mes (parent)</div>
+        <div class="seg-meta"><a class="asin-link" href="https://www.amazon.fr/dp/B0CMKP7BJJ" target="_blank">B0CMKP7BJJ</a> · €49,90 · BSR 2.411 · ★3,8 · 299 rev.</div>
+        <div class="seg-meta" style="font-size:10px;color:var(--purple);">Revenue parent = múltiples ASINs · oportunidad PAT</div>
+      </div>
+      <div class="seg-item">
+        <div class="seg-brand">Romanti-K (Tanin)</div>
+        <div class="seg-rev" style="color:var(--gray)">€1.637/mes</div>
+        <div class="seg-meta"><a class="asin-link" href="https://www.amazon.fr/dp/B09NQNP5SD" target="_blank">B09NQNP5SD</a> · €24,99 · BSR 13.116 · ★3,8 · 452 rev.</div>
+      </div>
+      <div class="seg-item">
+        <div class="seg-brand">Lissara (Tanin)</div>
+        <div class="seg-rev" style="color:var(--gray)">€548/mes</div>
+        <div class="seg-meta"><a class="asin-link" href="https://www.amazon.fr/dp/B08CMV3C9L" target="_blank">B08CMV3C9L</a> · €59,99 · BSR 9.467 · ★3,6 · 720 rev.</div>
+      </div>
+      <div style="margin-top:10px;background:#F5EEF8;border-radius:6px;padding:10px;font-size:11px;border-left:3px solid var(--purple);">
+        💡 <strong>Oportunidad:</strong> "lissage indien" ya convierte en Auto (ROAS 6,28x) y "tanin" también (ROAS 4,83x). Migrar a exact match permite controlar la puja de forma independiente y escalar con mayor precisión.
+      </div>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="seg-card prem">
+      <span class="seg-label sl-prem">Premium · Profesional</span>
+      <div style="font-size:11px;color:var(--gray);margin-bottom:8px;">Precio medio €60–130 · tickets altos · bajo volumen</div>
+      <div class="seg-item">
+        <div class="seg-brand">Demeliss (Lisseur + Kit)</div>
+        <div class="seg-rev" style="color:var(--amber)">€110.240/mes (parent)</div>
+        <div class="seg-meta"><a class="asin-link" href="https://www.amazon.fr/dp/B0BK9L8DN9" target="_blank">B0BK9L8DN9</a> · €59,90 · BSR 269 · ★4,4 · 491 rev.</div>
+        <div class="seg-meta" style="font-size:10px;color:var(--gray);">Lisseur vapeur + kératine — categoría diferente (device)</div>
+      </div>
+      <div class="seg-item">
+        <div class="seg-brand">SALVATORE (Taninoplastie)</div>
+        <div class="seg-rev" style="color:var(--amber)">€15.708/mes</div>
+        <div class="seg-meta"><a class="asin-link" href="https://www.amazon.fr/dp/B077WBYPFS" target="_blank">B077WBYPFS</a> · €130 · BSR 6.961 · ★3,9 · 1.058 rev.</div>
+        <div class="seg-meta" style="font-size:10px;color:var(--gray);">Kit de 2 · target profesionales/salones</div>
+      </div>
+      <div class="seg-item">
+        <div class="seg-brand">EM2H Cosmetics</div>
+        <div class="seg-rev" style="color:var(--gray)">€7.736/mes</div>
+        <div class="seg-meta"><a class="asin-link" href="https://www.amazon.fr/dp/B076YCFG53" target="_blank">B076YCFG53</a> · €101,98 · BSR 13.424 · ★3,9 · 597 rev.</div>
+      </div>
+      <div style="margin-top:10px;background:#FEF9E7;border-radius:6px;padding:10px;font-size:11px;border-left:3px solid var(--amber);">
+        💡 <strong>Oportunidad:</strong> Kativa tiene margen para crear un formato premium 2x concentración a €39–49 que capture este segmento sin competir por precio con SI SHINY.
+      </div>
+    </div>
+
+    <!-- DÉFRISANTS -->
+    <div class="seg-card def">
+      <span class="seg-label sl-def">Défrisants · Afro</span>
+      <div style="font-size:11px;color:var(--gray);margin-bottom:8px;">Segmento sin presencia Kativa · alta oportunidad</div>
+      <div class="seg-item">
+        <div class="seg-brand">Dark &amp; Lovely</div>
+        <div class="seg-rev" style="color:var(--teal)">€10.594/mes</div>
+        <div class="seg-meta"><a class="asin-link" href="https://www.amazon.fr/dp/B014MI40JC" target="_blank">B014MI40JC</a> · €15 · BSR 1.450 · ★4,3 · 516 rev.</div>
+      </div>
+      <div class="seg-item">
+        <div class="seg-brand">African Pride (Super Kit)</div>
+        <div class="seg-rev" style="color:var(--gray)">€3.849/mes</div>
+        <div class="seg-meta"><a class="asin-link" href="https://www.amazon.fr/dp/B00LG2X2Q0" target="_blank">B00LG2X2Q0</a> · €15,79 · BSR 6.062 · ★4,0 · 1.613 rev.</div>
+      </div>
+      <div class="seg-item">
+        <div class="seg-brand">TCB / Activilong</div>
+        <div class="seg-rev" style="color:var(--gray)">€2.300/mes (estimado)</div>
+        <div class="seg-meta">Múltiples ASINs · BSR &gt;15K · Volumen bajo individual</div>
+      </div>
+      <div style="margin-top:10px;background:#E0F2F1;border-radius:6px;padding:10px;font-size:11px;border-left:3px solid var(--teal);">
+        💡 <strong>Oportunidad Ads:</strong> "défrisage cheveux afro sans soude" IQ 47.141 con solo 64 competidores. Kativa SP Défrisants ya tiene ACOS 15,9% — escalar +30%.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 5: AMENAZAS EMERGENTES -->
+<div class="section">
+  <div class="sec-title">Amenazas Emergentes · Nuevos Entrantes 2025–2026 <span class="sec-badge red">4 detectados</span></div>
+
+  <div class="threat-grid">
+    <div class="threat-card threat-crit">
+      <div class="threat-level"><span class="threat-badge-crit">AMENAZA CRÍTICA</span><span style="font-size:11px;color:var(--gray);">ABA #2 · Activo</span></div>
+      <div class="threat-brand">SI SHINY</div>
+      <div style="font-size:11px;color:var(--gray);">B0F68KGQ59 · Lissage Brésilien Premium · FBA · Sin país</div>
+      <div class="threat-rev r">€35.358/mes</div>
+      <div class="threat-meta">€34,99 · BSR 1.137 · ★4,0 · 275 reviews · Lanzado abr 2025 (15 meses)</div>
+      <ul class="threat-bullets">
+        <li>Revenue MAYOR que el ASIN #1 de Kativa (€35K vs €19K)</li>
+        <li>Precio 2,3x superior a Kativa (€34,99 vs €15,22) — margen más alto</li>
+        <li>ABA #2 en lissage brésilien — posición premium sólida en solo 15 meses</li>
+        <li>Sponsoreado activamente · sin reseñas negativas masivas detectadas</li>
+        <li><strong>Acción urgente:</strong> PAT targeting directo sobre B0F68KGQ59</li>
+      </ul>
+    </div>
+
+    <div class="threat-card threat-warn">
+      <div class="threat-level"><span class="threat-badge-warn">AMENAZA ALTA</span><span style="font-size:11px;color:var(--gray);">Masivo · Respaldo L'Oréal</span></div>
+      <div class="threat-brand">Garnier Fructis Kératine</div>
+      <div style="font-size:11px;color:var(--gray);">B0FVG2YLD1 · Routine Kératine 3 productos · AMZ · Dic 2025</div>
+      <div class="threat-rev a">€13.175/mes</div>
+      <div class="threat-meta">€19,90 · BSR 478 · ★4,5 · 97 reviews · Solo 7 meses en mercado</div>
+      <ul class="threat-bullets">
+        <li>BSR 478 con solo 97 reviews — trayectoria de crecimiento muy agresiva</li>
+        <li>Precio competitivo (€19,90) con nota ★4,5 = mejor score que Kativa</li>
+        <li>Distribución AMZ Fulfilled — máxima visibilidad y Prime badge</li>
+        <li>Respaldo publicitario Garnier/L'Oréal — recursos ilimitados</li>
+        <li><strong>Acción:</strong> Monitorización semanal BSR + acción defensiva en KW brand</li>
+      </ul>
+    </div>
+
+    <div class="threat-card threat-warn">
+      <div class="threat-level"><span class="threat-badge-warn">EMERGENTE</span><span style="font-size:11px;color:var(--gray);">Oct 2025 · Creciendo</span></div>
+      <div class="threat-brand">Baaliso</div>
+      <div style="font-size:11px;color:var(--gray);">B0FYQ7Z695 · Lissage Premium 150ml · FBA · Oct 2025</div>
+      <div class="threat-rev a">€5.596/mes</div>
+      <div class="threat-meta">€35,99 · BSR 6.779 · ★3,8 · 138 reviews · 9 meses de vida</div>
+      <ul class="threat-bullets">
+        <li>Posicionado en precio premium (€35,99) similar a SI SHINY</li>
+        <li>BSR 6.779 en 9 meses — velocidad de reviews de 7/mes activa</li>
+        <li>Formato 150ml diferente al kit Kativa — propuesta distinta</li>
+        <li><strong>Acción:</strong> Seguimiento mensual BSR y reviews</li>
+      </ul>
+    </div>
+
+    <div class="threat-card threat-warn">
+      <div class="threat-level"><span class="threat-badge-warn">EMERGENTE</span><span style="font-size:11px;color:var(--gray);">Made in France · Jul 2025</span></div>
+      <div class="threat-brand">Choü</div>
+      <div style="font-size:11px;color:var(--gray);">B0FBBYPN1Z · Lissage Premium Bio · FBA · Jul 2025</div>
+      <div class="threat-rev a">€4.371/mes</div>
+      <div class="threat-meta">€54,90 · BSR 9.928 · ★3,6 · 148 reviews · 12 meses de vida</div>
+      <ul class="threat-bullets">
+        <li>Unique selling point "Fabriqué en France" + apto embarazadas/niños</li>
+        <li>Precio premium €54,90 con formato 250ml (3–4 aplicaciones)</li>
+        <li>Nota ★3,6 baja — oportunidad defensiva con reviews Kativa</li>
+        <li><strong>Acción:</strong> Baja prioridad por nota baja — monitorizar</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: POSICIONAMIENTO / BUBBLE CHART -->
+<div class="section">
+  <div class="sec-title">Posicionamiento Kativa en el Mercado <span class="sec-badge">Precio × Rating × Revenue</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+    <div class="chart-wrap">
+      <h3>Precio vs Rating · Tamaño = Revenue mensual</h3>
+      <div class="chart-sub">Cada burbuja es un competidor · La posición ideal es arriba-izquierda (barato + bien valorado)</div>
+      <canvas id="bubbleChart" height="300"></canvas>
+      <div class="legend-row" style="margin-top:10px;">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div>Kativa</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>Comp. Crítico</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Masivo</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div>Premium</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div>Indien/Tanin</div>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <h3>Revenue mensual · Top competitors (€)</h3>
+      <div class="chart-sub">Comparativa directa de facturación estimada H10</div>
+      <canvas id="revenueChart" height="300"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: ANÁLISIS DE KEYWORDS -->
+<div class="section">
+  <div class="sec-title">Análisis de Keywords · Oportunidades y Priorización <span class="sec-badge">Helium 10 Cerebro · Jul 2026</span></div>
+
+  <div style="overflow-x:auto;">
+  <table>
+    <thead>
+      <tr>
+        <th>Keyword</th>
+        <th class="t-right">IQ Score</th>
+        <th class="t-right">Volumen/mes</th>
+        <th class="t-center">Tendencia</th>
+        <th class="t-right">Competidores</th>
+        <th class="t-right">CPC Est.</th>
+        <th class="t-center">IQ Visual</th>
+        <th class="t-center">Oportunidad</th>
+        <th>Recomendación Kativa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>kavira cheveux</strong></td>
+        <td class="t-right"><strong style="color:var(--green)">58.882</strong></td>
+        <td class="t-right">3.003</td>
+        <td class="t-center"><span class="kw-trend-up">+386%</span></td>
+        <td class="t-right">51</td>
+        <td class="t-right">€0,67</td>
+        <td><div class="kw-iq-bar"><div class="kw-iq-fill" style="width:100%;background:var(--green)"></div></div></td>
+        <td class="t-center"><span class="opp-pill opp-max">URGENTE</span></td>
+        <td>Campaña Brand Protection inmediata — capturar misspelling</td>
+      </tr>
+      <tr>
+        <td><strong>lissage indien</strong></td>
+        <td class="t-right"><strong style="color:var(--green)">52.017</strong></td>
+        <td class="t-right">8.999</td>
+        <td class="t-center"><span class="kw-trend-flat">+5</span></td>
+        <td class="t-right">173</td>
+        <td class="t-right">€0,89</td>
+        <td><div class="kw-iq-bar"><div class="kw-iq-fill" style="width:88%;background:var(--green)"></div></div></td>
+        <td class="t-center"><span class="opp-pill opp-max">ALTA</span></td>
+        <td>Ya convierte vía Auto (ROAS 6,28x) · Migrar a exact match para controlar puja y escalar</td>
+      </tr>
+      <tr>
+        <td><strong>defrisage cheveux afro sans soude</strong></td>
+        <td class="t-right"><strong style="color:var(--green)">47.141</strong></td>
+        <td class="t-right">3.017</td>
+        <td class="t-center"><span class="kw-trend-dn">−6</span></td>
+        <td class="t-right">64</td>
+        <td class="t-right">€0,42</td>
+        <td><div class="kw-iq-bar"><div class="kw-iq-fill" style="width:80%"></div></div></td>
+        <td class="t-center"><span class="opp-pill opp-max">ALTA</span></td>
+        <td>Escalar SP Défrisants · ACOS 15,9% ya rentable · +30% budget</td>
+      </tr>
+      <tr>
+        <td><strong>lissage tanin</strong></td>
+        <td class="t-right">24.947</td>
+        <td class="t-right">6.087</td>
+        <td class="t-center"><span class="kw-trend-flat">+3</span></td>
+        <td class="t-right">244</td>
+        <td class="t-right">€0,90</td>
+        <td><div class="kw-iq-bar"><div class="kw-iq-fill" style="width:42%"></div></div></td>
+        <td class="t-center"><span class="opp-pill opp-high">MEDIA</span></td>
+        <td>Ya convierte vía Auto (ROAS 4,83x) · Migrar a exact match · Romanti-K e Iniya como PAT activos</td>
+      </tr>
+      <tr>
+        <td><strong>lissage bresilien</strong></td>
+        <td class="t-right">21.568</td>
+        <td class="t-right">14.343</td>
+        <td class="t-center"><span class="kw-trend-flat">+6</span></td>
+        <td class="t-right">665</td>
+        <td class="t-right">€0,59</td>
+        <td><div class="kw-iq-bar"><div class="kw-iq-fill" style="width:37%"></div></div></td>
+        <td class="t-center"><span class="opp-pill opp-med">ACTIVO</span></td>
+        <td>Ya en campaña principal · Mayor volumen del mercado · Defender</td>
+      </tr>
+      <tr>
+        <td><strong>remington keratin protect</strong></td>
+        <td class="t-right">19.250</td>
+        <td class="t-right">2.002</td>
+        <td class="t-center"><span class="kw-trend-dn">−36%</span></td>
+        <td class="t-right">104</td>
+        <td class="t-right">€0,56</td>
+        <td><div class="kw-iq-bar"><div class="kw-iq-fill" style="width:33%"></div></div></td>
+        <td class="t-center"><span class="opp-pill opp-high">MEDIA</span></td>
+        <td>Intención diferente (aparato) — PAT sobre Remington ASINs</td>
+      </tr>
+      <tr>
+        <td><strong>kativa lissage brésilien</strong></td>
+        <td class="t-right">14.312</td>
+        <td class="t-right">2.891</td>
+        <td class="t-center"><span class="kw-trend-up">+9</span></td>
+        <td class="t-right">202</td>
+        <td class="t-right">€0,63</td>
+        <td><div class="kw-iq-bar"><div class="kw-iq-fill" style="width:24%"></div></div></td>
+        <td class="t-center"><span class="opp-pill opp-med">BRAND</span></td>
+        <td>Brand KW · ACOS 10,8% · Escalar +20% budget</td>
+      </tr>
+      <tr>
+        <td><strong>kit lissage bresilien</strong></td>
+        <td class="t-right">6.347</td>
+        <td class="t-right">1.701</td>
+        <td class="t-center"><span class="kw-trend-up">+9</span></td>
+        <td class="t-right">268</td>
+        <td class="t-right">€0,77</td>
+        <td><div class="kw-iq-bar"><div class="kw-iq-fill" style="width:11%"></div></div></td>
+        <td class="t-center"><span class="opp-pill opp-med">ACTIVO</span></td>
+        <td>Incluido en SP Genéricas · Verificar bid optimizado</td>
+      </tr>
+      <tr>
+        <td><strong>lissage nano indien</strong></td>
+        <td class="t-right">4.529</td>
+        <td class="t-right">1.001</td>
+        <td class="t-center"><span class="kw-trend-up">+19</span></td>
+        <td class="t-right">221</td>
+        <td class="t-right">€0,76</td>
+        <td><div class="kw-iq-bar"><div class="kw-iq-fill" style="width:8%"></div></div></td>
+        <td class="t-center"><span class="opp-pill opp-pro">TENDENCIA</span></td>
+        <td>Crecimiento +19% · Añadir en exact match con bid conservador</td>
+      </tr>
+      <tr>
+        <td><strong>dessange keratine morphose</strong></td>
+        <td class="t-right">10.530</td>
+        <td class="t-right">2.422</td>
+        <td class="t-center"><span class="kw-trend-dn">−34%</span></td>
+        <td class="t-right">230</td>
+        <td class="t-right">€0,84</td>
+        <td><div class="kw-iq-bar"><div class="kw-iq-fill" style="width:18%"></div></div></td>
+        <td class="t-center"><span class="opp-pill opp-med">PAT</span></td>
+        <td>Tendencia −34% · PAT targeting sobre ASINs Dessange</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;">
+    <div style="background:var(--orange-xl);border-left:3px solid var(--orange);border-radius:6px;padding:12px;">
+      <strong style="font-size:11px;display:block;margin-bottom:6px;">🚨 ACCIÓN URGENTE — Esta semana</strong>
+      <p style="font-size:11px;color:var(--dark);">Activar campaña de Brand Protection para "kavira cheveux" (IQ 58.882, +386% trend, 3.003 búsquedas/mes). Término con tracción creciente que aún no tiene cobertura publicitaria — oportunidad directa de captura de demanda de marca.</p>
+    </div>
+    <div style="background:#EAFAF1;border-left:3px solid var(--green);border-radius:6px;padding:12px;">
+      <strong style="font-size:11px;display:block;margin-bottom:6px;">📈 QUICK WIN — Próximas 2 semanas</strong>
+      <p style="font-size:11px;color:var(--dark);">Consolidar "lissage indien" (ROAS 6,28x en Auto) y "lissage tanin" (ROAS 4,83x) en exact match. Controlar puja de forma independiente mejora eficiencia sin perder el volumen ya capturado. CPC estimado €0,89.</p>
+    </div>
+    <div style="background:#EAF2FF;border-left:3px solid var(--blue);border-radius:6px;padding:12px;">
+      <strong style="font-size:11px;display:block;margin-bottom:6px;">🎯 ESTRATÉGICO — 30 días</strong>
+      <p style="font-size:11px;color:var(--dark);">Escalar SP Défrisants +30% con foco en "défrisage cheveux afro sans soude" (64 competidores, CPC €0,42 el más bajo). Captura segmento sin cobertura Kativa.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 8: PACVUE ADS H1 2026 -->
+<div class="section">
+  <div class="sec-title">Rendimiento Publicitario Kativa · Pacvue H1 2026 <span class="sec-badge green">Kativa · Sin UNIQ MADE</span></div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card" style="border-top-color:var(--green)">
+      <div class="kpi-lbl">Spend Kativa H1</div>
+      <div class="kpi-val" style="color:var(--green)">€13.409</div>
+      <div class="kpi-ctx">9 campañas · SP + SD + SBV</div>
+    </div>
+    <div class="kpi-card" style="border-top-color:var(--green)">
+      <div class="kpi-lbl">Ventas Atribuidas Ads</div>
+      <div class="kpi-val" style="color:var(--green)">€77.648</div>
+      <div class="kpi-ctx">ROAS global 5,8x</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-lbl">ACOS Global</div>
+      <div class="kpi-val" style="color:var(--orange)">17,3%</div>
+      <div class="kpi-ctx">Brand KW: 10,8% · mejor campaña</div>
+    </div>
+    <div class="kpi-card" style="border-top-color:var(--blue)">
+      <div class="kpi-lbl">Pedidos Totales</div>
+      <div class="kpi-val" style="color:var(--blue)">4.551</div>
+      <div class="kpi-ctx">Media ROAS por campaña: 5,5x</div>
+    </div>
+  </div>
+
+  <div style="overflow-x:auto;">
+  <table>
+    <thead>
+      <tr>
+        <th>Campaña</th>
+        <th class="t-center">Tipo</th>
+        <th class="t-right">Spend H1</th>
+        <th class="t-right">Ventas H1</th>
+        <th class="t-center">ACOS</th>
+        <th class="t-center">ROAS</th>
+        <th class="t-right">Pedidos</th>
+        <th class="t-right">CTR</th>
+        <th class="t-center">Acción Recomendada</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>SP – Brand Keywords ⭐</td>
+        <td class="t-center"><span class="badge b-green">SP</span></td>
+        <td class="t-right">€2.424</td>
+        <td class="t-right">€22.540</td>
+        <td class="t-center"><span class="acos-g">10,8%</span></td>
+        <td class="t-center" style="font-weight:700;color:var(--green)">9,30x</td>
+        <td class="t-right">1.434</td>
+        <td class="t-right">4,82%</td>
+        <td class="t-center">⭐ +20% budget urgente</td>
+      </tr>
+      <tr>
+        <td>SP – KW Genéricas (Alisados)</td>
+        <td class="t-center"><span class="badge b-green">SP</span></td>
+        <td class="t-right">€4.046</td>
+        <td class="t-right">€20.868</td>
+        <td class="t-center"><span class="acos-y">19,4%</span></td>
+        <td class="t-center">5,16x</td>
+        <td class="t-right">1.314</td>
+        <td class="t-right">2,30%</td>
+        <td class="t-center">✅ Añadir "indien" + "tanin"</td>
+      </tr>
+      <tr>
+        <td>SP – ASINs Competencia (PAT)</td>
+        <td class="t-center"><span class="badge b-green">SP</span></td>
+        <td class="t-right">€2.572</td>
+        <td class="t-right">€11.934</td>
+        <td class="t-center"><span class="acos-y">21,6%</span></td>
+        <td class="t-center">4,64x</td>
+        <td class="t-right">789</td>
+        <td class="t-right">8,26%</td>
+        <td class="t-center">🎯 Añadir SI SHINY · Iniya activo</td>
+      </tr>
+      <tr>
+        <td>SP – Categoría Défrisants</td>
+        <td class="t-center"><span class="badge b-green">SP</span></td>
+        <td class="t-right">€1.018</td>
+        <td class="t-right">€6.383</td>
+        <td class="t-center"><span class="acos-g">15,9%</span></td>
+        <td class="t-center">6,27x</td>
+        <td class="t-right">464</td>
+        <td class="t-right">1,13%</td>
+        <td class="t-center">🚀 +30% budget</td>
+      </tr>
+      <tr>
+        <td>SP – Brand Products</td>
+        <td class="t-center"><span class="badge b-green">SP</span></td>
+        <td class="t-right">€998</td>
+        <td class="t-right">€4.320</td>
+        <td class="t-center"><span class="acos-y">23,1%</span></td>
+        <td class="t-center">4,33x</td>
+        <td class="t-right">279</td>
+        <td class="t-right">3,96%</td>
+        <td class="t-center">⚠️ Optimizar bids</td>
+      </tr>
+      <tr>
+        <td>SP – Auto (Top Ventas)</td>
+        <td class="t-center"><span class="badge b-green">SP</span></td>
+        <td class="t-right">€916</td>
+        <td class="t-right">€4.628</td>
+        <td class="t-center"><span class="acos-y">19,8%</span></td>
+        <td class="t-center">5,05x</td>
+        <td class="t-right">303</td>
+        <td class="t-right">1,02%</td>
+        <td class="t-center">✅ Harvest KWs nuevas</td>
+      </tr>
+      <tr>
+        <td>SP – Post Alisado Auto</td>
+        <td class="t-center"><span class="badge b-green">SP</span></td>
+        <td class="t-right">€613</td>
+        <td class="t-right">€3.136</td>
+        <td class="t-center"><span class="acos-y">19,6%</span></td>
+        <td class="t-center">5,11x</td>
+        <td class="t-right">236</td>
+        <td class="t-right">0,74%</td>
+        <td class="t-center">✅ Cross-sell productos</td>
+      </tr>
+      <tr>
+        <td>SD – All Products Remarketing</td>
+        <td class="t-center"><span class="badge b-orange">SD</span></td>
+        <td class="t-right">€512</td>
+        <td class="t-right">€2.506</td>
+        <td class="t-center"><span class="acos-y">20,4%</span></td>
+        <td class="t-center">4,90x</td>
+        <td class="t-right">157</td>
+        <td class="t-right">0,22%</td>
+        <td class="t-center">✅ Retención activa</td>
+      </tr>
+      <tr>
+        <td>SBV – Categoría Défrisants</td>
+        <td class="t-center"><span class="badge b-blue">SBV</span></td>
+        <td class="t-right">€227</td>
+        <td class="t-right">€1.151</td>
+        <td class="t-center"><span class="acos-y">19,7%</span></td>
+        <td class="t-center">5,08x</td>
+        <td class="t-right">72</td>
+        <td class="t-right">1,78%</td>
+        <td class="t-center">✅ Awareness · Mantener</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- SECTION 9: FUGAS DE VENTAS -->
+<div class="section">
+  <div class="sec-title">Oportunidades de Mejora · Áreas de Crecimiento Prioritarias</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;">
+    <div style="background:#FFF0F0;border:1px solid #FDEDEC;border-left:4px solid var(--red);border-radius:8px;padding:16px;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--red);margin-bottom:8px;">🔴 PRIORIDAD ALTA</div>
+      <strong style="font-size:13px;">Segmento premium sin cubrir</strong>
+      <p style="font-size:12px;color:var(--gray);margin-top:6px;line-height:1.6;">SI SHINY captura €35.358/mes en el rango €30–40 que Kativa no cubre. Los clientes que quieren gastar más de €20 van directo a SI SHINY. <strong>Impacto estimado: −€15K/mes en revenue potencial.</strong></p>
+    </div>
+    <div style="background:#FFF8F2;border:1px solid #FFE0C4;border-left:4px solid var(--orange);border-radius:8px;padding:16px;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--orange);margin-bottom:8px;">🟠 OPORTUNIDAD MARCA</div>
+      <strong style="font-size:13px;">"kavira cheveux" sin capturar</strong>
+      <p style="font-size:12px;color:var(--gray);margin-top:6px;line-height:1.6;">3.003 búsquedas/mes con IQ 58.882 y trend +386%. Clientes que buscan Kativa por error van a competidores. <strong>Sin campaña de brand protection activa.</strong></p>
+    </div>
+    <div style="background:#FFF8F2;border:1px solid #FFE0C4;border-left:4px solid var(--orange);border-radius:8px;padding:16px;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--orange);margin-bottom:8px;">🟠 OPORTUNIDAD DE ESCALA</div>
+      <strong style="font-size:13px;">Segmento indien/tanin: de Auto a exact match</strong>
+      <p style="font-size:12px;color:var(--gray);margin-top:6px;line-height:1.6;">Kativa ya capta "lissage indien" y "tanin" vía campañas Auto con ROAS 6,28x y 4,83x respectivamente. Iniya lidera el segmento con €34.545/mes (parent) a €49,90. <strong>Migrar a exact match permite escalar esta demanda ya probada con mayor control de puja.</strong></p>
+    </div>
+    <div style="background:#F5F5F5;border:1px solid #E0E0E0;border-left:4px solid var(--gray);border-radius:8px;padding:16px;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:8px;">⚪ MEJORA ORGÁNICA</div>
+      <strong style="font-size:13px;">★3,9 vs competencia ★4.4–4.5</strong>
+      <p style="font-size:12px;color:var(--gray);margin-top:6px;line-height:1.6;">Garnier ★4,5, Demeliss ★4,4, OGX ★4,4. Kativa ASIN principal ★3,9. Con el mismo BSR 235, una nota 0,2 puntos superior podría aumentar conversión significativamente.</p>
+    </div>
+    <div style="background:#F5F5F5;border:1px solid #E0E0E0;border-left:4px solid var(--gray);border-radius:8px;padding:16px;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:8px;">⚪ ESCALA DÉFRISANTS</div>
+      <strong style="font-size:13px;">Segmento Afro sin presencia</strong>
+      <p style="font-size:12px;color:var(--gray);margin-top:6px;line-height:1.6;">Dark &amp; Lovely €10.594/mes + African Pride €3.849/mes. Kativa tiene campaña SP Défrisants (ACOS 15,9%) pero no capta todo el potencial de "défrisage sans soude" (IQ 47.141, 64 competitors).</p>
+    </div>
+    <div style="background:#F5F5F5;border:1px solid #E0E0E0;border-left:4px solid var(--gray);border-radius:8px;padding:16px;">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:8px;">⚪ OPORTUNIDAD PAT</div>
+      <strong style="font-size:13px;">Iniya BSR 2.411 sin targeting</strong>
+      <p style="font-size:12px;color:var(--gray);margin-top:6px;line-height:1.6;">Iniya ★3,8 — nota baja con alta demanda (€34.545/mes parent). Es un target PAT ideal: el cliente visita el listing y la nota baja genera dudas. Kativa puede capturar esa indecisión.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 10: PLAN DE ACCIÓN -->
+<div class="section">
+  <div class="sec-title">Plan de Acción · 3 Horizontes</div>
+  <div class="action-grid">
+
+    <div class="action-card">
+      <div class="action-hdr ah-g">Quick Wins · 0–2 Semanas</div>
+      <div class="action-body">
+        <div class="action-item"><div class="adot g"></div><div><strong>Brand KW +20% budget.</strong> ACOS 10,8% / ROAS 9,3x: campaña más eficiente. De ~€400 a €480/mes = +€750 ventas atribuidas.</div></div>
+        <div class="action-item"><div class="adot g"></div><div><strong>Campaña "kavira cheveux" urgente.</strong> IQ 58.882, +386% trend, 3.003 búsquedas. Exact match brand protection. CPC estimado €0,67.</div></div>
+        <div class="action-item"><div class="adot g"></div><div><strong>SP Défrisants +30% budget.</strong> ACOS 15,9% / ROAS 6,3x con "défrisage sans soude" IQ 47.141 y 64 competidores.</div></div>
+        <div class="action-item"><div class="adot g"></div><div><strong>Incorporar SI SHINY</strong> (B0F68KGQ59) a la campaña ASINs Competencia. Es el competidor de mayor revenue del segmento (€35.358/mes) y el único de este calibre aún no cubierto en PAT. En incorporación.</div></div>
+      </div>
+    </div>
+
+    <div class="action-card">
+      <div class="action-hdr ah-o">Medio Plazo · 2–8 Semanas</div>
+      <div class="action-body">
+        <div class="action-item"><div class="adot o"></div><div><strong>Consolidar "lissage indien" + "lissage tanin" en exact match.</strong> Ambos términos ya convierten en Auto (ROAS 6,28x y 4,83x). Exact match independiente permite controlar puja y escalar sin depender de la lógica automática.</div></div>
+        <div class="action-item"><div class="adot o"></div><div><strong>Ampliar cobertura PAT en ASINs Competencia.</strong> Iniya (B0CMKP7BJJ), Salvatore, Choü, Lissara y otros ya están activos como targets. Priorizar SI SHINY (B0F68KGQ59) como siguiente incorporación — el de mayor volumen del segmento.</div></div>
+        <div class="action-item"><div class="adot o"></div><div><strong>Plan de mejora de reviews ASIN principal.</strong> Pasar de ★3,9 a ★4,2 puede mejorar conversión 10–15% en BSR 235. Programa Request a Review en últimas 30 órdenes.</div></div>
+        <div class="action-item"><div class="adot o"></div><div><strong>Monitorización semanal Garnier BSR.</strong> Con solo 7 meses y BSR 478, crecer a BSR &lt;200 en 6 meses es plausible. Necesita respuesta defensiva.</div></div>
+      </div>
+    </div>
+
+    <div class="action-card">
+      <div class="action-hdr ah-b">Estratégico · 2–6 Meses</div>
+      <div class="action-body">
+        <div class="action-item"><div class="adot b"></div><div><strong>Evaluar nuevo SKU premium €35–49.</strong> SI SHINY genera más revenue a €34,99 que Kativa a €15,22. Un kit concentrado o formato XL puede competir en precio alto sin canibalizar.</div></div>
+        <div class="action-item"><div class="adot b"></div><div><strong>Reforzar relevancia orgánica en "lissage indien" y "tanin".</strong> Las campañas Auto confirman que el algoritmo ya asocia estos términos con el ASIN. Incorporarlos en bullets y backend search terms consolida la señal de relevancia y puede mejorar el ranking orgánico en esos segmentos.</div></div>
+        <div class="action-item"><div class="adot b"></div><div><strong>SBV o DSP para awareness vs Garnier.</strong> Garnier tiene respaldo masivo. Kativa necesita construir reconocimiento de marca en el segmento masivo con vídeo antes de que BSR de Garnier baje más.</div></div>
+        <div class="action-item"><div class="adot b"></div><div><strong>Revisión trimestral de amenazas emergentes.</strong> Baaliso y Choü pueden crecer. Definir trigger de acción (BSR &lt;3.000 o revenue &gt;€8K) para escalar respuesta.</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /page -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>📊 <strong>Fuentes:</strong> Helium 10 Xray 24/07/2026 (65 productos) · Helium 10 Cerebro Keywords (22 KWs) · Pacvue Ads MCP (profileId 4183069127142020) · Amazon.fr 2026</div>
+  <div style="white-space:nowrap">Elaborado por <strong>Roicos</strong> · Julio 2026 · Confidencial</div>
+</div>
+
+<script>
+/* ===== DATA ===== */
+const COMPS = [
+  {name:'SI SHINY',     price:34.99, rating:4.0, rev:35358, color:'rgba(192,57,43,0.85)'},
+  {name:'KATIVA (líder)',price:15.22,rating:3.9, rev:19718, color:'rgba(232,105,26,0.85)'},
+  {name:'Garnier',      price:19.90, rating:4.5, rev:13175, color:'rgba(39,174,96,0.8)'},
+  {name:'Demeliss',     price:59.90, rating:4.4, rev:12927, color:'rgba(217,119,6,0.8)'},
+  {name:'Dark & Lovely',price:15.00, rating:4.3, rev:10594, color:'rgba(0,150,136,0.8)'},
+  {name:'OGX Keratin',  price:7.95,  rating:4.4, rev:10213, color:'rgba(26,115,232,0.6)'},
+  {name:'SALVATORE',    price:130,   rating:3.9, rev:15708, color:'rgba(217,119,6,0.85)'},
+  {name:'Iniya',        price:49.90, rating:3.8, rev:6496,  color:'rgba(123,31,162,0.8)'},
+  {name:'EM2H',         price:101.98,rating:3.9, rev:7736,  color:'rgba(217,119,6,0.6)'},
+  {name:'Baaliso',      price:35.99, rating:3.8, rev:5596,  color:'rgba(192,57,43,0.5)'},
+  {name:'KATIVA B08',   price:21.90, rating:4.0, rev:7573,  color:'rgba(232,105,26,0.6)'},
+];
+
+/* ===== BUBBLE CHART (Price vs Rating) ===== */
+(function(){
+  const canvas = document.getElementById('bubbleChart');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.parentElement.clientWidth - 40 || 480;
+  const H = 300;
+  canvas.width = W; canvas.height = H;
+  const PAD = {l:50,r:30,t:20,b:40};
+  const plotW = W - PAD.l - PAD.r;
+  const plotH = H - PAD.t - PAD.b;
+  const maxRev = Math.max(...COMPS.map(c=>c.rev));
+  const minP = 5, maxP = 140;
+  const minR = 3.4, maxR = 4.7;
+
+  function px(price){ return PAD.l + (price - minP)/(maxP - minP)*plotW; }
+  function py(rating){ return PAD.t + plotH - (rating - minR)/(maxR - minR)*plotH; }
+  function br(rev){ return 8 + Math.sqrt(rev/maxRev)*32; }
+
+  // Grid
+  ctx.strokeStyle='#E8E8E8'; ctx.lineWidth=1;
+  [20,40,60,80,100,120].forEach(p=>{ ctx.beginPath();ctx.moveTo(px(p),PAD.t);ctx.lineTo(px(p),PAD.t+plotH);ctx.stroke(); });
+  [3.5,3.8,4.0,4.2,4.5].forEach(r=>{ ctx.beginPath();ctx.moveTo(PAD.l,py(r));ctx.lineTo(PAD.l+plotW,py(r));ctx.stroke(); });
+
+  // Axes labels
+  ctx.fillStyle='#6B6B6B'; ctx.font='10px Segoe UI'; ctx.textAlign='center';
+  [20,40,60,80,100,120].forEach(p=>{ ctx.fillText('€'+p, px(p), PAD.t+plotH+14); });
+  ctx.textAlign='right';
+  [3.5,3.8,4.0,4.2,4.5].forEach(r=>{ ctx.fillText('★'+r, PAD.l-5, py(r)+4); });
+  ctx.fillStyle='#2D2D2D'; ctx.font='bold 10px Segoe UI'; ctx.textAlign='center';
+  ctx.fillText('Precio (€)', PAD.l+plotW/2, H-4);
+
+  // Bubbles
+  COMPS.forEach(c=>{
+    const x=px(c.price), y=py(c.rating), r=br(c.rev);
+    ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2);
+    ctx.fillStyle=c.color; ctx.fill();
+    ctx.strokeStyle='rgba(255,255,255,0.5)'; ctx.lineWidth=1.5; ctx.stroke();
+    ctx.fillStyle='#2D2D2D'; ctx.font='bold 9px Segoe UI'; ctx.textAlign='center';
+    const shortName = c.name.split(' ')[0];
+    ctx.fillText(shortName, x, y - r - 4);
+  });
+})();
+
+/* ===== REVENUE BAR CHART ===== */
+(function(){
+  const canvas = document.getElementById('revenueChart');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.parentElement.clientWidth - 40 || 480;
+  const H = 300;
+  canvas.width = W; canvas.height = H;
+
+  const data = [
+    {name:'SI SHINY',   rev:35358, color:'rgba(192,57,43,0.85)'},
+    {name:'SALVATORE',  rev:15708, color:'rgba(217,119,6,0.85)'},
+    {name:'KATIVA #1',  rev:19718, color:'rgba(232,105,26,0.9)'},
+    {name:'Garnier',    rev:13175, color:'rgba(39,174,96,0.8)'},
+    {name:'Demeliss',   rev:12927, color:'rgba(217,119,6,0.7)'},
+    {name:'Dark&Lovely',rev:10594, color:'rgba(0,150,136,0.8)'},
+    {name:'OGX',        rev:10213, color:'rgba(26,115,232,0.7)'},
+    {name:'KATIVA B08', rev:7573,  color:'rgba(232,105,26,0.6)'},
+    {name:'EM2H',       rev:7736,  color:'rgba(217,119,6,0.5)'},
+    {name:'Iniya(ASIN)',rev:6496,  color:'rgba(123,31,162,0.7)'},
+  ];
+
+  const PAD={l:80,r:20,t:14,b:30};
+  const plotW = W - PAD.l - PAD.r;
+  const plotH = H - PAD.t - PAD.b;
+  const barH = Math.floor(plotH / data.length) - 5;
+  const maxRev = Math.max(...data.map(d=>d.rev));
+
+  ctx.fillStyle='#6B6B6B'; ctx.font='10px Segoe UI';
+  data.forEach((d,i)=>{
+    const y = PAD.t + i*(barH+5);
+    const bw = (d.rev/maxRev)*plotW;
+    ctx.fillStyle=d.color;
+    ctx.beginPath(); ctx.roundRect(PAD.l, y, bw, barH, 3); ctx.fill();
+    ctx.fillStyle='#2D2D2D'; ctx.font='10px Segoe UI'; ctx.textAlign='right';
+    ctx.fillText(d.name, PAD.l - 5, y + barH/2 + 3);
+    ctx.fillStyle='#fff'; ctx.font='bold 9px Segoe UI'; ctx.textAlign='left';
+    if(bw > 40) ctx.fillText('€'+d.rev.toLocaleString(), PAD.l + bw - 50, y + barH/2 + 3);
+  });
+})();
+
+/* ===== REVENUE BARS (DOM) ===== */
+function buildBars(id, items, maxRev){
+  const container = document.getElementById(id);
+  if(!container) return;
+  items.forEach(item=>{
+    const pct = Math.round((item.rev/maxRev)*100);
+    const row = document.createElement('div');
+    row.className='rev-row';
+    row.innerHTML=`<div class="rev-lbl">${item.name}</div>
+      <div class="rev-wrap">
+        <div class="rev-fill" style="width:${pct}%;background:${item.color}">
+          <span>€${item.rev.toLocaleString()}</span>
+        </div>
+      </div>`;
+    container.appendChild(row);
+  });
+}
+
+buildBars('rev-bars-comp',[
+  {name:'SI SHINY',    rev:35358, color:'rgba(192,57,43,0.85)'},
+  {name:'SALVATORE',   rev:15708, color:'rgba(217,119,6,0.85)'},
+  {name:'Garnier',     rev:13175, color:'rgba(39,174,96,0.8)'},
+  {name:'Demeliss',    rev:12927, color:'rgba(217,119,6,0.7)'},
+  {name:'Dark&Lovely', rev:10594, color:'rgba(0,150,136,0.8)'},
+  {name:'OGX Keratin', rev:10213, color:'rgba(26,115,232,0.7)'},
+  {name:'EM2H',        rev:7736,  color:'rgba(217,119,6,0.5)'},
+  {name:'Iniya (ASIN)',rev:6496,  color:'rgba(123,31,162,0.7)'},
+  {name:'Baaliso',     rev:5596,  color:'rgba(192,57,43,0.5)'},
+  {name:'Choü',        rev:4371,  color:'rgba(192,57,43,0.4)'},
+], 35358);
+
+buildBars('rev-bars-kativa',[
+  {name:'B0CB1KQ8Q4 (KA+HA)',rev:19718,color:'rgba(232,105,26,0.9)'},
+  {name:'B08CB4QDHB (Classic)',rev:7573,color:'rgba(232,105,26,0.75)'},
+  {name:'B0D6W7V95J (Lot2 Sham)',rev:4966,color:'rgba(232,105,26,0.65)'},
+  {name:'B0D6W6BBDX (Lot3 Soin)',rev:4818,color:'rgba(232,105,26,0.6)'},
+  {name:'B0CM6WYBJ7 (Lot2 Kit)', rev:4910,color:'rgba(232,105,26,0.55)'},
+  {name:'B0BS3YWV13 (Pack 3)',   rev:3400,color:'rgba(232,105,26,0.5)'},
+  {name:'B0BS1Q47QW (Kit KV)',   rev:3232,color:'rgba(232,105,26,0.45)'},
+  {name:'B07VQT61H3 (Xpress)',   rev:3201,color:'rgba(232,105,26,0.4)'},
+  {name:'B07VM7L1VN (EASO)',     rev:2499,color:'rgba(232,105,26,0.35)'},
+  {name:'B017KK5T2G (Orig)',     rev:1805,color:'rgba(232,105,26,0.3)'},
+], 19718);
+</script>
+
+</body>
+</html>
