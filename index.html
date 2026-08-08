@@ -110,7 +110,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
   <button class="mth-btn" onclick="selMonth(4)" id="mbtn4">May</button>
   <button class="mth-btn" onclick="selMonth(5)" id="mbtn5">Jun</button>
   <button class="mth-btn active" onclick="selMonth(6)" id="mbtn6">Jul</button>
-  <span class="filter-note">YoY vs 2025 donde disponible &bull; Sell-In: Vista Manufacturing &bull; Datos hasta julio 2026</span>
+  <span class="filter-note">YoY vs 2025 donde disponible &bull; Shipped Revenue: Vista Manufacturing &bull; Datos hasta julio 2026</span>
 </div>
 <div class="tab-nav">
   <button class="tab-btn active" onclick="selTab('global',this)">Global EU</button>
@@ -123,7 +123,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
 <div class="tab-pane active" id="tab-global">
   <div class="section"><div class="sec-title">KPIs Globales EU</div><div class="kpi-grid" id="global-kpis"></div><div class="conclusions" id="global-conclusions"></div></div>
   <div class="two-col">
-    <div class="section"><div class="sec-title">Sell-Out (OR) por Mercado &mdash; Evoluci&oacute;n 2026</div><div class="chart-wrap"><canvas id="chart-global-or"></canvas></div></div>
+    <div class="section"><div class="sec-title">Ordered Revenue (OR) por Mercado &mdash; Evoluci&oacute;n 2026</div><div class="chart-wrap"><canvas id="chart-global-or"></canvas></div></div>
     <div class="section"><div class="sec-title">Comparativa por Mercado</div><div id="global-table-wrap"></div><div class="conclusions" id="global-mkt-concl" style="margin-top:10px"></div></div>
   </div>
   <div class="section"><div class="sec-title">Comparativa por Familia &mdash; Global EU</div><div id="global-cat-view"></div><div class="conclusions" id="global-cat-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Julio 2026 &middot; Pan-EU: FR + IT + DE + BE + NL + PL</div></div>
@@ -208,7 +208,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
   </div>
   <div class="section"><div class="sec-title">KPIs Francia</div><div class="kpi-grid" id="fr-kpis"></div></div>
   <div class="two-col">
-    <div class="section"><div class="sec-title">Sell-Out vs Sell-In Manufacturing &mdash; 2026 vs 2025</div><div class="chart-wrap"><canvas id="chart-fr-or"></canvas></div><div class="conclusions" id="fr-si-concl" style="margin-top:10px"></div></div>
+    <div class="section"><div class="sec-title">Ordered Revenue vs Shipped Revenue Manufacturing &mdash; 2026 vs 2025</div><div class="chart-wrap"><canvas id="chart-fr-or"></canvas></div><div class="conclusions" id="fr-si-concl" style="margin-top:10px"></div></div>
     <div class="section"><div class="sec-title">Publicidad &mdash; Gasto y Ventas</div><div class="chart-wrap"><canvas id="chart-fr-ads"></canvas></div><div class="conclusions" id="fr-ads-chart-concl" style="margin-top:10px"></div></div>
   </div>
   <div class="section"><div class="sec-title" id="fr-po-title">&#x1F4C8; Evoluci&oacute;n SI &mdash; Francia</div>
@@ -218,17 +218,17 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
     </div>
   </div>
   <div class="section"><div class="sec-title">M&eacute;tricas Publicidad por Mes</div><div id="fr-ads-table"></div><div class="conclusions" id="fr-ads-conclusions"></div></div>
-  <div class="section"><div class="sec-title" id="fr-cat-title">Vista por Categor&iacute;as &mdash; Francia</div><div id="fr-cat-chart-area" style="margin-bottom:20px"></div><div id="fr-cat-view"></div><div class="conclusions" id="fr-cat-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Vista Sourcing (Sell-In) + Sell-Out (Ordered Revenue)</div></div>
+  <div class="section"><div class="sec-title" id="fr-cat-title">Vista por Categor&iacute;as &mdash; Francia</div><div id="fr-cat-chart-area" style="margin-bottom:20px"></div><div id="fr-cat-view"></div><div class="conclusions" id="fr-cat-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Vista Sourcing (Shipped Revenue) + Ordered Revenue (Ordered Revenue)</div></div>
   <div class="section"><div class="sec-title" id="fr-pubfam-title">Rendimiento Publicidad por Categor&iacute;a &mdash; Francia</div><div style="overflow-x:auto" id="fr-asin-ads"></div><div class="conclusions" id="fr-ads-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: Pacvue &rarr; Amazon Advertising API &middot; Tags: Alisados / Post Alisado / Reparadores / Curly</div></div>
   <div class="section"><div class="sec-title" id="fr-inv-title">Inventario &mdash; Francia</div><div class="kpi-grid" id="fr-inv"></div></div>
 </div>
 <!-- IT -->
 <div class="tab-pane" id="tab-it">
   <div id="it-oos-alert"></div>
-  <div class="alert alert-warn"><strong>Nota Pan-EU:</strong>&nbsp;El Sell-In cuenta IT representa solo el 32% del suministro total. El 68% restante proviene de otras cuentas Kativa via Pan-EU &mdash; no son distribuidores externos.</div>
+  <div class="alert alert-warn"><strong>Nota Pan-EU:</strong>&nbsp;El Shipped Revenue cuenta IT representa solo el 32% del suministro total. El 68% restante proviene de otras cuentas Kativa via Pan-EU &mdash; no son distribuidores externos.</div>
   <div class="section"><div class="sec-title">KPIs Italia</div><div class="kpi-grid" id="it-kpis"></div></div>
   <div class="two-col">
-    <div class="section"><div class="sec-title">Sell-Out vs Sell-In (cuenta IT Sourcing) &mdash; 2026</div><div class="chart-wrap"><canvas id="chart-it-or"></canvas></div><div class="conclusions" id="it-si-concl" style="margin-top:10px"></div></div>
+    <div class="section"><div class="sec-title">Ordered Revenue vs Shipped Revenue (cuenta IT Sourcing) &mdash; 2026</div><div class="chart-wrap"><canvas id="chart-it-or"></canvas></div><div class="conclusions" id="it-si-concl" style="margin-top:10px"></div></div>
     <div class="section"><div class="sec-title">Publicidad &mdash; Gasto y Ventas</div><div class="chart-wrap"><canvas id="chart-it-ads"></canvas></div><div class="conclusions" id="it-ads-chart-concl" style="margin-top:10px"></div></div>
   </div>
   <div class="section"><div class="sec-title" id="it-po-title">&#x1F4C8; Evoluci&oacute;n SI &mdash; Italia</div>
@@ -238,7 +238,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
     </div>
   </div>
   <div class="section"><div class="sec-title">M&eacute;tricas Publicidad por Mes</div><div id="it-ads-table"></div><div class="conclusions" id="it-ads-conclusions"></div></div>
-  <div class="section"><div class="sec-title" id="it-cat-title">Vista por Categor&iacute;as &mdash; Italia</div><div id="it-cat-chart-area" style="margin-bottom:20px"></div><div id="it-cat-view"></div><div class="conclusions" id="it-cat-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Vista Sourcing (Sell-In) + Sell-Out (Ordered Revenue)</div></div>
+  <div class="section"><div class="sec-title" id="it-cat-title">Vista por Categor&iacute;as &mdash; Italia</div><div id="it-cat-chart-area" style="margin-bottom:20px"></div><div id="it-cat-view"></div><div class="conclusions" id="it-cat-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Vista Sourcing (Shipped Revenue) + Ordered Revenue (Ordered Revenue)</div></div>
   <div class="section"><div class="sec-title" id="it-pubfam-title">Rendimiento Publicidad por Categor&iacute;a &mdash; Italia</div><div style="overflow-x:auto" id="it-asin-ads"></div><div class="conclusions" id="it-ads-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: Pacvue &rarr; Amazon Advertising API &middot; Tags: Alisados / Post Alisado / Reparadores / Curly</div></div>
   <div class="section"><div class="sec-title" id="it-inv-title">Inventario &mdash; Italia</div><div class="kpi-grid" id="it-inv"></div></div>
 </div>
@@ -247,7 +247,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
   <div id="de-oos-alert"></div>
   <div class="section"><div class="sec-title">KPIs Alemania</div><div class="kpi-grid" id="de-kpis"></div></div>
   <div class="two-col">
-    <div class="section"><div class="sec-title">Sell-Out vs Sell-In Sourcing &mdash; 2026</div><div class="chart-wrap"><canvas id="chart-de-or"></canvas></div><div class="conclusions" id="de-si-concl" style="margin-top:10px"></div></div>
+    <div class="section"><div class="sec-title">Ordered Revenue vs Shipped Revenue Sourcing &mdash; 2026</div><div class="chart-wrap"><canvas id="chart-de-or"></canvas></div><div class="conclusions" id="de-si-concl" style="margin-top:10px"></div></div>
     <div class="section"><div class="sec-title">Publicidad &mdash; Gasto y Ventas</div><div class="chart-wrap"><canvas id="chart-de-ads"></canvas></div><div class="conclusions" id="de-ads-chart-concl" style="margin-top:10px"></div></div>
   </div>
   <div class="section"><div class="sec-title" id="de-po-title">&#x1F4C8; Evoluci&oacute;n SI &mdash; Alemania</div>
@@ -257,7 +257,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
     </div>
   </div>
   <div class="section"><div class="sec-title">M&eacute;tricas Publicidad por Mes</div><div id="de-ads-table"></div><div class="conclusions" id="de-ads-conclusions"></div></div>
-  <div class="section"><div class="sec-title" id="de-cat-title">Vista por Categor&iacute;as &mdash; Alemania</div><div id="de-cat-chart-area" style="margin-bottom:20px"></div><div id="de-cat-view"></div><div class="conclusions" id="de-cat-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Vista Sourcing (Sell-In) + Sell-Out (Ordered Revenue)</div></div>
+  <div class="section"><div class="sec-title" id="de-cat-title">Vista por Categor&iacute;as &mdash; Alemania</div><div id="de-cat-chart-area" style="margin-bottom:20px"></div><div id="de-cat-view"></div><div class="conclusions" id="de-cat-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Vista Sourcing (Shipped Revenue) + Ordered Revenue (Ordered Revenue)</div></div>
   <div class="section"><div class="sec-title" id="de-pubfam-title">Rendimiento Publicidad por Categor&iacute;a &mdash; Alemania</div><div style="overflow-x:auto" id="de-asin-ads"></div><div class="conclusions" id="de-ads-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: Pacvue &rarr; Amazon Advertising API &middot; Tags: Alisados / Post Alisado / Reparadores / Curly</div></div>
   <div class="section"><div class="sec-title" id="de-inv-title">Inventario &mdash; Alemania</div><div class="kpi-grid" id="de-inv"></div></div>
 </div>
@@ -307,17 +307,17 @@ const INV_MAY_MS={
 };
 
 const JUN_CONCLUSIONS={
-  FR:'<strong>Francia &euro;35.576 Sell-Out Jun26 (+27% MoM, &minus;7% YoY)</strong>. SI Manufacturing: pendiente. ACOS 14,8%, ROAS 6,7x, TACoS 7,5%. Gasto ads &euro;2.651 / Ventas ads &euro;17.862. Inventario sellable 2.700 uds, OOS 9,1%.',
-  IT:'<strong>Italia &euro;63.137 Sell-Out Jun26 (+44% MoM, +1.392% YoY)</strong> &mdash; r&eacute;cord hist&oacute;rico absoluto. SI Manufacturing: pendiente. ACOS 11,9%, ROAS 8,4x, TACoS 6,2%. Sellable 10.725 uds, OOS 19,3%.',
+  FR:'<strong>Francia &euro;35.576 Ordered Revenue Jun26 (+27% MoM, &minus;7% YoY)</strong>. SI Manufacturing: pendiente. ACOS 14,8%, ROAS 6,7x, TACoS 7,5%. Gasto ads &euro;2.651 / Ventas ads &euro;17.862. Inventario sellable 2.700 uds, OOS 9,1%.',
+  IT:'<strong>Italia &euro;63.137 Ordered Revenue Jun26 (+44% MoM, +1.392% YoY)</strong> &mdash; r&eacute;cord hist&oacute;rico absoluto. SI Manufacturing: pendiente. ACOS 11,9%, ROAS 8,4x, TACoS 6,2%. Sellable 10.725 uds, OOS 19,3%.',
   DE:'<strong>Alemania &euro;28.097 OR Jun26 (+31% MoM, +190% YoY)</strong>. SI Manufacturing: pendiente. ACOS 12,1%, ROAS 8,3x, TACoS 5,0%. Gasto ads &euro;1.416 / Ventas ads &euro;11.708. Sellable 1.447 uds, OOS 9,0%.',
-  global:'<strong>Portfolio EU &euro;126.810 Sell-Out Jun26 (+142% YoY vs Jun25 &euro;52.346)</strong>. Italia 50% (&euro;63k), Francia 28% (&euro;36k), Alemania 22% (&euro;28k). ACOS blended 12,8%, ROAS 7,8x, TACoS 6,3%. SI Manufacturing: pendiente.',
+  global:'<strong>Portfolio EU &euro;126.810 Ordered Revenue Jun26 (+142% YoY vs Jun25 &euro;52.346)</strong>. Italia 50% (&euro;63k), Francia 28% (&euro;36k), Alemania 22% (&euro;28k). ACOS blended 12,8%, ROAS 7,8x, TACoS 6,3%. SI Manufacturing: pendiente.',
   global_ads:'Gasto EU total &euro;7.967 / Ventas ads &euro;62.457. TACoS blended 6,3%. <strong>Italia: ACOS 11,9%, ROAS 8,4x, Spend &euro;3.900.</strong> Francia: ACOS 14,8%, ROAS 6,7x, Spend &euro;2.651. Alemania: ACOS 12,1%, ROAS 8,3x, Spend &euro;1.416.'
 };
 
 const JUL_CONCLUSIONS={
-  FR:'<strong>Francia &euro;38.584 Sell-Out Jul26 (+8% MoM, &minus;9% YoY)</strong>. SI Manufacturing: &euro;39.082. 22 d&iacute;as sin publicidad (1&ndash;22 jul). CVR 19,98%, venta diaria &euro;541,78 cuando activa. Gasto ads &euro;896, ventas ads &euro;4.879, ROAS 5,45x. TACoS 2,6%.',
-  IT:'<strong>Italia &euro;63.517 Sell-Out Jul26 (+1% MoM, +1.404% YoY)</strong>. SI Manufacturing: &euro;67.980. Gasto ads &euro;4.501 (+48% vs may), ventas ads &euro;33.810 (+50%), ROAS 7,51x, CVR 15,70%. Post-alisado +200%; Reparadores +118%. TACoS 6,7%.',
-  DE:'<strong>Alemania &euro;29.441 Sell-Out Jul26 (+5% MoM, +136% YoY)</strong>. SI Manufacturing: &euro;32.595. Demanda categor&iacute;a &minus;13% YoY (&minus;48% en 3 a&ntilde;os). Gasto ads &euro;1.580 (+17% vs may), ventas ads &euro;10.335, ROAS 6,54x. TACoS 5,5%.',
+  FR:'<strong>Francia &euro;38.584 Ordered Revenue Jul26 (+8% MoM, &minus;9% YoY)</strong>. SI Manufacturing: &euro;39.082. 22 d&iacute;as sin publicidad (1&ndash;22 jul). CVR 19,98%, venta diaria &euro;541,78 cuando activa. Gasto ads &euro;896, ventas ads &euro;4.879, ROAS 5,45x. TACoS 2,6%.',
+  IT:'<strong>Italia &euro;63.517 Ordered Revenue Jul26 (+1% MoM, +1.404% YoY)</strong>. SI Manufacturing: &euro;67.980. Gasto ads &euro;4.501 (+48% vs may), ventas ads &euro;33.810 (+50%), ROAS 7,51x, CVR 15,70%. Post-alisado +200%; Reparadores +118%. TACoS 6,7%.',
+  DE:'<strong>Alemania &euro;29.441 Ordered Revenue Jul26 (+5% MoM, +136% YoY)</strong>. SI Manufacturing: &euro;32.595. Demanda categor&iacute;a &minus;13% YoY (&minus;48% en 3 a&ntilde;os). Gasto ads &euro;1.580 (+17% vs may), ventas ads &euro;10.335, ROAS 6,54x. TACoS 5,5%.',
   global:'<strong>Portfolio FR+IT+DE: &euro;131.542 Jul26 (+4% MoM). SI Mfg total: &euro;139.657.</strong> Italia 48% (&euro;64k), Francia 29% (&euro;39k), Alemania 22% (&euro;30k). Nuevos mercados BE+NL+PL+SE+IE: &euro;13.670. Inversi&oacute;n ads &euro;6.977, ROAS 7,03x.',
   global_ads:'Gasto EU total &euro;6.977 / Ventas ads &euro;49.024 / ROAS 7,03x. <strong>Italia: ROAS 7,51x, Spend &euro;4.501 (+48% vs may).</strong> Francia: ROAS 5,45x, Spend &euro;896 (22 d&iacute;as sin ads). Alemania: ROAS 6,54x, Spend &euro;1.580 (+17% vs may). Nota: ref. vs mayo (junio distorsionado por Prime Day).'
 };
@@ -460,10 +460,10 @@ const OR_MAY={
 };
 
 const MAY_CONCLUSIONS={
-  FR:'<strong>Francia alcanzo &euro;28.015 en Sell-Out (+28% YoY),</strong> el mejor mayo historico. Sell-In Sourcing &euro;16.370 (+72% MoM). ACOS 16,1% con &euro;14.834 ventas atribuidas. OOS 17,5% sigue siendo el principal techo de crecimiento.',
-  IT:'<strong>Italia consolida primer mercado EU con &euro;43.780 Sell-Out</strong> y mejor mes historico en publicidad (ACOS 13,5%, ROAS 7,4x). Sell-In Sourcing cuenta IT &euro;14.801. POs record &euro;53.215 (VCR 100%) garantizan reposicion para junio.',
-  DE:'<strong>Alemania mantiene senda alcista con &euro;21.521 Sell-Out</strong> y 6to mes consecutivo de crecimiento Sell-In Sourcing (&euro;12.568, +5% MoM). ACOS 14,9% mejor historico. OOS 27,5% sigue siendo el limitante critico.',
-  global:'<strong>Portfolio EU suma &euro;93.316 Sell-Out (FR+IT+DE) en mayo,</strong> ACOS blended 14,6%, ROAS 6,8x. Italia lidera (47%), Francia crece mas YoY (+28%), Alemania tiene mayor potencial al resolver OOS.',
+  FR:'<strong>Francia alcanzo &euro;28.015 en Ordered Revenue (+28% YoY),</strong> el mejor mayo historico. Shipped Revenue Sourcing &euro;16.370 (+72% MoM). ACOS 16,1% con &euro;14.834 ventas atribuidas. OOS 17,5% sigue siendo el principal techo de crecimiento.',
+  IT:'<strong>Italia consolida primer mercado EU con &euro;43.780 Ordered Revenue</strong> y mejor mes historico en publicidad (ACOS 13,5%, ROAS 7,4x). Shipped Revenue Sourcing cuenta IT &euro;14.801. POs record &euro;53.215 (VCR 100%) garantizan reposicion para junio.',
+  DE:'<strong>Alemania mantiene senda alcista con &euro;21.521 Ordered Revenue</strong> y 6to mes consecutivo de crecimiento Shipped Revenue Sourcing (&euro;12.568, +5% MoM). ACOS 14,9% mejor historico. OOS 27,5% sigue siendo el limitante critico.',
+  global:'<strong>Portfolio EU suma &euro;93.316 Ordered Revenue (FR+IT+DE) en mayo,</strong> ACOS blended 14,6%, ROAS 6,8x. Italia lidera (47%), Francia crece mas YoY (+28%), Alemania tiene mayor potencial al resolver OOS.',
   global_ads:'TACoS blended 7,3% confirma presion publicitaria bien calibrada. <strong>Italia: ACOS 13,5% (mas eficiente),</strong> Alemania: 14,9%, Francia: 16,1%. Todos los mercados mejoran ACOS vs enero.'
 };
 const MAY_ADS_CONCLUSIONS={
@@ -592,7 +592,7 @@ function renderGlobalKPIs(){
   const blTACOS=totalOR>0?(totalSpend/totalOR*100):0;
   const blROAS=totalSpend>0?(totalAdSales/totalSpend):0;
   let html='';
-  const orLabel=selM===-1?'Sell-Out YTD Ene–Jul':'Sell-Out '+MONTHS[selM]+' 2026';
+  const orLabel=selM===-1?'Ordered Revenue YTD Ene–Jul':'Ordered Revenue '+MONTHS[selM]+' 2026';
   const totalSI=mkts.reduce((a,mkt)=>a+(selM===-1?ytdSum(D[mkt].si,LAST_M):D[mkt].si[m2]),0);
   const prevM2=m2>0?m2-1:null;
   const totalORprev=prevM2!==null?mkts.reduce((a,mkt)=>a+D[mkt].or[prevM2],0):null;
@@ -610,7 +610,7 @@ function renderGlobalKPIs(){
   const roasMoM=selM!==-1&&blROASprev>0?(blROAS-blROASprev)/blROASprev*100:null;
   const tacosMoM=selM!==-1&&blTACOSprev>0?(blTACOS-blTACOSprev)/blTACOSprev*100:null;
   html+=kpiHTML(orLabel,fmtEur(totalOR),orMoM,gYoY);
-  html+=kpiHTML('Sell-In EU',fmtEur(totalSI),siMoM,null,'Vista Manufacturing');
+  html+=kpiHTML('Shipped Revenue EU',fmtEur(totalSI),siMoM,null,'Vista Manufacturing');
   html+=kpiHTML('Ventas Ads EU',fmtEur(totalAdSales),adsMoM,null);
   html+=kpiHTML('Gasto Publicidad',fmtEur(totalSpend),spendMoM,null,'EU blended');
   html+=kpiHTML('ACOS Blended',blACOS.toFixed(1)+'%',acosMoM,null);
@@ -623,7 +623,7 @@ function renderGlobalKPIs(){
     html+=kpiHTML('Acumulado Ene–'+MONTHS[selM],fmtEur(ytdTotal),null,ytdYoY,'vs mismo período 2025');
   }
   el.innerHTML=html;
-  document.getElementById('global-conclusions').innerHTML=selM===6?JUL_CONCLUSIONS.global:selM===5?JUN_CONCLUSIONS.global:(selM===4||selM===-1)?MAY_CONCLUSIONS.global:`Sell-Out EU: <strong>${fmtEur(totalOR)}</strong> en ${MONTHS[m2]} 2026.${gYoY!=null?' YoY: '+fmtPct(gYoY)+'.':''} ACOS: ${blACOS.toFixed(1)}%.`;
+  document.getElementById('global-conclusions').innerHTML=selM===6?JUL_CONCLUSIONS.global:selM===5?JUN_CONCLUSIONS.global:(selM===4||selM===-1)?MAY_CONCLUSIONS.global:`Ordered Revenue EU: <strong>${fmtEur(totalOR)}</strong> en ${MONTHS[m2]} 2026.${gYoY!=null?' YoY: '+fmtPct(gYoY)+'.':''} ACOS: ${blACOS.toFixed(1)}%.`;
   document.getElementById('global-ads-conclusions').innerHTML=selM===6?JUL_CONCLUSIONS.global_ads:selM===5?JUN_CONCLUSIONS.global_ads:(selM===4||selM===-1)?MAY_CONCLUSIONS.global_ads:`Publicidad EU: gasto ${fmtEur(totalSpend)}, ventas ${fmtEur(totalAdSales)}, ACOS ${blACOS.toFixed(1)}%.`;
 }
 
@@ -653,7 +653,7 @@ function renderGlobalTable(){
     rows+=`<tr><td>${MKT_NAMES[r.mkt]}</td><td>${fmtEur(r.or)}</td><td>${fmtEur(r.si)}</td><td>${pct}%</td><td class="${r.orYoy!=null?(r.orYoy>=0?'pos':'neg'):'nd'}">${r.orYoy!=null?fmtPct(r.orYoy):'N/D'}</td></tr>`;
   });
   const totalSI=isYTD?mkts.reduce((a,mkt)=>a+ytdSum(D[mkt].si,LAST_M),0):mkts.reduce((a,mkt)=>a+D[mkt].si[selM],0);
-  document.getElementById('global-table-wrap').innerHTML=`<p style="font-size:10px;color:var(--gray);margin-bottom:8px">Período: ${periodLbl}</p><table class="tbl"><thead><tr><th>Mercado</th><th>Sell-Out (OR)</th><th>Sell-In (SI)*</th><th>% Total</th><th>YoY</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td>Total</td><td>${fmtEur(totalOR)}</td><td>${fmtEur(totalSI)}</td><td>100%</td><td class="nd">&mdash;</td></tr></tfoot></table><p class="note">*Sell-In = Vista Manufacturing (Jul26: pendiente). Objetivos anuales en pestaña Forecast.</p>`;
+  document.getElementById('global-table-wrap').innerHTML=`<p style="font-size:10px;color:var(--gray);margin-bottom:8px">Período: ${periodLbl}</p><table class="tbl"><thead><tr><th>Mercado</th><th>Ordered Revenue (OR)</th><th>Shipped Revenue (SI)*</th><th>% Total</th><th>YoY</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td>Total</td><td>${fmtEur(totalOR)}</td><td>${fmtEur(totalSI)}</td><td>100%</td><td class="nd">&mdash;</td></tr></tfoot></table><p class="note">*Shipped Revenue = Vista Manufacturing (Jul26: pendiente). Objetivos anuales en pestaña Forecast.</p>`;
 }
 
 function renderGlobalCatView(){
@@ -729,7 +729,7 @@ function renderGlobalCatView(){
     '<p style="font-size:10px;color:var(--gray);margin-bottom:10px">Desglose por familia: datos '+period+'. YoY = vs mismo período año anterior (ASIN). MoM total = vs mes previo. MoM por familia: N/D (requiere datos ASIN mes anterior).</p>'+
     '<div style="overflow-x:auto"><table class="tbl" style="font-size:12px;width:100%"><thead><tr>'+
     '<th style="text-align:left;min-width:160px">Familia</th>'+
-    '<th>Sell-Out EU</th><th>YoY</th><th>MoM</th>'+
+    '<th>Ordered Revenue EU</th><th>YoY</th><th>MoM</th>'+
     '<th>Ventas Ads EU</th><th>Gasto Ads EU</th><th>ACOS</th><th>Mkts</th>'+
     '</tr></thead><tbody>'+tRows+'</tbody>'+
     '<tfoot><tr style="background:var(--orange-xl);font-weight:700">'+
@@ -742,7 +742,7 @@ function renderGlobalCatView(){
     '<div style="position:relative;height:200px"><canvas id="'+chartId+'"></canvas></div></div>';
 
   mkChart(chartId,{type:'bar',data:{labels:chartFams,datasets:[
-    {label:'Sell-Out (€)',data:chartOR,backgroundColor:chartColors,borderRadius:4},
+    {label:'Ordered Revenue (€)',data:chartOR,backgroundColor:chartColors,borderRadius:4},
     {label:'Ventas Ads (€)',data:chartAds,backgroundColor:chartColors.map(function(c){return c+'88';}),borderRadius:4},
     {label:'Gasto Ads (€)',data:chartSpend,backgroundColor:chartColors.map(function(c){return c+'44';}),borderRadius:4}
   ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{font:{size:11},boxWidth:12}},tooltip:{callbacks:{label:function(ctx){return ctx.dataset.label+': €'+ctx.parsed.y.toLocaleString('es-ES');}}}},scales:{x:{ticks:{font:{size:11}}},y:{ticks:{callback:function(v){return '€'+(v>=1000?(v/1000).toFixed(0)+'k':v);},font:{size:11}}}}}});
@@ -780,8 +780,8 @@ function renderMarketKPIs(mkt,elId,concId){
   const spendMom=selM!==-1?mom(d.spend,m2):null;
   const adsMom=selM!==-1?mom(d.adsales,m2):null;
   let html='';
-  html+=kpiHTML('Sell-Out (OR)',fmtEur(orVal),orM,orY);
-  html+=kpiHTML('Sell-In (Mfg)',fmtEur(siVal),siM,siY);
+  html+=kpiHTML('Ordered Revenue (OR)',fmtEur(orVal),orM,orY);
+  html+=kpiHTML('Shipped Revenue (Mfg)',fmtEur(siVal),siM,siY);
   html+=kpiHTML('Glance Views',d.gv[m2]>0?d.gv[m2].toLocaleString('es-ES'):'N/D',selM!==-1?mom(d.gv,m2):null,null);
   html+=kpiHTML('ACOS',d.acos[m2].toFixed(1)+'%',acosMom,null);
   html+=kpiHTML('ROAS',roas.toFixed(1)+'x',roasMom,null);
@@ -1013,7 +1013,7 @@ function renderAsinGenTable(mkt,elId){
     const orChg=a.prior_or>0?((a.or-a.prior_or)/a.prior_or*100):null;
     rows+=`<tr><td><a class="asin-link" href="https://www.amazon.com/dp/${a.asin}" target="_blank">${a.asin}</a></td><td style="font-size:11px;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${a.desc}">${a.desc||a.asin}</td><td style="color:${CAT_COLORS[a.cat]||'#888'};font-weight:700;font-size:11px;text-align:left">${a.cat}</td><td>${fmtEur(a.or)}</td><td>${a.prior_or>0?fmtEur(a.prior_or):'N/D'}</td><td class="${orChg!=null?(orChg>=0?'pos':'neg'):'nd'}">${orChg!=null?fmtPct(orChg):'N/D'}</td><td>${fmtEur(a.si)}</td><td>${a.si_units>0?a.si_units:'N/D'}</td><td>${a.margin>0?a.margin.toFixed(1)+'%':'N/D'}</td><td>${a.netppm>0?a.netppm.toFixed(1)+'%':'N/D'}</td><td>${a.gv>0?a.gv.toLocaleString('es-ES'):'N/D'}</td><td>${a.units>0?a.units:'N/D'}</td></tr>`;
   });
-  document.getElementById(elId).innerHTML=`<table class="tbl" style="font-size:12px"><thead><tr><th>ASIN</th><th>Descripción</th><th>Categoría</th><th>OR</th><th>OR Prev.</th><th>Var.</th><th>SI Mfg</th><th>Uds SI</th><th>Amazon Margin</th><th>Net PPM</th><th>Glance Views</th><th>Uds Vendidas</th></tr></thead><tbody>${rows}</tbody></table><p class="note">OR=Ordered Revenue (Sell-Out) | SI=Shipped Revenue Vista Manufacturing (Jul26: pendiente) | Datos julio 2026</p>`;
+  document.getElementById(elId).innerHTML=`<table class="tbl" style="font-size:12px"><thead><tr><th>ASIN</th><th>Descripción</th><th>Categoría</th><th>OR</th><th>OR Prev.</th><th>Var.</th><th>SI Mfg</th><th>Uds SI</th><th>Amazon Margin</th><th>Net PPM</th><th>Glance Views</th><th>Uds Vendidas</th></tr></thead><tbody>${rows}</tbody></table><p class="note">OR=Ordered Revenue (Ordered Revenue) | SI=Shipped Revenue Vista Manufacturing (Jul26: pendiente) | Datos julio 2026</p>`;
 }
 
 function renderAsinAdsTable(mkt,elId){
@@ -1155,11 +1155,11 @@ function initCharts(){
   mkChart('chart-global-ads',{type:'bar',data:{labels:MONTHS,datasets:[{label:'Gasto Total',data:MONTHS.map((_,i)=>D.FR.spend[i]+D.IT.spend[i]+D.DE.spend[i]),backgroundColor:'#C0392B'},{label:'Ventas Ads Total',data:MONTHS.map((_,i)=>D.FR.adsales[i]+D.IT.adsales[i]+D.DE.adsales[i]),backgroundColor:'#E8691A'}]},options:{...CD}});
   const blA=MONTHS.map((_,i)=>{const sp=D.FR.spend[i]+D.IT.spend[i]+D.DE.spend[i],sa=D.FR.adsales[i]+D.IT.adsales[i]+D.DE.adsales[i];return sa>0?(sp/sa*100).toFixed(1):0;});
   mkChart('chart-global-acos',{type:'line',data:{labels:MONTHS,datasets:[{label:'ACOS FR',data:D.FR.acos,borderColor:'#E8691A',backgroundColor:'rgba(232,105,26,.1)',tension:.3,fill:true},{label:'ACOS IT',data:D.IT.acos,borderColor:'#F5A668',backgroundColor:'rgba(245,166,104,.1)',tension:.3,fill:true},{label:'ACOS DE',data:D.DE.acos,borderColor:'#5D3A1A',backgroundColor:'rgba(93,58,26,.1)',tension:.3,fill:true},{label:'ACOS Blended',data:blA,borderColor:'#2D2D2D',borderDash:[5,3],tension:.3,borderWidth:2}]},options:{...CD,scales:{x:{ticks:{font:{size:11}}},y:{ticks:{callback:v=>v+'%',font:{size:11}},suggestedMin:0,suggestedMax:30}}}});
-  mkChart('chart-fr-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'OR 2026',data:D.FR.or,backgroundColor:'#E8691A'},{label:'OR 2025',data:D.FR.or_py,backgroundColor:'rgba(232,105,26,.25)'},{label:'Sell-In Sourcing 2026',data:D.FR.si,backgroundColor:'#2D2D2D'},{label:'Sell-In 2025',data:D.FR.si_py,backgroundColor:'rgba(45,45,45,.25)'}]},options:{...CD}});
+  mkChart('chart-fr-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'OR 2026',data:D.FR.or,backgroundColor:'#E8691A'},{label:'OR 2025',data:D.FR.or_py,backgroundColor:'rgba(232,105,26,.25)'},{label:'Shipped Revenue Sourcing 2026',data:D.FR.si,backgroundColor:'#2D2D2D'},{label:'Shipped Revenue 2025',data:D.FR.si_py,backgroundColor:'rgba(45,45,45,.25)'}]},options:{...CD}});
   mkChart('chart-fr-ads',{type:'bar',data:{labels:MONTHS,datasets:[{label:'Gasto',data:D.FR.spend,backgroundColor:'#C0392B'},{label:'Ventas Ads',data:D.FR.adsales,backgroundColor:'#E8691A'}]},options:{...CD}});
-  mkChart('chart-it-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'OR 2026',data:D.IT.or,backgroundColor:'#E8691A'},{label:'OR 2025',data:D.IT.or_py,backgroundColor:'rgba(232,105,26,.25)'},{label:'Sell-In IT Sourcing',data:D.IT.si,backgroundColor:'#2D2D2D'}]},options:{...CD}});
+  mkChart('chart-it-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'OR 2026',data:D.IT.or,backgroundColor:'#E8691A'},{label:'OR 2025',data:D.IT.or_py,backgroundColor:'rgba(232,105,26,.25)'},{label:'Shipped Revenue IT Sourcing',data:D.IT.si,backgroundColor:'#2D2D2D'}]},options:{...CD}});
   mkChart('chart-it-ads',{type:'bar',data:{labels:MONTHS,datasets:[{label:'Gasto',data:D.IT.spend,backgroundColor:'#C0392B'},{label:'Ventas Ads',data:D.IT.adsales,backgroundColor:'#E8691A'}]},options:{...CD}});
-  mkChart('chart-de-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'OR 2026',data:D.DE.or,backgroundColor:'#E8691A'},{label:'OR 2025',data:D.DE.or_py,backgroundColor:'rgba(232,105,26,.25)'},{label:'Sell-In DE Sourcing',data:D.DE.si,backgroundColor:'#2D2D2D'}]},options:{...CD}});
+  mkChart('chart-de-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'OR 2026',data:D.DE.or,backgroundColor:'#E8691A'},{label:'OR 2025',data:D.DE.or_py,backgroundColor:'rgba(232,105,26,.25)'},{label:'Shipped Revenue DE Sourcing',data:D.DE.si,backgroundColor:'#2D2D2D'}]},options:{...CD}});
   mkChart('chart-de-ads',{type:'bar',data:{labels:MONTHS,datasets:[{label:'Gasto',data:D.DE.spend,backgroundColor:'#C0392B'},{label:'Ventas Ads',data:D.DE.adsales,backgroundColor:'#E8691A'}]},options:{...CD}});
 }
 
@@ -1268,8 +1268,8 @@ function renderInformeEjecutivo(){
   var kpiEl=document.getElementById('informe-global-kpis');
   if(kpiEl){
     var kpis=[
-      {label:'Sell-Out EU Total (OR)',val:fmtKpi(totalOR,'€'),sub:gYOY!=='N/D'?(parseFloat(gYOY)>=0?'+':'')+gYOY+'% YoY':'-'},
-      {label:'Sell-In EU Total (SI)',val:fmtKpi(totalSI,'€'),sub:totalSI>totalOR?'<span style="color:#2ecc71">SI supera OR &#x2713;</span>':'Cobertura '+totalOR>0?(totalSI/totalOR*100).toFixed(0)+'%':'N/D'},
+      {label:'Ordered Revenue EU Total (OR)',val:fmtKpi(totalOR,'€'),sub:gYOY!=='N/D'?(parseFloat(gYOY)>=0?'+':'')+gYOY+'% YoY':'-'},
+      {label:'Shipped Revenue EU Total (SI)',val:fmtKpi(totalSI,'€'),sub:totalSI>totalOR?'<span style="color:#2ecc71">SI supera OR &#x2713;</span>':'Cobertura '+totalOR>0?(totalSI/totalOR*100).toFixed(0)+'%':'N/D'},
       {label:'Gasto Publicidad EU',val:fmtKpi(totalSpend,'€'),sub:'ACOS '+gACOS+'% &middot; ROAS '+gROAS+'x'},
       {label:'Ventas Publicidad EU',val:fmtKpi(totalAdsales,'€'),sub:'TACoS blended: '+(totalOR>0?(totalSpend/totalOR*100).toFixed(1):'N/D')+'%'},
     ];
@@ -1438,7 +1438,7 @@ function renderPOSection(mkt,chartId,tableId,titleId){
   var ytdYoy=totSIPY>0?((totSI-totSIPY)/totSIPY*100):null;
   var ytdRatio=totOR>0?(totSI/totOR*100).toFixed(1)+'%':'N/D';
   var ytdYoyStr=ytdYoy!==null?'<span class="'+pctClass(ytdYoy)+'">'+fmtPct(ytdYoy,1)+'</span>':'<span class="chg-nd">N/D</span>';
-  el.innerHTML='<table class="tbl" style="font-size:12px;width:100%"><thead><tr><th>Mes</th><th>SI 2026</th><th>SI 2025</th><th>YoY</th><th>MoM</th><th>Sell-Out OR</th><th>Ratio SI/OR</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr style="background:var(--orange-xl);font-weight:700"><td>YTD Ene&ndash;Jun</td><td>'+fmtEur(totSI)+'</td><td style="color:#888">'+fmtEur(totSIPY)+'</td><td>'+ytdYoyStr+'</td><td><span class="chg-nd">N/A</span></td><td style="color:#555">'+fmtEur(totOR)+'</td><td>'+ytdRatio+'</td></tr></tfoot></table>';
+  el.innerHTML='<table class="tbl" style="font-size:12px;width:100%"><thead><tr><th>Mes</th><th>SI 2026</th><th>SI 2025</th><th>YoY</th><th>MoM</th><th>Ordered Revenue OR</th><th>Ratio SI/OR</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr style="background:var(--orange-xl);font-weight:700"><td>YTD Ene&ndash;Jun</td><td>'+fmtEur(totSI)+'</td><td style="color:#888">'+fmtEur(totSIPY)+'</td><td>'+ytdYoyStr+'</td><td><span class="chg-nd">N/A</span></td><td style="color:#555">'+fmtEur(totOR)+'</td><td>'+ytdRatio+'</td></tr></tfoot></table>';
 }
 
 function renderAll(){
@@ -1492,9 +1492,9 @@ function renderSIConcl(mkt){
   if(si>or*1.15)signal=' <strong style="color:#27ae60">SI supera OR: Amazon construye inventario para próximos meses.</strong>';
   else if(si>=or*0.75)signal=' Cobertura equilibrada: compras Amazon alineadas con ventas.';
   else if(si>0)signal=' <span style="color:#e67e22">SI por debajo del OR: posible drawdown de inventario.</span>';
-  else signal=' <span style="color:#c0392b"><strong>Sin Sell-In registrado en este período.</strong></span>';
+  else signal=' <span style="color:#c0392b"><strong>Sin Shipped Revenue registrado en este período.</strong></span>';
   var momTxt=siMoM!==null?' ('+(parseFloat(siMoM)>=0?'+':'')+siMoM+'% MoM)':'';
-  el.innerHTML='Sell-In Sourcing <strong>'+fmtEur(si)+momTxt+'</strong> = '+cov+'% del Sell-Out '+fmtEur(or)+'.'+signal;
+  el.innerHTML='Shipped Revenue Sourcing <strong>'+fmtEur(si)+momTxt+'</strong> = '+cov+'% del Ordered Revenue '+fmtEur(or)+'.'+signal;
 }
 
 function renderAdsChartConcl(mkt){
@@ -1541,7 +1541,7 @@ function renderGenConcl(mkt){
   var withSI=active.filter(function(a){return a.si>0;}).length;
   var wm=active.filter(function(a){return a.margin>0;});
   var avgM=wm.length>0?(wm.reduce(function(s,a){return s+a.margin;},0)/wm.length).toFixed(1):null;
-  var txt='<strong>'+active.length+' ASINs activos</strong> de '+data.length+' en cat&aacute;logo. ASIN h&eacute;roe: <strong>'+top.asin+'</strong> &mdash; '+fmtEur(top.or)+' OR ('+topPct+'% concentraci&oacute;n). '+withSI+' ASINs con Sell-In Sourcing.';
+  var txt='<strong>'+active.length+' ASINs activos</strong> de '+data.length+' en cat&aacute;logo. ASIN h&eacute;roe: <strong>'+top.asin+'</strong> &mdash; '+fmtEur(top.or)+' OR ('+topPct+'% concentraci&oacute;n). '+withSI+' ASINs con Shipped Revenue Sourcing.';
   if(avgM)txt+=' Margen Amazon promedio: <strong>'+avgM+'%</strong>.';
   el.innerHTML=txt+'<span class="chg-nd"> &middot; Datos: Julio 2026</span>';
 }
@@ -1577,7 +1577,7 @@ function renderGlobalMktConcl(){
   var fastYoy=fastest&&D[fastest].or_py[m]>0?((D[fastest].or[m]-D[fastest].or_py[m])/D[fastest].or_py[m]*100).toFixed(1):null;
   var txt='EU total: <strong>'+fmtEur(total)+'</strong>. L&iacute;der: <strong>'+MKT_NAMES[leader]+'</strong> ('+pctL+'%). ';
   if(fastYoy)txt+='Mayor crecimiento YoY: <strong>'+MKT_NAMES[fastest]+'</strong> (+'+fastYoy+'%). ';
-  txt+='Sell-In total: '+fmtEur(totalSI)+'.';
+  txt+='Shipped Revenue total: '+fmtEur(totalSI)+'.';
   if(totalSI>total)txt+=' <strong style="color:#27ae60">SI supera OR: reposici&oacute;n masiva en marcha.</strong>';
   el.innerHTML=txt;
 }
