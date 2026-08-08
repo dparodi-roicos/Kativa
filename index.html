@@ -92,6 +92,14 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
 .cat-mkt-row{display:flex;justify-content:space-between;font-size:11px;padding:4px 0;border-bottom:1px solid var(--gray-l);}
 .cat-mkt-row:last-child{border-bottom:none;}.cat-mkt-lbl{color:var(--gray);font-weight:600;}.cat-mkt-val{color:var(--dark);font-weight:700;}
 .timing-note{margin-top:10px;font-size:11px;color:#6b5a2a;background:#fdf6e3;border-left:3px solid #f0b429;padding:7px 11px;border-radius:0 4px 4px 0;line-height:1.5;}
+.strat-box{background:#f0f4ff;border-left:4px solid #3b6fd4;border-radius:0 6px 6px 0;padding:14px 16px;margin-top:4px;font-size:12px;line-height:1.7;color:var(--dark);}
+.strat-box ul{margin:6px 0 0 16px;padding:0;}
+.strat-box li{margin-bottom:4px;}
+.strat-box .strat-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:2px 6px;border-radius:3px;margin-right:5px;}
+.strat-tag-hito{background:#d4edda;color:#155724;}
+.strat-tag-opp{background:#fff3cd;color:#856404;}
+.strat-tag-risk{background:#f8d7da;color:#721c24;}
+.strat-tag-next{background:#e2e3e5;color:#383d41;}
 </style>
 </head>
 <body>
@@ -157,6 +165,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
       </div>
     </div>
   </div>
+  <div class="section"><div class="sec-title">&#128203; An&aacute;lisis Estratégico &mdash; Publicidad Global EU</div><div id="global-strat-concl"></div></div>
+  <div class="section"><div class="sec-title">Shipped Revenue Manufacturing por Mercado &mdash; Evoluci&oacute;n 2026</div><div id="global-sr-table" style="overflow-x:auto"></div></div>
+  <div class="section"><div class="sec-title">&#128230; Purchase Orders (Sell-In Real) por Mercado &mdash; Evoluci&oacute;n 2026</div><div id="global-po-table" style="overflow-x:auto"></div></div>
   <div class="section"><div class="sec-title">Top 10 Ventas por Unidades &mdash; Jul 2026 (todos los mercados)</div><div id="global-top10" style="overflow-x:auto"></div><p class="note" style="margin-top:8px">Unidades del mes de julio 2026 consolidadas FR+IT+DE+BE+NL+PL. OR YoY compara junio 2026 vs junio 2025.</p></div>
   <!-- NUEVOS MERCADOS -->
   <div class="section" id="nuevos-mercados-section">
@@ -222,6 +233,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
   <div class="section"><div class="sec-title">M&eacute;tricas Publicidad por Mes</div><div id="fr-ads-table"></div><div class="conclusions" id="fr-ads-conclusions"></div></div>
   <div class="section"><div class="sec-title" id="fr-cat-title">Vista por Categor&iacute;as &mdash; Francia</div><div id="fr-cat-chart-area" style="margin-bottom:20px"></div><div id="fr-cat-view"></div><div class="conclusions" id="fr-cat-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Vista Sourcing (Shipped Revenue) + Ordered Revenue (Ordered Revenue)</div></div>
   <div class="section"><div class="sec-title" id="fr-pubfam-title">Rendimiento Publicidad por Categor&iacute;a &mdash; Francia</div><div style="overflow-x:auto" id="fr-asin-ads"></div><div class="conclusions" id="fr-ads-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: Pacvue &rarr; Amazon Advertising API &middot; Tags: Alisados / Post Alisado / Reparadores / Curly</div></div>
+  <div class="section"><div class="sec-title">&#128203; An&aacute;lisis Estratégico &mdash; Publicidad Francia</div><div id="fr-strat-concl"></div></div>
   <div class="section"><div class="sec-title" id="fr-inv-title">Inventario &mdash; Francia</div><div class="kpi-grid" id="fr-inv"></div></div>
 </div>
 <!-- IT -->
@@ -243,6 +255,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
   <div class="section"><div class="sec-title">M&eacute;tricas Publicidad por Mes</div><div id="it-ads-table"></div><div class="conclusions" id="it-ads-conclusions"></div></div>
   <div class="section"><div class="sec-title" id="it-cat-title">Vista por Categor&iacute;as &mdash; Italia</div><div id="it-cat-chart-area" style="margin-bottom:20px"></div><div id="it-cat-view"></div><div class="conclusions" id="it-cat-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Vista Sourcing (Shipped Revenue) + Ordered Revenue (Ordered Revenue)</div></div>
   <div class="section"><div class="sec-title" id="it-pubfam-title">Rendimiento Publicidad por Categor&iacute;a &mdash; Italia</div><div style="overflow-x:auto" id="it-asin-ads"></div><div class="conclusions" id="it-ads-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: Pacvue &rarr; Amazon Advertising API &middot; Tags: Alisados / Post Alisado / Reparadores / Curly</div></div>
+  <div class="section"><div class="sec-title">&#128203; An&aacute;lisis Estratégico &mdash; Publicidad Italia</div><div id="it-strat-concl"></div></div>
   <div class="section"><div class="sec-title" id="it-inv-title">Inventario &mdash; Italia</div><div class="kpi-grid" id="it-inv"></div></div>
 </div>
 <!-- DE -->
@@ -263,6 +276,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
   <div class="section"><div class="sec-title">M&eacute;tricas Publicidad por Mes</div><div id="de-ads-table"></div><div class="conclusions" id="de-ads-conclusions"></div></div>
   <div class="section"><div class="sec-title" id="de-cat-title">Vista por Categor&iacute;as &mdash; Alemania</div><div id="de-cat-chart-area" style="margin-bottom:20px"></div><div id="de-cat-view"></div><div class="conclusions" id="de-cat-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Vista Sourcing (Shipped Revenue) + Ordered Revenue (Ordered Revenue)</div></div>
   <div class="section"><div class="sec-title" id="de-pubfam-title">Rendimiento Publicidad por Categor&iacute;a &mdash; Alemania</div><div style="overflow-x:auto" id="de-asin-ads"></div><div class="conclusions" id="de-ads-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: Pacvue &rarr; Amazon Advertising API &middot; Tags: Alisados / Post Alisado / Reparadores / Curly</div></div>
+  <div class="section"><div class="sec-title">&#128203; An&aacute;lisis Estratégico &mdash; Publicidad Alemania</div><div id="de-strat-concl"></div></div>
   <div class="section"><div class="sec-title" id="de-inv-title">Inventario &mdash; Alemania</div><div class="kpi-grid" id="de-inv"></div></div>
 </div>
 <!-- FORECAST -->
@@ -1456,6 +1470,108 @@ function renderPOSection(mkt,chartId,tableId,titleId){
   el.innerHTML='<table class="tbl" style="font-size:12px;width:100%"><thead><tr><th>Mes</th><th>SI 2026</th><th>SI 2025</th><th>YoY</th><th>MoM</th><th>Ordered Revenue OR</th><th>Ratio SI/OR</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr style="background:var(--orange-xl);font-weight:700"><td>YTD Ene&ndash;Jun</td><td>'+fmtEur(totSI)+'</td><td style="color:#888">'+fmtEur(totSIPY)+'</td><td>'+ytdYoyStr+'</td><td><span class="chg-nd">N/A</span></td><td style="color:#555">'+fmtEur(totOR)+'</td><td>'+ytdRatio+'</td></tr></tfoot></table>';
 }
 
+const JUL_STRAT_CONCL={
+  FR:`<div class="strat-box"><ul>
+<li><span class="strat-tag strat-tag-hito">Hito</span>CVR 19,98% cuando activa &mdash; m&aacute;ximo de los &uacute;ltimos 19 meses. Venta diaria &euro;541,78 (+13,1% vs mayo activo). La cuenta convierte bien cuando hay inversi&oacute;n continuada.</li>
+<li><span class="strat-tag strat-tag-opp">Oportunidad</span>La categor&iacute;a alcanza su m&aacute;ximo anual entre junio y agosto. Los 22 d&iacute;as sin ads coincidieron exactamente con el pico estacional &rarr; coste de oportunidad especialmente elevado en el mejor momento del a&ntilde;o.</li>
+<li><span class="strat-tag strat-tag-risk">Riesgo</span>Agosto hist&oacute;ricamente registra ca&iacute;da de conversi&oacute;n. Vigilar disponibilidad de stock, posici&oacute;n Buy Box y precio comparativo para descartar incidencia operativa.</li>
+<li><span class="strat-tag strat-tag-risk">Debilidad</span>Dependencia estructural del ASIN de alisado principal. Post-alisado y reparadores no aportan volumen relevante en FR, a diferencia de Italia y Alemania.</li>
+<li><span class="strat-tag strat-tag-next">Pr&oacute;ximos pasos</span>Garantizar continuidad del m&eacute;todo de pago &middot; Recuperar inversi&oacute;n mientras dure el pico estacional &middot; Avanzar en diversificaci&oacute;n m&aacute;s all&aacute; del ASIN principal.</li>
+</ul></div>`,
+  IT:`<div class="strat-box"><ul>
+<li><span class="strat-tag strat-tag-hito">Hito</span>Las 4 l&iacute;neas de producto crecen y las 4 mejoran ROAS simult&aacute;neamente: Post-alisado ROAS 4,83&rarr;7,04x &middot; Reparadores ROAS 4,51&rarr;6,81x &middot; Captaci&oacute;n categor&iacute;a ROAS 5,04&rarr;6,09x &middot; Kit alisado ROAS 7,81&rarr;8,08x. Reducci&oacute;n real de dependencia del ASIN &uacute;nico.</li>
+<li><span class="strat-tag strat-tag-hito">Se&ntilde;al estructural</span>Acepta m&aacute;s inversi&oacute;n y mantiene/mejora rentabilidad &rarr; es la se&ntilde;al que se buscaba. Mercado con m&aacute;s recorrido de los tres.</li>
+<li><span class="strat-tag strat-tag-opp">Oportunidad</span>&Uacute;nico de los 3 mercados cuya demanda de categor&iacute;a <strong>no cae en agosto</strong> &rarr; ventana prioritaria para continuar escalando.</li>
+<li><span class="strat-tag strat-tag-next">Pr&oacute;ximos pasos</span>Priorizar en asignaci&oacute;n de presupuesto agosto &middot; Mantener captaci&oacute;n incremental vs protecci&oacute;n de marca &middot; Seguir escalando post-alisado y reparadores mientras mantengan eficiencia.</li>
+</ul></div>`,
+  DE:`<div class="strat-box"><ul>
+<li><span class="strat-tag strat-tag-hito">Hito</span>Reparadores y captaci&oacute;n de categor&iacute;a se consolidan como nuevas palancas: Reparadores ROAS 2,01&rarr;6,45x (+538% ventas) &middot; Captaci&oacute;n categor&iacute;a ROAS 3,31&rarr;5,15x (+340% ventas). L&iacute;neas antes infra-invertidas que responden al presupuesto.</li>
+<li><span class="strat-tag strat-tag-opp">Se&ntilde;al a calibrar</span>Impresiones +40,6% pero CVR baj&oacute; de 16,61% a 14% &rarr; se alcanza una audiencia m&aacute;s amplia pero menos cualificada. Ajustar segmentaci&oacute;n o pujas para recuperar eficiencia.</li>
+<li><span class="strat-tag strat-tag-risk">Contexto de mercado</span>La demanda de categor&iacute;a cae &minus;13% YoY con contracci&oacute;n progresiva. El crecimiento futuro vendr&aacute; de ganar cuota frente a competidores, no de m&aacute;s demanda natural.</li>
+<li><span class="strat-tag strat-tag-next">Pr&oacute;ximos pasos</span>No escalar presupuesto de forma indiscriminada &middot; Desplazar foco progresivamente hacia conquista competitiva &middot; Preparar estrategia de cuota de cara a oto&ntilde;o/Navidad.</li>
+</ul></div>`,
+  global:`<div class="strat-box"><ul>
+<li><span class="strat-tag strat-tag-hito">Hito global</span>Con inversi&oacute;n pr&aacute;cticamente plana (+2,7% vs mayo), el portfolio gener&oacute; m&aacute;s ventas ads (+5,7%), m&aacute;s pedidos (+9,4%) y mejor ROAS &mdash; manteniendo el crecimiento a pesar de que Francia estuvo 22 d&iacute;as sin publicidad.</li>
+<li><span class="strat-tag strat-tag-hito">Estrategia validada</span>La reducci&oacute;n de protecci&oacute;n de marca a favor de captaci&oacute;n incremental funciona, especialmente en Italia. Post-alisado y reparadores emergen como palancas reales en IT y DE.</li>
+<li><span class="strat-tag strat-tag-opp">Situaci&oacute;n por mercado</span><strong>Italia:</strong> escalar &mdash; acepta inversi&oacute;n, diversifica y mantiene rentabilidad &middot; <strong>Francia:</strong> recuperar continuidad y aprovechar pico estacional &middot; <strong>Alemania:</strong> ganar cuota en mercado en contracci&oacute;n.</li>
+<li><span class="strat-tag strat-tag-next">Pr&oacute;ximos pasos</span>(1) Garantizar m&eacute;todo de pago en FR y recuperar inversi&oacute;n en agosto &middot; (2) Priorizar IT en asignaci&oacute;n presupuesto agosto &middot; (3) Desplazar foco DE hacia estrategia competitiva &middot; (4) Evitar nuevas incidencias que interrumpan la continuidad publicitaria.</li>
+</ul></div>`
+};
+
+function renderStratConcl(mkt,elId){
+  var el=document.getElementById(elId);if(!el)return;
+  if(selM===6||selM===-1){el.innerHTML=JUL_STRAT_CONCL[mkt]||'';}
+  else{el.innerHTML='';}
+}
+
+function renderGlobalSRTable(){
+  var el=document.getElementById('global-sr-table');if(!el)return;
+  var fmtK=v=>v>=1000?'&euro;'+(v/1000).toFixed(1)+'k':'&euro;'+v;
+  var html='<table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr style="background:#2d2d2d;color:#fff">';
+  html+='<th style="padding:8px 10px;text-align:left">Mes</th>';
+  html+='<th style="padding:8px 10px;text-align:right">Francia</th>';
+  html+='<th style="padding:8px 10px;text-align:right">Italia</th>';
+  html+='<th style="padding:8px 10px;text-align:right">Alemania</th>';
+  html+='<th style="padding:8px 10px;text-align:right">Total EU</th></tr></thead><tbody>';
+  MONTHS.forEach(function(mn,i){
+    var fr=D.FR.si[i]||0,it=D.IT.si[i]||0,de=D.DE.si[i]||0,tot=fr+it+de;
+    var bg=i===LAST_M?'background:#fff8f3':'background:#fff';
+    var bw=i===LAST_M?'font-weight:700':'';
+    html+=`<tr style="${bg};border-bottom:1px solid #f0e0d0">
+      <td style="padding:7px 10px;${bw}">${mn} 2026</td>
+      <td style="padding:7px 10px;text-align:right;${bw}">${fmtK(fr)}</td>
+      <td style="padding:7px 10px;text-align:right;${bw}">${fmtK(it)}</td>
+      <td style="padding:7px 10px;text-align:right;${bw}">${fmtK(de)}</td>
+      <td style="padding:7px 10px;text-align:right;${bw};color:var(--orange)">${fmtK(tot)}</td>
+    </tr>`;
+  });
+  var totFR=D.FR.si.reduce((a,b)=>a+b,0),totIT=D.IT.si.reduce((a,b)=>a+b,0),totDE=D.DE.si.reduce((a,b)=>a+b,0);
+  html+=`<tr style="background:#f5f5f5;font-weight:700;border-top:2px solid #2d2d2d">
+    <td style="padding:8px 10px">Total YTD</td>
+    <td style="padding:8px 10px;text-align:right">${fmtK(totFR)}</td>
+    <td style="padding:8px 10px;text-align:right">${fmtK(totIT)}</td>
+    <td style="padding:8px 10px;text-align:right">${fmtK(totDE)}</td>
+    <td style="padding:8px 10px;text-align:right;color:var(--orange)">${fmtK(totFR+totIT+totDE)}</td>
+  </tr></tbody></table>
+  <div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:6px">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Shipped Revenue Manufacturing &middot; Vista Pan-EU consolidada</div>`;
+  el.innerHTML=html;
+}
+
+function renderGlobalPOTable(){
+  var el=document.getElementById('global-po-table');if(!el)return;
+  var fmtK=v=>v>=1000?'&euro;'+(v/1000).toFixed(1)+'k':'&euro;'+v;
+  var html='<table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr style="background:#2d2d2d;color:#fff">';
+  html+='<th style="padding:8px 10px;text-align:left">Mes</th>';
+  html+='<th style="padding:8px 10px;text-align:right">Francia</th>';
+  html+='<th style="padding:8px 10px;text-align:right">Italia</th>';
+  html+='<th style="padding:8px 10px;text-align:right">Alemania</th>';
+  html+='<th style="padding:8px 10px;text-align:right">Total EU</th></tr></thead><tbody>';
+  MONTHS.forEach(function(mn,i){
+    var fr=PO_DATA.FR[i]||0,it=PO_DATA.IT[i]||0,de=PO_DATA.DE[i]||0,tot=fr+it+de;
+    var isLast=i===LAST_M;
+    var bg=isLast?'background:#fff8f3':'background:#fff';
+    var bw=isLast?'font-weight:700':'';
+    var note=isLast?' <span style="font-size:10px;color:#999">(en curso)</span>':'';
+    html+=`<tr style="${bg};border-bottom:1px solid #f0e0d0">
+      <td style="padding:7px 10px;${bw}">${mn} 2026${note}</td>
+      <td style="padding:7px 10px;text-align:right;${bw}">${fmtK(fr)}</td>
+      <td style="padding:7px 10px;text-align:right;${bw}">${fmtK(it)}</td>
+      <td style="padding:7px 10px;text-align:right;${bw}">${fmtK(de)}</td>
+      <td style="padding:7px 10px;text-align:right;${bw};color:var(--orange)">${fmtK(tot)}</td>
+    </tr>`;
+  });
+  var totFR=PO_DATA.FR.reduce((a,b)=>a+b,0),totIT=PO_DATA.IT.reduce((a,b)=>a+b,0),totDE=PO_DATA.DE.reduce((a,b)=>a+b,0);
+  html+=`<tr style="background:#f5f5f5;font-weight:700;border-top:2px solid #2d2d2d">
+    <td style="padding:8px 10px">Total YTD</td>
+    <td style="padding:8px 10px;text-align:right">${fmtK(totFR)}</td>
+    <td style="padding:8px 10px;text-align:right">${fmtK(totIT)}</td>
+    <td style="padding:8px 10px;text-align:right">${fmtK(totDE)}</td>
+    <td style="padding:8px 10px;text-align:right;color:var(--orange)">${fmtK(totFR+totIT+totDE)}</td>
+  </tr></tbody></table>
+  <div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:6px">&#128202; Fuente: Vendor Central &rarr; PO Export &middot; Importe aceptado por mes de pedido &middot; FR: vendor XG7HS &middot; IT/DE: vendor FY8R1 por FCs &middot; Jul26 = POs en curso</div>`;
+  el.innerHTML=html;
+}
+
 function renderAll(){
   renderSummary();renderGlobalKPIs();renderGlobalTable();renderGlobalCatView();
   renderMarketKPIs('FR','fr-kpis','fr-conclusions');
@@ -1487,6 +1603,12 @@ function renderAll(){
   });
   renderGlobalCatConcl();
   renderInformeEjecutivo();
+  renderStratConcl('FR','fr-strat-concl');
+  renderStratConcl('IT','it-strat-concl');
+  renderStratConcl('DE','de-strat-concl');
+  renderStratConcl('global','global-strat-concl');
+  renderGlobalSRTable();
+  renderGlobalPOTable();
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
