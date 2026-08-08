@@ -91,6 +91,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
 .cat-global-name{font-size:12px;font-weight:700;color:var(--orange);margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;}
 .cat-mkt-row{display:flex;justify-content:space-between;font-size:11px;padding:4px 0;border-bottom:1px solid var(--gray-l);}
 .cat-mkt-row:last-child{border-bottom:none;}.cat-mkt-lbl{color:var(--gray);font-weight:600;}.cat-mkt-val{color:var(--dark);font-weight:700;}
+.timing-note{margin-top:10px;font-size:11px;color:#6b5a2a;background:#fdf6e3;border-left:3px solid #f0b429;padding:7px 11px;border-radius:0 4px 4px 0;line-height:1.5;}
 </style>
 </head>
 <body>
@@ -208,7 +209,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
   </div>
   <div class="section"><div class="sec-title">KPIs Francia</div><div class="kpi-grid" id="fr-kpis"></div></div>
   <div class="two-col">
-    <div class="section"><div class="sec-title">Ordered Revenue vs Shipped Revenue Manufacturing &mdash; 2026 vs 2025</div><div class="chart-wrap"><canvas id="chart-fr-or"></canvas></div><div class="conclusions" id="fr-si-concl" style="margin-top:10px"></div></div>
+    <div class="section"><div class="sec-title">Ordered Revenue vs Shipped Revenue Manufacturing &mdash; 2026 vs 2025</div><div class="chart-wrap"><canvas id="chart-fr-or"></canvas></div><div class="conclusions" id="fr-si-concl" style="margin-top:10px"></div><div class="timing-note">&#9432; <strong>OR vs SR Mfg:</strong> Ordered Revenue = d&iacute;a del pedido &bull; Shipped Revenue Mfg = d&iacute;a del env&iacute;o (D+1 a D+3). En meses de alta demanda, pedidos de los &uacute;ltimos d&iacute;as del mes se env&iacute;an en el siguiente &rarr; SR Mfg puede superar al OR puntualmente. No es una anomal&iacute;a, es el desfase natural del ciclo de fulfillment de Amazon.</div></div>
     <div class="section"><div class="sec-title">Publicidad &mdash; Gasto y Ventas</div><div class="chart-wrap"><canvas id="chart-fr-ads"></canvas></div><div class="conclusions" id="fr-ads-chart-concl" style="margin-top:10px"></div></div>
   </div>
   <div class="section"><div class="sec-title" id="fr-po-title">&#x1F4C8; Evoluci&oacute;n SI &mdash; Francia</div>
@@ -217,6 +218,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
       <div id="fr-po-table" style="overflow-x:auto"></div>
     </div>
   </div>
+  <div class="section"><div class="sec-title">&#128230; Purchase Orders &mdash; Sell-In Real (Importe Aceptado) 2026</div><div class="chart-wrap"><canvas id="chart-fr-po"></canvas></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:6px">&#128202; Fuente: Vendor Central &rarr; PO Export (vendor XG7HS) &middot; Importe aceptado por mes de pedido &middot; Jul26 = POs en curso (pendiente recepci&oacute;n parcial)</div></div>
   <div class="section"><div class="sec-title">M&eacute;tricas Publicidad por Mes</div><div id="fr-ads-table"></div><div class="conclusions" id="fr-ads-conclusions"></div></div>
   <div class="section"><div class="sec-title" id="fr-cat-title">Vista por Categor&iacute;as &mdash; Francia</div><div id="fr-cat-chart-area" style="margin-bottom:20px"></div><div id="fr-cat-view"></div><div class="conclusions" id="fr-cat-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Vista Sourcing (Shipped Revenue) + Ordered Revenue (Ordered Revenue)</div></div>
   <div class="section"><div class="sec-title" id="fr-pubfam-title">Rendimiento Publicidad por Categor&iacute;a &mdash; Francia</div><div style="overflow-x:auto" id="fr-asin-ads"></div><div class="conclusions" id="fr-ads-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: Pacvue &rarr; Amazon Advertising API &middot; Tags: Alisados / Post Alisado / Reparadores / Curly</div></div>
@@ -228,7 +230,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
   <div class="alert alert-warn"><strong>Nota Pan-EU:</strong>&nbsp;El Shipped Revenue cuenta IT representa solo el 32% del suministro total. El 68% restante proviene de otras cuentas Kativa via Pan-EU &mdash; no son distribuidores externos.</div>
   <div class="section"><div class="sec-title">KPIs Italia</div><div class="kpi-grid" id="it-kpis"></div></div>
   <div class="two-col">
-    <div class="section"><div class="sec-title">Ordered Revenue vs Shipped Revenue (cuenta IT Sourcing) &mdash; 2026</div><div class="chart-wrap"><canvas id="chart-it-or"></canvas></div><div class="conclusions" id="it-si-concl" style="margin-top:10px"></div></div>
+    <div class="section"><div class="sec-title">Ordered Revenue vs Shipped Revenue Manufacturing &mdash; 2026</div><div class="chart-wrap"><canvas id="chart-it-or"></canvas></div><div class="conclusions" id="it-si-concl" style="margin-top:10px"></div><div class="timing-note">&#9432; <strong>OR vs SR Mfg:</strong> Ordered Revenue = d&iacute;a del pedido &bull; Shipped Revenue Mfg = d&iacute;a del env&iacute;o (D+1 a D+3). En meses de alta demanda, pedidos de los &uacute;ltimos d&iacute;as del mes se env&iacute;an en el siguiente &rarr; SR Mfg puede superar al OR puntualmente. No es una anomal&iacute;a, es el desfase natural del ciclo de fulfillment de Amazon.</div></div>
     <div class="section"><div class="sec-title">Publicidad &mdash; Gasto y Ventas</div><div class="chart-wrap"><canvas id="chart-it-ads"></canvas></div><div class="conclusions" id="it-ads-chart-concl" style="margin-top:10px"></div></div>
   </div>
   <div class="section"><div class="sec-title" id="it-po-title">&#x1F4C8; Evoluci&oacute;n SI &mdash; Italia</div>
@@ -237,6 +239,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
       <div id="it-po-table" style="overflow-x:auto"></div>
     </div>
   </div>
+  <div class="section"><div class="sec-title">&#128230; Purchase Orders &mdash; Sell-In Real (Importe Aceptado) 2026</div><div class="chart-wrap"><canvas id="chart-it-po"></canvas></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:6px">&#128202; Fuente: Vendor Central &rarr; PO Export (vendor FY8R1) &middot; FCs Italia (BGY1, MXP6, FCO1, TRN1/3, BLQ1) &middot; Jul26 = POs en curso</div></div>
   <div class="section"><div class="sec-title">M&eacute;tricas Publicidad por Mes</div><div id="it-ads-table"></div><div class="conclusions" id="it-ads-conclusions"></div></div>
   <div class="section"><div class="sec-title" id="it-cat-title">Vista por Categor&iacute;as &mdash; Italia</div><div id="it-cat-chart-area" style="margin-bottom:20px"></div><div id="it-cat-view"></div><div class="conclusions" id="it-cat-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Vista Sourcing (Shipped Revenue) + Ordered Revenue (Ordered Revenue)</div></div>
   <div class="section"><div class="sec-title" id="it-pubfam-title">Rendimiento Publicidad por Categor&iacute;a &mdash; Italia</div><div style="overflow-x:auto" id="it-asin-ads"></div><div class="conclusions" id="it-ads-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: Pacvue &rarr; Amazon Advertising API &middot; Tags: Alisados / Post Alisado / Reparadores / Curly</div></div>
@@ -256,6 +259,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
       <div id="de-po-table" style="overflow-x:auto"></div>
     </div>
   </div>
+  <div class="section"><div class="sec-title">&#128230; Purchase Orders &mdash; Sell-In Real (Importe Aceptado) 2026</div><div class="chart-wrap"><canvas id="chart-de-po"></canvas></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:6px">&#128202; Fuente: Vendor Central &rarr; PO Export (vendor FY8R1) &middot; FCs Alemania (HAJ1, NUE1, STR4, HAM2, LEJ5, DTM1/2) &middot; Jul26 = POs en curso</div></div>
   <div class="section"><div class="sec-title">M&eacute;tricas Publicidad por Mes</div><div id="de-ads-table"></div><div class="conclusions" id="de-ads-conclusions"></div></div>
   <div class="section"><div class="sec-title" id="de-cat-title">Vista por Categor&iacute;as &mdash; Alemania</div><div id="de-cat-chart-area" style="margin-bottom:20px"></div><div id="de-cat-view"></div><div class="conclusions" id="de-cat-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Vista Sourcing (Shipped Revenue) + Ordered Revenue (Ordered Revenue)</div></div>
   <div class="section"><div class="sec-title" id="de-pubfam-title">Rendimiento Publicidad por Categor&iacute;a &mdash; Alemania</div><div style="overflow-x:auto" id="de-asin-ads"></div><div class="conclusions" id="de-ads-concl" style="margin-top:10px"></div><div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: Pacvue &rarr; Amazon Advertising API &middot; Tags: Alisados / Post Alisado / Reparadores / Curly</div></div>
@@ -306,6 +310,11 @@ const INV_MAY_MS={
   DE:{sellableUnits:1239,sellableCost:8037,unhealthyUnits:0,aged90Units:103}
 };
 
+const PO_DATA={
+  FR:[31336,21706,46698,22900,10748,6821,19444],
+  IT:[11428,42202,45828,34616,53215,65639,44167],
+  DE:[10814,9427,17822,6967,16301,29552,15500]
+};
 const JUN_CONCLUSIONS={
   FR:'<strong>Francia &euro;35.576 Ordered Revenue Jun26 (+27% MoM, &minus;7% YoY)</strong>. SI Manufacturing: pendiente. ACOS 14,8%, ROAS 6,7x, TACoS 7,5%. Gasto ads &euro;2.651 / Ventas ads &euro;17.862. Inventario sellable 2.700 uds, OOS 9,1%.',
   IT:'<strong>Italia &euro;63.137 Ordered Revenue Jun26 (+44% MoM, +1.392% YoY)</strong> &mdash; r&eacute;cord hist&oacute;rico absoluto. SI Manufacturing: pendiente. ACOS 11,9%, ROAS 8,4x, TACoS 6,2%. Sellable 10.725 uds, OOS 19,3%.',
@@ -1161,6 +1170,12 @@ function initCharts(){
   mkChart('chart-it-ads',{type:'bar',data:{labels:MONTHS,datasets:[{label:'Gasto',data:D.IT.spend,backgroundColor:'#C0392B'},{label:'Ventas Ads',data:D.IT.adsales,backgroundColor:'#E8691A'}]},options:{...CD}});
   mkChart('chart-de-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'OR 2026',data:D.DE.or,backgroundColor:'#E8691A'},{label:'OR 2025',data:D.DE.or_py,backgroundColor:'rgba(232,105,26,.25)'},{label:'Shipped Revenue DE Sourcing',data:D.DE.si,backgroundColor:'#2D2D2D'}]},options:{...CD}});
   mkChart('chart-de-ads',{type:'bar',data:{labels:MONTHS,datasets:[{label:'Gasto',data:D.DE.spend,backgroundColor:'#C0392B'},{label:'Ventas Ads',data:D.DE.adsales,backgroundColor:'#E8691A'}]},options:{...CD}});
+  const poCols=m=>m===LAST_M?'rgba(232,105,26,0.45)':'#E8691A';
+  const poBg=MONTHS.map((_,i)=>poCols(i));
+  const poOpts={...CD,plugins:{...CD.plugins,legend:{display:false},tooltip:{callbacks:{label:ctx=>'PO aceptado: €'+ctx.parsed.y.toLocaleString('es-ES')+(ctx.dataIndex===LAST_M?' (en curso)':'')}}},scales:{x:{ticks:{font:{size:11}}},y:{ticks:{callback:v=>'€'+(v>=1000?(v/1000).toFixed(0)+'k':v),font:{size:11}}}}};
+  mkChart('chart-fr-po',{type:'bar',data:{labels:MONTHS,datasets:[{label:'POs Francia',data:PO_DATA.FR,backgroundColor:poBg,borderRadius:4}]},options:poOpts});
+  mkChart('chart-it-po',{type:'bar',data:{labels:MONTHS,datasets:[{label:'POs Italia',data:PO_DATA.IT,backgroundColor:poBg,borderRadius:4}]},options:poOpts});
+  mkChart('chart-de-po',{type:'bar',data:{labels:MONTHS,datasets:[{label:'POs Alemania',data:PO_DATA.DE,backgroundColor:poBg,borderRadius:4}]},options:poOpts});
 }
 
 function selTab(id,btn){
