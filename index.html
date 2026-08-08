@@ -119,7 +119,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
   <button class="mth-btn" onclick="selMonth(4)" id="mbtn4">May</button>
   <button class="mth-btn" onclick="selMonth(5)" id="mbtn5">Jun</button>
   <button class="mth-btn active" onclick="selMonth(6)" id="mbtn6">Jul</button>
-  <span class="filter-note">YoY vs 2025 donde disponible &bull; Shipped Revenue: Vista Manufacturing &bull; Datos hasta julio 2026</span>
+  <span class="filter-note">YoY vs 2025 solo Francia (IT/DE sin historial 2025) &bull; Shipped Revenue: Vista Manufacturing &bull; Datos hasta julio 2026</span>
 </div>
 <div class="tab-nav">
   <button class="tab-btn active" onclick="selTab('global',this)">Global EU</button>
@@ -169,18 +169,14 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
   <div class="section"><div class="sec-title">Shipped Revenue Manufacturing por Mercado &mdash; Evoluci&oacute;n 2026</div><div id="global-sr-table" style="overflow-x:auto"></div></div>
   <div class="section"><div class="sec-title">&#128230; Purchase Orders (Sell-In Real) por Mercado &mdash; Evoluci&oacute;n 2026</div><div id="global-po-table" style="overflow-x:auto"></div></div>
   <div class="section"><div class="sec-title">Top 10 Ventas por Unidades &mdash; Jul 2026 (todos los mercados)</div><div id="global-top10" style="overflow-x:auto"></div><p class="note" style="margin-top:8px">Unidades del mes de julio 2026 consolidadas FR+IT+DE+BE+NL+PL. OR YoY compara junio 2026 vs junio 2025.</p></div>
-  <!-- NUEVOS MERCADOS -->
-  <div class="section" id="nuevos-mercados-section">
-    <div class="sec-title">Nuevos Mercados EU &mdash; Julio 2026</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px;margin-bottom:16px">
-      <div class="kpi-card" style="border-top-color:#3498DB"><div class="kpi-lbl">B&eacute;lgica (BE)</div><div class="kpi-val">&euro;5.471</div><div class="kpi-chg"><span class="chg-nd">429 uds</span></div></div>
-      <div class="kpi-card" style="border-top-color:#9B59B6"><div class="kpi-lbl">Pa&iacute;ses Bajos (NL)</div><div class="kpi-val">&euro;3.320</div><div class="kpi-chg"><span class="chg-nd">274 uds</span></div></div>
-      <div class="kpi-card" style="border-top-color:#27AE60"><div class="kpi-lbl">Polonia (PL)</div><div class="kpi-val">&euro;196</div><div class="kpi-chg"><span class="chg-nd">18 uds</span></div></div>
-      <div class="kpi-card" style="border-top-color:#F5A668"><div class="kpi-lbl">Suecia (SE)</div><div class="kpi-val">&euro;3.311</div><div class="kpi-chg"><span class="chg-nd">253 uds</span></div></div>
-      <div class="kpi-card" style="border-top-color:#E8691A"><div class="kpi-lbl">Irlanda (IE)</div><div class="kpi-val">&euro;1.372</div><div class="kpi-chg"><span class="chg-nd">123 uds</span></div></div>
-    </div>
-    <div class="conclusions">BE+NL+PL totalizan <strong>&euro;8.987</strong> en julio (sin publicidad activa). B0CB1KQ8Q4 lidera en todos los mercados. Oportunidad de escalar con ads una vez validado el vol&uacute;men org&aacute;nico.</div>
-    <div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: Amazon Vendor Central &middot; Dispatched Revenue &middot; Julio 2026</div>
+  <!-- NOTA MERCADOS INCLUIDOS EN OR/SR GLOBAL -->
+  <div class="section" style="background:#f0f4ff;border-left:4px solid #3b6fd4;border-radius:0 8px 8px 0;padding:14px 18px">
+    <div class="sec-title" style="border-bottom-color:#d0daf5">Mercados incluidos en Ordered Revenue &amp; Shipped Revenue Global</div>
+    <p style="font-size:12px;line-height:1.7;color:#2d2d2d;margin-bottom:8px">
+      Los totales globales de OR y Shipped Revenue (Manufacturing) incluyen <strong>Francia (FR) &bull; Italia (IT) &bull; Alemania (DE) &bull; Pa&iacute;ses Bajos (NL)</strong> con datos mensuales desde MerchantSpring.
+      <br><strong>B&eacute;lgica (BE)</strong> y <strong>Polonia (PL)</strong> se incluyen solo en el acumulado anual (exportaci&oacute;n Vendor Central Manufacturing Retail Ene&ndash;Jul 2026): BE &euro;24.828 OR / &euro;24.558 SR &bull; PL &euro;978 OR / &euro;966 SR.
+    </p>
+    <p style="font-size:11px;color:#6b6b6b;margin:0">&#128202; Publicidad consolidada: solo FR + IT + DE (cuentas con Vendor Central Ads activo).</p>
   </div>
   <!-- DEMANDA MERCADO HELIUM10 -->
   <div class="section" id="helium10-section">
@@ -239,7 +235,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
 <!-- IT -->
 <div class="tab-pane" id="tab-it">
   <div id="it-oos-alert"></div>
-  <div class="alert alert-warn"><strong>Nota Pan-EU:</strong>&nbsp;El Shipped Revenue cuenta IT representa solo el 32% del suministro total. El 68% restante proviene de otras cuentas Kativa via Pan-EU &mdash; no son distribuidores externos.</div>
   <div class="section"><div class="sec-title">KPIs Italia</div><div class="kpi-grid" id="it-kpis"></div></div>
   <div class="two-col">
     <div class="section"><div class="sec-title">Ordered Revenue vs Shipped Revenue Manufacturing &mdash; 2026</div><div class="chart-wrap"><canvas id="chart-it-or"></canvas></div><div class="conclusions" id="it-si-concl" style="margin-top:10px"></div><div class="timing-note">&#9432; <strong>OR vs SR Mfg:</strong> Ordered Revenue = d&iacute;a del pedido &bull; Shipped Revenue Mfg = d&iacute;a del env&iacute;o (D+1 a D+3). En meses de alta demanda, pedidos de los &uacute;ltimos d&iacute;as del mes se env&iacute;an en el siguiente &rarr; SR Mfg puede superar al OR puntualmente. No es una anomal&iacute;a, es el desfase natural del ciclo de fulfillment de Amazon.</div></div>
@@ -299,14 +294,17 @@ const LAST_M=MONTHS.length-1;
 const D={
   FR:{or:[19760,20584,29209,29257,28015,35576,36308],or_py:[13373,13657,16585,16503,21826,38419,41804],si:[19090,17559,22742,9512,16370,8420,37294],si_py:[13042,13230,15184,15572,21505,36841,43642],gv:[18545,18774,25459,23254,23645,32070,29274],spend:[2233,2538,2353,1851,2400,2651,896],adsales:[8334,10712,13158,12933,14846,17862,4879],acos:[26.8,23.7,17.9,14.3,16.2,14.8,18.3],tacos:[11.3,12.3,8.1,6.3,8.6,7.5,2.5],pasos:['Pasar Post Alisado a modalidad manual','Escalar linea alisado con mayor inversion en ads','Desarrollar bundles con referencias complementarias','Mantener Curly y Reparadores en standby hasta estabilizar stock','Expandir SBV en todos los ad groups']},
   IT:{or:[17442,33308,49521,48042,43780,63137,67248],or_py:[2668,3324,3100,2058,2451,4232,6759],si:[6772,22020,29394,33917,14801,25239,67504],si_py:[0,0,0,0,0,0,6642],gv:[16740,28597,46543,44570,47551,56737,57964],spend:[412,2053,2149,2090,3038,3900,4501],adsales:[2927,17639,19548,17119,22465,32887,33810],acos:[14.1,11.6,11.0,12.2,13.5,11.9,13.3],tacos:[2.4,6.2,4.3,4.4,6.9,6.2,6.7],pasos:['Reducir concentracion en ASIN heroe B0CB1KQ8Q4','Escalar SBV manteniendo ACOS menor 20%','Monitorizar devoluciones por categoria']},
-  DE:{or:[9323,15876,20848,21892,21521,28097,31756],or_py:[769,2197,2357,3663,6345,9695,10703],si:[996,2068,11654,11989,12568,9888,31375],si_py:[0,0,0,0,0,0,11079],gv:[6473,10755,16915,15201,17437,20437,20215],spend:[251,1175,1302,1106,1354,1416,1580],adsales:[1438,6516,9040,8408,9058,11708,10335],acos:[17.4,18.0,14.4,13.2,14.9,12.1,15.3],tacos:[2.7,7.4,6.2,5.1,6.3,5.0,5.0],pasos:['Escalar inversion solo cuando OOS este por debajo del 15%','Lanzar Post Alisado como segunda linea en DE','Consolidar SBV como formato estrella de awareness','Reducir dependencia del ASIN heroe']}
+  DE:{or:[9323,15876,20848,21892,21521,28097,31756],or_py:[769,2197,2357,3663,6345,9695,10703],si:[996,2068,11654,11989,12568,9888,31375],si_py:[0,0,0,0,0,0,11079],gv:[6473,10755,16915,15201,17437,20437,20215],spend:[251,1175,1302,1106,1354,1416,1580],adsales:[1438,6516,9040,8408,9058,11708,10335],acos:[17.4,18.0,14.4,13.2,14.9,12.1,15.3],tacos:[2.7,7.4,6.2,5.1,6.3,5.0,5.0],pasos:['Escalar inversion solo cuando OOS este por debajo del 15%','Lanzar Post Alisado como segunda linea en DE','Consolidar SBV como formato estrella de awareness','Reducir dependencia del ASIN heroe']},
+  NL:{or:[831,1429,2083,2352,2018,4000,4222],si:[797,1551,1981,2162,1937,3993,4260]}
 };
 
 const YTD_DATA={
   FR:{or:198709,or_py:162167,or_units:14049,or_units_py:11872},
   IT:{or:322478,or_py:24592,or_units:19341,or_units_py:1608},
-  DE:{or:149313,or_py:35729,or_units:10561,or_units_py:4306}
+  DE:{or:149313,or_py:35729,or_units:10561,or_units_py:4306},
+  NL:{or:16935,si:16681}
 };
+const BE_PL_YTD={BE:{or:24828,si:24558},PL:{or:978,si:966}};
 const INV_DATA={
   FR:{sellableUnits:2700,sellableCost:15574,unhealthyUnits:45,aged90Units:295,oosRate:9.1},
   IT:{sellableUnits:10725,sellableCost:93171,unhealthyUnits:48,aged90Units:751,oosRate:19.3},
@@ -339,9 +337,9 @@ const JUN_CONCLUSIONS={
 
 const JUL_CONCLUSIONS={
   FR:'<strong>Francia &euro;36.308 Ordered Revenue Jul26 (+2% MoM, &minus;13% YoY)</strong>. Shipped Revenue Mfg: &euro;37.294. 22 d&iacute;as sin publicidad (1&ndash;22 jul). CVR 19,98%, venta diaria &euro;541,78 cuando activa. Gasto ads &euro;896, ventas ads &euro;4.879, ROAS 5,45x. TACoS 2,5%.',
-  IT:'<strong>Italia &euro;67.248 Ordered Revenue Jul26 (+7% MoM, +895% YoY)</strong>. Shipped Revenue Mfg: &euro;67.504. Gasto ads &euro;4.501 (+48% vs may), ventas ads &euro;33.810 (+50%), ROAS 7,51x, CVR 15,70%. Post-alisado +200%; Reparadores +118%. TACoS 6,7%.',
-  DE:'<strong>Alemania &euro;31.756 Ordered Revenue Jul26 (+13% MoM, +197% YoY)</strong>. Shipped Revenue Mfg: &euro;31.375. Demanda categor&iacute;a &minus;13% YoY (&minus;48% en 3 a&ntilde;os). Gasto ads &euro;1.580 (+17% vs may), ventas ads &euro;10.335, ROAS 6,54x. TACoS 5,0%.',
-  global:'<strong>Portfolio FR+IT+DE: &euro;135.312 Jul26 (+7% MoM). Shipped Revenue Mfg total: &euro;136.173.</strong> Italia 50% (&euro;67k), Francia 27% (&euro;36k), Alemania 23% (&euro;32k). Nuevos mercados BE+NL+PL+SE+IE: &euro;13.670. Inversi&oacute;n ads &euro;6.977, ROAS 7,03x.',
+  IT:'<strong>Italia &euro;67.248 Ordered Revenue Jul26 (+7% MoM)</strong>. Shipped Revenue Mfg: &euro;67.504. Gasto ads &euro;4.501 (+48% vs may), ventas ads &euro;33.810 (+50%), ROAS 7,51x, CVR 15,70%. Post-alisado +200%; Reparadores +118%. TACoS 6,7%.',
+  DE:'<strong>Alemania &euro;31.756 Ordered Revenue Jul26 (+13% MoM)</strong>. Shipped Revenue Mfg: &euro;31.375. Demanda categor&iacute;a &minus;13% (tendencia 3 a&ntilde;os). Gasto ads &euro;1.580 (+17% vs may), ventas ads &euro;10.335, ROAS 6,54x. TACoS 5,0%.',
+  global:'<strong>Portfolio FR+IT+DE+NL: &euro;139.534 OR Jul26 (+7% MoM). Shipped Revenue Mfg: &euro;140.433.</strong> Italia 48% (&euro;67k), Francia 26% (&euro;36k), Alemania 23% (&euro;32k), NL 3% (&euro;4k). BE+PL incluidos en YTD acumulado. Inversi&oacute;n ads &euro;6.977, ROAS 7,03x.',
   global_ads:'Gasto EU total &euro;6.977 / Ventas ads &euro;49.024 / ROAS 7,03x / TACoS blended 5,2%. <strong>Italia: ROAS 7,51x, Spend &euro;4.501 (+48% vs may).</strong> Francia: ROAS 5,45x, Spend &euro;896 (22 d&iacute;as sin ads). Alemania: ROAS 6,54x, Spend &euro;1.580 (+17% vs may). Nota: ref. vs mayo (junio distorsionado por Prime Day).'
 };
 const JUL_ADS_CONCLUSIONS={
@@ -582,14 +580,13 @@ function renderSummary(){
   mkts.forEach(mkt=>{
     const o=getOrVal(mkt,selM);
     const label=selM===-1?'YTD':MONTHS[selM];
-    let badges=`<span class="badge ${badgeClass(o.yoy||0)}">${o.yoy!=null?fmtPct(o.yoy)+' YoY':'N/D YoY'}</span>`;
+    let badges='';
+    if(mkt==='FR')badges+=`<span class="badge ${badgeClass(o.yoy||0)}">${o.yoy!=null?fmtPct(o.yoy)+' YoY':'N/D YoY'}</span>`;
     if(o.mom!=null&&selM>-1)badges+=`<span class="badge ${badgeClass(o.mom)}">${fmtPct(o.mom)} MoM</span>`;
     html+=`<div class="sum-card" onclick="selTab('${tabMap[mkt]}',null)"><div class="sum-mkt">${MKT_NAMES[mkt]} &mdash; ${label}</div><div class="sum-val">${fmtEur(o.val)}</div><div class="sum-badges">${badges}</div></div>`;
   });
-  const gOR=mkts.reduce((a,m)=>a+(selM===-1?ytdSum(D[m].or,LAST_M):D[m].or[selM]),0);
-  const gORpy=mkts.reduce((a,m)=>a+(selM===-1?ytdSum(D[m].or_py,LAST_M):D[m].or_py[selM]),0);
-  const gYoY=gORpy>0?(gOR-gORpy)/gORpy*100:null;
-  html+=`<div class="sum-card" onclick="selTab('global',null)"><div class="sum-mkt">Global EU &mdash; ${selM===-1?'YTD':MONTHS[selM]}</div><div class="sum-val">${fmtEur(gOR)}</div><div class="sum-badges"><span class="badge ${badgeClass(gYoY||0)}">${gYoY!=null?fmtPct(gYoY)+' YoY':'N/D'}</span></div></div>`;
+  const gOR=mkts.reduce((a,m)=>a+(selM===-1?ytdSum(D[m].or,LAST_M):D[m].or[selM]),0)+(selM===-1?YTD_DATA.NL.or+BE_PL_YTD.BE.or+BE_PL_YTD.PL.or:D.NL.or[selM]);
+  html+=`<div class="sum-card" onclick="selTab('global',null)"><div class="sum-mkt">Global EU &mdash; ${selM===-1?'YTD':MONTHS[selM]}</div><div class="sum-val">${fmtEur(gOR)}</div><div class="sum-badges"><span class="badge badge-g">FR+IT+DE+NL${selM===-1?'+BE+PL':''}</span></div></div>`;
   bar.innerHTML=html;
 }
 
@@ -598,14 +595,14 @@ function renderGlobalKPIs(){
   const mkts=['FR','IT','DE'];
   let totalOR,totalORpy,gYoY,ytdNote;
   if(selM===-1){
-    totalOR=mkts.reduce((a,mkt)=>a+ytdSum(D[mkt].or,LAST_M),0);
+    totalOR=mkts.reduce((a,mkt)=>a+ytdSum(D[mkt].or,LAST_M),0)+YTD_DATA.NL.or+BE_PL_YTD.BE.or+BE_PL_YTD.PL.or;
     totalORpy=mkts.reduce((a,mkt)=>a+ytdSum(D[mkt].or_py,LAST_M),0);
-    gYoY=totalORpy>0?(totalOR-totalORpy)/totalORpy*100:null;
+    gYoY=null;
     ytdNote='Ene–Jul 2026';
   } else {
-    totalOR=mkts.reduce((a,mkt)=>a+D[mkt].or[selM],0);
+    totalOR=mkts.reduce((a,mkt)=>a+D[mkt].or[selM],0)+D.NL.or[selM];
     totalORpy=mkts.reduce((a,mkt)=>a+D[mkt].or_py[selM],0);
-    gYoY=totalORpy>0?(totalOR-totalORpy)/totalORpy*100:null;
+    gYoY=null;
     ytdNote='Ene–'+MONTHS[selM];
   }
   const m2=selM===-1?5:selM;
@@ -616,7 +613,7 @@ function renderGlobalKPIs(){
   const blROAS=totalSpend>0?(totalAdSales/totalSpend):0;
   let html='';
   const orLabel=selM===-1?'Ordered Revenue YTD Ene–Jul':'Ordered Revenue '+MONTHS[selM]+' 2026';
-  const totalSI=mkts.reduce((a,mkt)=>a+(selM===-1?ytdSum(D[mkt].si,LAST_M):D[mkt].si[m2]),0);
+  const totalSI=mkts.reduce((a,mkt)=>a+(selM===-1?ytdSum(D[mkt].si,LAST_M):D[mkt].si[m2]),0)+(selM===-1?YTD_DATA.NL.si+BE_PL_YTD.BE.si+BE_PL_YTD.PL.si:D.NL.si[m2]);
   const prevM2=m2>0?m2-1:null;
   const totalORprev=prevM2!==null?mkts.reduce((a,mkt)=>a+D[mkt].or[prevM2],0):null;
   const totalSIprev=prevM2!==null?mkts.reduce((a,mkt)=>a+D[mkt].si[prevM2],0):null;
@@ -640,10 +637,8 @@ function renderGlobalKPIs(){
   html+=kpiHTML('ROAS Blended',blROAS.toFixed(1)+'x',roasMoM,null);
   html+=kpiHTML('TACoS Blended',blTACOS.toFixed(1)+'%',tacosMoM,null);
   if(selM!==-1){
-    const ytdTotal=mkts.reduce((a,mkt)=>a+ytdSum(D[mkt].or,m2),0);
-    const ytdpy=mkts.reduce((a,mkt)=>a+ytdSum(D[mkt].or_py,m2),0);
-    const ytdYoY=ytdpy>0?(ytdTotal-ytdpy)/ytdpy*100:null;
-    html+=kpiHTML('Acumulado Ene–'+MONTHS[selM],fmtEur(ytdTotal),null,ytdYoY,'vs mismo período 2025');
+    const ytdTotal=mkts.reduce((a,mkt)=>a+ytdSum(D[mkt].or,m2),0)+ytdSum(D.NL.or,m2);
+    html+=kpiHTML('Acumulado Ene–'+MONTHS[selM]+' (FR+IT+DE+NL)',fmtEur(ytdTotal),null,null,'acum. hasta '+MONTHS[m2]);
   }
   el.innerHTML=html;
   document.getElementById('global-conclusions').innerHTML=selM===6?JUL_CONCLUSIONS.global:selM===5?JUN_CONCLUSIONS.global:(selM===4||selM===-1)?MAY_CONCLUSIONS.global:`Ordered Revenue EU: <strong>${fmtEur(totalOR)}</strong> en ${MONTHS[m2]} 2026.${gYoY!=null?' YoY: '+fmtPct(gYoY)+'.':''} ACOS: ${blACOS.toFixed(1)}%.`;
@@ -661,22 +656,38 @@ function renderGlobalTable(){
       or=ytdSum(D[mkt].or,LAST_M);
       si=ytdSum(D[mkt].si,LAST_M);
       var orPy=ytdSum(D[mkt].or_py,LAST_M);
-      orYoy=orPy>0?(or-orPy)/orPy*100:null;
+      orYoy=(mkt==='FR'&&orPy>0)?(or-orPy)/orPy*100:null;
     }else{
       or=D[mkt].or[selM];
       si=D[mkt].si[selM];
-      orYoy=yoy(D[mkt].or,D[mkt].or_py,selM);
+      orYoy=mkt==='FR'?yoy(D[mkt].or,D[mkt].or_py,selM):null;
     }
     totalOR+=or;
     return{mkt,or,si,orYoy};
   });
+  // Add NL row
+  var nlOR=isYTD?YTD_DATA.NL.or:D.NL.or[selM];
+  var nlSI=isYTD?YTD_DATA.NL.si:D.NL.si[selM];
+  totalOR+=nlOR;
+  // BE+PL YTD only
+  var beplOR=isYTD?BE_PL_YTD.BE.or+BE_PL_YTD.PL.or:0;
+  var beplSI=isYTD?BE_PL_YTD.BE.si+BE_PL_YTD.PL.si:0;
+  totalOR+=beplOR;
   let rows='';
   mktData.forEach(function(r){
     const pct=totalOR>0?(r.or/totalOR*100).toFixed(1):0;
-    rows+=`<tr><td>${MKT_NAMES[r.mkt]}</td><td>${fmtEur(r.or)}</td><td>${fmtEur(r.si)}</td><td>${pct}%</td><td class="${r.orYoy!=null?(r.orYoy>=0?'pos':'neg'):'nd'}">${r.orYoy!=null?fmtPct(r.orYoy):'N/D'}</td></tr>`;
+    const yoyTxt=r.mkt==='FR'?(r.orYoy!=null?fmtPct(r.orYoy):'N/D'):'&mdash;';
+    const yoyCls=r.mkt==='FR'&&r.orYoy!=null?(r.orYoy>=0?'pos':'neg'):'nd';
+    rows+=`<tr><td>${MKT_NAMES[r.mkt]}</td><td>${fmtEur(r.or)}</td><td>${fmtEur(r.si)}</td><td>${pct}%</td><td class="${yoyCls}">${yoyTxt}</td></tr>`;
   });
-  const totalSI=isYTD?mkts.reduce((a,mkt)=>a+ytdSum(D[mkt].si,LAST_M),0):mkts.reduce((a,mkt)=>a+D[mkt].si[selM],0);
-  document.getElementById('global-table-wrap').innerHTML=`<p style="font-size:10px;color:var(--gray);margin-bottom:8px">Período: ${periodLbl}</p><table class="tbl"><thead><tr><th>Mercado</th><th>Ordered Revenue (OR)</th><th>Shipped Revenue (SI)*</th><th>% Total</th><th>YoY</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td>Total</td><td>${fmtEur(totalOR)}</td><td>${fmtEur(totalSI)}</td><td>100%</td><td class="nd">&mdash;</td></tr></tfoot></table><p class="note">*Shipped Revenue = Vista Manufacturing (Jul26: pendiente). Objetivos anuales en pestaña Forecast.</p>`;
+  const nlPct=totalOR>0?(nlOR/totalOR*100).toFixed(1):0;
+  rows+=`<tr><td>Pa&iacute;ses Bajos (NL)</td><td>${fmtEur(nlOR)}</td><td>${fmtEur(nlSI)}</td><td>${nlPct}%</td><td class="nd">&mdash;</td></tr>`;
+  if(isYTD){
+    const beplPct=totalOR>0?(beplOR/totalOR*100).toFixed(1):0;
+    rows+=`<tr><td>B&eacute;lgica + Polonia (YTD)</td><td>${fmtEur(beplOR)}</td><td>${fmtEur(beplSI)}</td><td>${beplPct}%</td><td class="nd">Solo YTD</td></tr>`;
+  }
+  const totalSI=(isYTD?mkts.reduce((a,mkt)=>a+ytdSum(D[mkt].si,LAST_M),0):mkts.reduce((a,mkt)=>a+D[mkt].si[selM],0))+nlSI+beplSI;
+  document.getElementById('global-table-wrap').innerHTML=`<p style="font-size:10px;color:var(--gray);margin-bottom:8px">Per&iacute;odo: ${periodLbl} &bull; Mercados: FR + IT + DE + NL${isYTD?' + BE + PL':''}</p><table class="tbl"><thead><tr><th>Mercado</th><th>Ordered Revenue (OR)</th><th>Shipped Revenue (Mfg)</th><th>% Total</th><th>YoY</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td>Total</td><td>${fmtEur(totalOR)}</td><td>${fmtEur(totalSI)}</td><td>100%</td><td class="nd">&mdash;</td></tr></tfoot></table><p class="note">YoY disponible solo para Francia. BE y PL: solo datos anuales acumulados (Vendor Central Manufacturing Retail).</p>`;
 }
 
 function renderGlobalCatView(){
@@ -782,16 +793,17 @@ function toggleGCFamily(famId){
 function renderMarketKPIs(mkt,elId,concId){
   const el=document.getElementById(elId);const d=D[mkt];
   let orVal,orM,orY,siVal,siM,siY,ytdOrVal,ytdOrYoy,ytdNote;
+  const showYoY=(mkt==='FR');
   if(selM===-1){
     orVal=YTD_DATA[mkt].or;orM=null;
-    orY=YTD_DATA[mkt].or_py>0?(YTD_DATA[mkt].or-YTD_DATA[mkt].or_py)/YTD_DATA[mkt].or_py*100:null;
+    orY=showYoY&&YTD_DATA[mkt].or_py>0?(YTD_DATA[mkt].or-YTD_DATA[mkt].or_py)/YTD_DATA[mkt].or_py*100:null;
     siVal=ytdSum(d.si,LAST_M);siM=null;
-    const sipy=ytdSum(d.si_py,LAST_M);siY=sipy>0?(siVal-sipy)/sipy*100:null;
+    const sipy=ytdSum(d.si_py,LAST_M);siY=showYoY&&sipy>0?(siVal-sipy)/sipy*100:null;
     ytdOrVal=YTD_DATA[mkt].or;ytdOrYoy=orY;ytdNote='Ene–Jul (MCP)';
   } else {
-    orVal=d.or[selM];orM=mom(d.or,selM);orY=yoy(d.or,d.or_py,selM);
-    siVal=d.si[selM];siM=mom(d.si,selM);siY=d.si_py[selM]>0?yoy(d.si,d.si_py,selM):null;
-    ytdOrVal=YTD_DATA[mkt].or;ytdOrYoy=YTD_DATA[mkt].or_py>0?(YTD_DATA[mkt].or-YTD_DATA[mkt].or_py)/YTD_DATA[mkt].or_py*100:null;ytdNote='Ene–Jul (MCP)';
+    orVal=d.or[selM];orM=mom(d.or,selM);orY=showYoY?yoy(d.or,d.or_py,selM):null;
+    siVal=d.si[selM];siM=mom(d.si,selM);siY=showYoY&&d.si_py[selM]>0?yoy(d.si,d.si_py,selM):null;
+    ytdOrVal=YTD_DATA[mkt].or;ytdOrYoy=showYoY&&YTD_DATA[mkt].or_py>0?(YTD_DATA[mkt].or-YTD_DATA[mkt].or_py)/YTD_DATA[mkt].or_py*100:null;ytdNote='Ene–Jul (MCP)';
   }
   const m2=selM===-1?5:selM;
   const prevM2=m2>0?m2-1:null;
@@ -833,15 +845,7 @@ function renderAdsTable(mkt,elId,concId){
   document.getElementById(concId).innerHTML=(selM===6&&JUL_ADS_CONCLUSIONS[mkt])?JUL_ADS_CONCLUSIONS[mkt]:(selM===5&&JUN_ADS_CONCLUSIONS[mkt])?JUN_ADS_CONCLUSIONS[mkt]:(selM===4||selM===-1)&&MAY_ADS_CONCLUSIONS[mkt]?MAY_ADS_CONCLUSIONS[mkt]:`ACOS ${MKT_NAMES[mkt]} en ${MONTHS[selM===-1?4:selM]}: ${d.acos[selM===-1?4:selM].toFixed(1)}%.`;
 }
 
-function renderOosAlerts(){
-  function oosCls(r){return r==null?'alert-warn':r>20?'alert-danger':r>15?'alert-warn':'alert-ok';}
-  const cfg={FR:{el:'fr-oos-alert',oos:INV_DATA.FR.oosRate,cls:oosCls(INV_DATA.FR.oosRate)},IT:{el:'it-oos-alert',oos:INV_DATA.IT.oosRate,cls:oosCls(INV_DATA.IT.oosRate)},DE:{el:'de-oos-alert',oos:INV_DATA.DE.oosRate,cls:oosCls(INV_DATA.DE.oosRate)}};
-  Object.entries(cfg).forEach(([mkt,c])=>{
-    const oosStr=c.oos!=null?c.oos+'%':'N/D';
-    const msg=c.oos==null?`<strong>OOS ${oosStr}:</strong> datos de tasa OOS no disponibles para este mercado en este período.`:c.oos>20?`<strong>OOS CRÍTICO ${oosStr}:</strong> más de 1 de cada 4 ASINs sin stock. Prioridad máxima.`:c.oos>15?`<strong>OOS ${oosStr}:</strong> inventario ajustado. Monitorizar semanalmente.`:`<strong>OOS ${oosStr}:</strong> nivel aceptable. Vigilar para no superar el 15%.`;
-    document.getElementById(c.el).innerHTML=`<div class="alert ${c.cls}">${msg}</div>`;
-  });
-}
+function renderOosAlerts(){}
 
 function renderPasos(){
   ['FR','IT','DE'].forEach(mkt=>{
@@ -855,7 +859,7 @@ function renderYTDProgress(){
   let html='';
   ['FR','IT','DE'].forEach(mkt=>{
     const ytd=ytdSum(D[mkt].or,LAST_M),py=ytdSum(D[mkt].or_py,LAST_M);
-    const yy=py>0?(ytd-py)/py*100:null;
+    const yy=(mkt==='FR')&&py>0?(ytd-py)/py*100:null;
     html+=`<div style="margin-bottom:16px"><div style="font-weight:700;font-size:13px;margin-bottom:6px">${MKT_NAMES[mkt]} &mdash; YTD Ene&ndash;Jul 2026: ${fmtEur(ytd)} ${yy!=null?'(<span class="'+(yy>=0?'pos':'neg')+'">'+fmtPct(yy)+' YoY</span>)':''}</div><div class="kpi-grid" style="margin-bottom:8px"><div class="kpi-card"><div class="kpi-lbl">YTD 2026</div><div class="kpi-val">${fmtEur(ytd)}</div></div><div class="kpi-card"><div class="kpi-lbl">YTD 2025</div><div class="kpi-val">${fmtEur(py)}</div></div><div class="kpi-card"><div class="kpi-lbl">Gasto Ads YTD</div><div class="kpi-val">${fmtEur(ytdSum(D[mkt].spend,4))}</div></div><div class="kpi-card"><div class="kpi-lbl">ACOS May</div><div class="kpi-val">${D[mkt].acos[4].toFixed(1)}%</div></div></div></div>`;
   });
   el.innerHTML=html;
@@ -1174,15 +1178,15 @@ function mkChart(id,config){if(CI[id])CI[id].destroy();const ctx=document.getEle
 const CD={responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{font:{size:11},boxWidth:12}}},scales:{x:{ticks:{font:{size:11}}},y:{ticks:{callback:v=>'€'+(v>=1000?(v/1000).toFixed(0)+'k':v),font:{size:11}}}}};
 
 function initCharts(){
-  mkChart('chart-global-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'Francia',data:D.FR.or,backgroundColor:'#E8691A'},{label:'Italia',data:D.IT.or,backgroundColor:'#F5A668'},{label:'Alemania',data:D.DE.or,backgroundColor:'#5D3A1A'}]},options:{...CD,scales:{x:{stacked:true,ticks:{font:{size:11}}},y:{stacked:true,ticks:{callback:v=>'€'+(v/1000).toFixed(0)+'k',font:{size:11}}}}}});
+  mkChart('chart-global-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'Francia',data:D.FR.or,backgroundColor:'#E8691A'},{label:'Italia',data:D.IT.or,backgroundColor:'#F5A668'},{label:'Alemania',data:D.DE.or,backgroundColor:'#5D3A1A'},{label:'P. Bajos (NL)',data:D.NL.or,backgroundColor:'#3498DB'}]},options:{...CD,scales:{x:{stacked:true,ticks:{font:{size:11}}},y:{stacked:true,ticks:{callback:v=>'€'+(v/1000).toFixed(0)+'k',font:{size:11}}}}}});
   mkChart('chart-global-ads',{type:'bar',data:{labels:MONTHS,datasets:[{label:'Gasto Total',data:MONTHS.map((_,i)=>D.FR.spend[i]+D.IT.spend[i]+D.DE.spend[i]),backgroundColor:'#C0392B'},{label:'Ventas Ads Total',data:MONTHS.map((_,i)=>D.FR.adsales[i]+D.IT.adsales[i]+D.DE.adsales[i]),backgroundColor:'#E8691A'}]},options:{...CD}});
   const blA=MONTHS.map((_,i)=>{const sp=D.FR.spend[i]+D.IT.spend[i]+D.DE.spend[i],sa=D.FR.adsales[i]+D.IT.adsales[i]+D.DE.adsales[i];return sa>0?(sp/sa*100).toFixed(1):0;});
   mkChart('chart-global-acos',{type:'line',data:{labels:MONTHS,datasets:[{label:'ACOS FR',data:D.FR.acos,borderColor:'#E8691A',backgroundColor:'rgba(232,105,26,.1)',tension:.3,fill:true},{label:'ACOS IT',data:D.IT.acos,borderColor:'#F5A668',backgroundColor:'rgba(245,166,104,.1)',tension:.3,fill:true},{label:'ACOS DE',data:D.DE.acos,borderColor:'#5D3A1A',backgroundColor:'rgba(93,58,26,.1)',tension:.3,fill:true},{label:'ACOS Blended',data:blA,borderColor:'#2D2D2D',borderDash:[5,3],tension:.3,borderWidth:2}]},options:{...CD,scales:{x:{ticks:{font:{size:11}}},y:{ticks:{callback:v=>v+'%',font:{size:11}},suggestedMin:0,suggestedMax:30}}}});
   mkChart('chart-fr-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'OR 2026',data:D.FR.or,backgroundColor:'#E8691A'},{label:'OR 2025',data:D.FR.or_py,backgroundColor:'rgba(232,105,26,.25)'},{label:'Shipped Revenue Sourcing 2026',data:D.FR.si,backgroundColor:'#2D2D2D'},{label:'Shipped Revenue 2025',data:D.FR.si_py,backgroundColor:'rgba(45,45,45,.25)'}]},options:{...CD}});
   mkChart('chart-fr-ads',{type:'bar',data:{labels:MONTHS,datasets:[{label:'Gasto',data:D.FR.spend,backgroundColor:'#C0392B'},{label:'Ventas Ads',data:D.FR.adsales,backgroundColor:'#E8691A'}]},options:{...CD}});
-  mkChart('chart-it-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'OR 2026',data:D.IT.or,backgroundColor:'#E8691A'},{label:'OR 2025',data:D.IT.or_py,backgroundColor:'rgba(232,105,26,.25)'},{label:'Shipped Revenue IT Sourcing',data:D.IT.si,backgroundColor:'#2D2D2D'}]},options:{...CD}});
+  mkChart('chart-it-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'OR 2026',data:D.IT.or,backgroundColor:'#E8691A'},{label:'Shipped Revenue Mfg 2026',data:D.IT.si,backgroundColor:'#2D2D2D'}]},options:{...CD}});
   mkChart('chart-it-ads',{type:'bar',data:{labels:MONTHS,datasets:[{label:'Gasto',data:D.IT.spend,backgroundColor:'#C0392B'},{label:'Ventas Ads',data:D.IT.adsales,backgroundColor:'#E8691A'}]},options:{...CD}});
-  mkChart('chart-de-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'OR 2026',data:D.DE.or,backgroundColor:'#E8691A'},{label:'OR 2025',data:D.DE.or_py,backgroundColor:'rgba(232,105,26,.25)'},{label:'Shipped Revenue DE Sourcing',data:D.DE.si,backgroundColor:'#2D2D2D'}]},options:{...CD}});
+  mkChart('chart-de-or',{type:'bar',data:{labels:MONTHS,datasets:[{label:'OR 2026',data:D.DE.or,backgroundColor:'#E8691A'},{label:'Shipped Revenue Mfg 2026',data:D.DE.si,backgroundColor:'#2D2D2D'}]},options:{...CD}});
   mkChart('chart-de-ads',{type:'bar',data:{labels:MONTHS,datasets:[{label:'Gasto',data:D.DE.spend,backgroundColor:'#C0392B'},{label:'Ventas Ads',data:D.DE.adsales,backgroundColor:'#E8691A'}]},options:{...CD}});
   const poCols=m=>m===LAST_M?'rgba(232,105,26,0.45)':'#E8691A';
   const poBg=MONTHS.map((_,i)=>poCols(i));
@@ -1512,9 +1516,10 @@ function renderGlobalSRTable(){
   html+='<th style="padding:8px 10px;text-align:right">Francia</th>';
   html+='<th style="padding:8px 10px;text-align:right">Italia</th>';
   html+='<th style="padding:8px 10px;text-align:right">Alemania</th>';
-  html+='<th style="padding:8px 10px;text-align:right">Total EU</th></tr></thead><tbody>';
+  html+='<th style="padding:8px 10px;text-align:right">P. Bajos (NL)</th>';
+  html+='<th style="padding:8px 10px;text-align:right">Total FR+IT+DE+NL</th></tr></thead><tbody>';
   MONTHS.forEach(function(mn,i){
-    var fr=D.FR.si[i]||0,it=D.IT.si[i]||0,de=D.DE.si[i]||0,tot=fr+it+de;
+    var fr=D.FR.si[i]||0,it=D.IT.si[i]||0,de=D.DE.si[i]||0,nl=D.NL.si[i]||0,tot=fr+it+de+nl;
     var bg=i===LAST_M?'background:#fff8f3':'background:#fff';
     var bw=i===LAST_M?'font-weight:700':'';
     html+=`<tr style="${bg};border-bottom:1px solid #f0e0d0">
@@ -1522,18 +1527,31 @@ function renderGlobalSRTable(){
       <td style="padding:7px 10px;text-align:right;${bw}">${fmtK(fr)}</td>
       <td style="padding:7px 10px;text-align:right;${bw}">${fmtK(it)}</td>
       <td style="padding:7px 10px;text-align:right;${bw}">${fmtK(de)}</td>
+      <td style="padding:7px 10px;text-align:right;${bw}">${fmtK(nl)}</td>
       <td style="padding:7px 10px;text-align:right;${bw};color:var(--orange)">${fmtK(tot)}</td>
     </tr>`;
   });
-  var totFR=D.FR.si.reduce((a,b)=>a+b,0),totIT=D.IT.si.reduce((a,b)=>a+b,0),totDE=D.DE.si.reduce((a,b)=>a+b,0);
+  var totFR=D.FR.si.reduce((a,b)=>a+b,0),totIT=D.IT.si.reduce((a,b)=>a+b,0),totDE=D.DE.si.reduce((a,b)=>a+b,0),totNL=D.NL.si.reduce((a,b)=>a+b,0);
   html+=`<tr style="background:#f5f5f5;font-weight:700;border-top:2px solid #2d2d2d">
-    <td style="padding:8px 10px">Total YTD</td>
+    <td style="padding:8px 10px">Total YTD (FR+IT+DE+NL)</td>
     <td style="padding:8px 10px;text-align:right">${fmtK(totFR)}</td>
     <td style="padding:8px 10px;text-align:right">${fmtK(totIT)}</td>
     <td style="padding:8px 10px;text-align:right">${fmtK(totDE)}</td>
-    <td style="padding:8px 10px;text-align:right;color:var(--orange)">${fmtK(totFR+totIT+totDE)}</td>
-  </tr></tbody></table>
-  <div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:6px">&#128202; Fuente: MerchantSpring &rarr; Amazon Vendor Central &middot; Shipped Revenue Manufacturing &middot; Vista Pan-EU consolidada</div>`;
+    <td style="padding:8px 10px;text-align:right">${fmtK(totNL)}</td>
+    <td style="padding:8px 10px;text-align:right;color:var(--orange)">${fmtK(totFR+totIT+totDE+totNL)}</td>
+  </tr>
+  <tr style="background:#f0f4ff;border-top:1px solid #d0daf5">
+    <td style="padding:8px 10px;font-style:italic;color:#555">B&eacute;lgica + Polonia (solo YTD)</td>
+    <td colspan="4" style="padding:8px 10px;font-style:italic;color:#555;text-align:right">BE: ${fmtK(BE_PL_YTD.BE.si)} &bull; PL: ${fmtK(BE_PL_YTD.PL.si)}</td>
+    <td style="padding:8px 10px;text-align:right;font-style:italic;color:#555">${fmtK(BE_PL_YTD.BE.si+BE_PL_YTD.PL.si)}</td>
+  </tr>
+  <tr style="background:#e8f0fe;font-weight:700;border-top:1px solid #3b6fd4">
+    <td style="padding:8px 10px">Total YTD Pan-EU (FR+IT+DE+NL+BE+PL)</td>
+    <td colspan="4" style="padding:8px 10px"></td>
+    <td style="padding:8px 10px;text-align:right;color:#3b6fd4">${fmtK(totFR+totIT+totDE+totNL+BE_PL_YTD.BE.si+BE_PL_YTD.PL.si)}</td>
+  </tr>
+  </tbody></table>
+  <div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:6px">&#128202; FR+IT+DE+NL: MerchantSpring &rarr; Amazon Vendor Central Manufacturing &middot; BE+PL: Vendor Central Manufacturing Retail Ene&ndash;Jul 2026</div>`;
   el.innerHTML=html;
 }
 
@@ -1599,7 +1617,7 @@ function renderAll(){
     var invTitleEl=document.getElementById(mkl+'-inv-title');
     if(invTitleEl)invTitleEl.textContent='Inventario — '+MKT_NAMES[mk]+' — Jun 2026';
     var poTitleEl=document.getElementById(mkl+'-po-title');
-    if(poTitleEl)poTitleEl.textContent='📈 Evolución SI — '+MKT_NAMES[mk];
+    if(poTitleEl)poTitleEl.textContent=mk==='IT'?'📈 Mercados donde se destina mercancía desde almacenes Pan-EU':'📈 Evolución SI — '+MKT_NAMES[mk];
   });
   renderGlobalCatConcl();
   renderInformeEjecutivo();
