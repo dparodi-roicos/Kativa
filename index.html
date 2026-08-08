@@ -157,7 +157,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
     </div>
   </div>
   <div class="section"><div class="sec-title">Top 10 Ventas por Unidades &mdash; Jul 2026 (todos los mercados)</div><div id="global-top10" style="overflow-x:auto"></div><p class="note" style="margin-top:8px">Unidades del mes de julio 2026 consolidadas FR+IT+DE+BE+NL+PL. OR YoY compara junio 2026 vs junio 2025.</p></div>
-</div>
   <!-- NUEVOS MERCADOS -->
   <div class="section" id="nuevos-mercados-section">
     <div class="sec-title">Nuevos Mercados EU &mdash; Julio 2026</div>
@@ -200,6 +199,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
     <div class="conclusions" style="margin-top:14px">Italia crece (+14% YoY, categ. nueva) &middot; Francia estable (mercado maduro, temporada alta ahora) &middot; Alemania contrae (&minus;13% YoY). <strong>Implicaci&oacute;n:</strong> priorizar IT y FR. DE: eficiencia y cuota &gt; escala.</div>
     <div class="data-source" style="font-size:10px;color:#6B6B6B;margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">&#128202; Fuente: Helium 10 &middot; Volumen b&uacute;squeda Amazon &middot; Agosto 2026</div>
   </div>
+</div>
 <!-- FR -->
 <div class="tab-pane" id="tab-fr">
   <div id="fr-oos-alert"></div>
@@ -279,15 +279,15 @@ const MKT_NAMES={FR:'Francia',IT:'Italia',DE:'Alemania'};
 const MONTHS=['Ene','Feb','Mar','Abr','May','Jun','Jul'];
 const LAST_M=MONTHS.length-1;
 const D={
-  FR:{or:[19760,20584,29209,29257,28015,35576,34055],or_py:[13373,13657,16585,16503,21826,38419,0],si:[19090,17559,22742,9512,16370,8420,0],si_py:[13042,13230,15184,15572,21505,36841,0],gv:[18545,18774,25459,23254,23645,32070,0],spend:[2233,2538,2353,1851,2400,2651,896],adsales:[8334,10712,13158,12933,14846,17862,4879],acos:[26.8,23.7,17.9,14.3,16.2,14.8,18.3],tacos:[11.3,12.3,8.1,6.3,8.6,7.5,2.6],pasos:['Pasar Post Alisado a modalidad manual','Escalar linea alisado con mayor inversion en ads','Desarrollar bundles con referencias complementarias','Mantener Curly y Reparadores en standby hasta estabilizar stock','Expandir SBV en todos los ad groups']},
-  IT:{or:[17442,33308,49521,48042,43780,63137,67688],or_py:[2668,3324,3100,2058,2451,4232,0],si:[6772,22020,29394,33917,14801,25239,0],si_py:[0,0,0,0,0,0,0],gv:[16740,28597,46543,44570,47551,56737,0],spend:[412,2053,2149,2090,3038,3900,4501],adsales:[2927,17639,19548,17119,22465,32887,33810],acos:[14.1,11.6,11.0,12.2,13.5,11.9,13.3],tacos:[2.4,6.2,4.3,4.4,6.9,6.2,6.7],pasos:['Reducir concentracion en ASIN heroe B0CB1KQ8Q4','Escalar SBV manteniendo ACOS menor 20%','Monitorizar devoluciones por categoria']},
-  DE:{or:[9323,15876,20848,21892,21521,28097,28959],or_py:[769,2197,2357,3663,6345,9695,0],si:[996,2068,11654,11989,12568,9888,0],si_py:[0,0,0,0,0,0,0],gv:[6473,10755,16915,15201,17437,20437,0],spend:[251,1175,1302,1106,1354,1416,1580],adsales:[1438,6516,9040,8408,9058,11708,10335],acos:[17.4,18.0,14.4,13.2,14.9,12.1,15.3],tacos:[2.7,7.4,6.2,5.1,6.3,5.0,5.5],pasos:['Escalar inversion solo cuando OOS este por debajo del 15%','Lanzar Post Alisado como segunda linea en DE','Consolidar SBV como formato estrella de awareness','Reducir dependencia del ASIN heroe']}
+  FR:{or:[19760,20584,29209,29257,28015,35576,38584],or_py:[13373,13657,16585,16503,21826,38419,42577],si:[19090,17559,22742,9512,16370,8420,39082],si_py:[13042,13230,15184,15572,21505,36841,43680],gv:[18545,18774,25459,23254,23645,32070,31317],spend:[2233,2538,2353,1851,2400,2651,896],adsales:[8334,10712,13158,12933,14846,17862,4879],acos:[26.8,23.7,17.9,14.3,16.2,14.8,18.3],tacos:[11.3,12.3,8.1,6.3,8.6,7.5,2.6],pasos:['Pasar Post Alisado a modalidad manual','Escalar linea alisado con mayor inversion en ads','Desarrollar bundles con referencias complementarias','Mantener Curly y Reparadores en standby hasta estabilizar stock','Expandir SBV en todos los ad groups']},
+  IT:{or:[17442,33308,49521,48042,43780,63137,63517],or_py:[2668,3324,3100,2058,2451,4232,4223],si:[6772,22020,29394,33917,14801,25239,67980],si_py:[0,0,0,0,0,0,6685],gv:[16740,28597,46543,44570,47551,56737,58738],spend:[412,2053,2149,2090,3038,3900,4501],adsales:[2927,17639,19548,17119,22465,32887,33810],acos:[14.1,11.6,11.0,12.2,13.5,11.9,13.3],tacos:[2.4,6.2,4.3,4.4,6.9,6.2,6.7],pasos:['Reducir concentracion en ASIN heroe B0CB1KQ8Q4','Escalar SBV manteniendo ACOS menor 20%','Monitorizar devoluciones por categoria']},
+  DE:{or:[9323,15876,20848,21892,21521,28097,29441],or_py:[769,2197,2357,3663,6345,9695,12464],si:[996,2068,11654,11989,12568,9888,32595],si_py:[0,0,0,0,0,0,12252],gv:[6473,10755,16915,15201,17437,20437,17414],spend:[251,1175,1302,1106,1354,1416,1580],adsales:[1438,6516,9040,8408,9058,11708,10335],acos:[17.4,18.0,14.4,13.2,14.9,12.1,15.3],tacos:[2.7,7.4,6.2,5.1,6.3,5.0,5.5],pasos:['Escalar inversion solo cuando OOS este por debajo del 15%','Lanzar Post Alisado como segunda linea en DE','Consolidar SBV como formato estrella de awareness','Reducir dependencia del ASIN heroe']}
 };
 
 const YTD_DATA={
-  FR:{or:196456,or_py:113327,or_units:13879,or_units_py:8606},
-  IT:{or:322918,or_py:17833,or_units:19371,or_units_py:1362},
-  DE:{or:146516,or_py:40026,or_units:10366,or_units_py:2733}
+  FR:{or:200985,or_py:162940,or_units:14228,or_units_py:11932},
+  IT:{or:318747,or_py:22056,or_units:19084,or_units_py:1608},
+  DE:{or:146998,or_py:37490,or_units:10402,or_units_py:4306}
 };
 const INV_DATA={
   FR:{sellableUnits:2700,sellableCost:15574,unhealthyUnits:45,aged90Units:295,oosRate:9.1},
@@ -315,10 +315,10 @@ const JUN_CONCLUSIONS={
 };
 
 const JUL_CONCLUSIONS={
-  FR:'<strong>Francia &euro;34.055 Sell-Out Jul26 (&minus;4% MoM)</strong>. 22 d&iacute;as sin publicidad por incidencia de pago (1&ndash;22 jul). CVR 19,98%, venta diaria &euro;541,78 cuando activa (+13,1% vs may). Gasto ads &euro;896, ventas ads &euro;4.879, ROAS 5,45x. TACoS 2,6%. SI Manufacturing: pendiente.',
-  IT:'<strong>Italia &euro;67.688 Sell-Out Jul26 (+7% MoM)</strong> &mdash; nuevo r&eacute;cord hist&oacute;rico. Gasto ads &euro;4.501 (+48% vs may), ventas ads &euro;33.810 (+50%), ROAS 7,51x, CVR 15,70%. Post-alisado +200%; Reparadores +118%. TACoS 6,7%. SI Manufacturing: pendiente.',
-  DE:'<strong>Alemania &euro;28.959 Sell-Out Jul26 (+3% MoM)</strong>. Demanda categor&iacute;a &minus;13% YoY (&minus;48% en 3 a&ntilde;os). Gasto ads &euro;1.580 (+17% vs may), ventas ads &euro;10.335, ROAS 6,54x. TACoS 5,5%. SI Manufacturing: pendiente.',
-  global:'<strong>Portfolio IT+FR+DE: &euro;130.702 Jul26 (+10% MoM). Total Pan-EU: &euro;184.507.</strong> Italia 37% (&euro;68k), Espa&ntilde;a 22% (&euro;40k), Francia 18% (&euro;34k), Alemania 16% (&euro;29k). Nuevos mercados BE+NL+PL: &euro;8.987. Inversi&oacute;n ads &euro;6.977, ROAS 7,03x.',
+  FR:'<strong>Francia &euro;38.584 Sell-Out Jul26 (+8% MoM, &minus;9% YoY)</strong>. SI Manufacturing: &euro;39.082. 22 d&iacute;as sin publicidad (1&ndash;22 jul). CVR 19,98%, venta diaria &euro;541,78 cuando activa. Gasto ads &euro;896, ventas ads &euro;4.879, ROAS 5,45x. TACoS 2,6%.',
+  IT:'<strong>Italia &euro;63.517 Sell-Out Jul26 (+1% MoM, +1.404% YoY)</strong>. SI Manufacturing: &euro;67.980. Gasto ads &euro;4.501 (+48% vs may), ventas ads &euro;33.810 (+50%), ROAS 7,51x, CVR 15,70%. Post-alisado +200%; Reparadores +118%. TACoS 6,7%.',
+  DE:'<strong>Alemania &euro;29.441 Sell-Out Jul26 (+5% MoM, +136% YoY)</strong>. SI Manufacturing: &euro;32.595. Demanda categor&iacute;a &minus;13% YoY (&minus;48% en 3 a&ntilde;os). Gasto ads &euro;1.580 (+17% vs may), ventas ads &euro;10.335, ROAS 6,54x. TACoS 5,5%.',
+  global:'<strong>Portfolio FR+IT+DE: &euro;131.542 Jul26 (+4% MoM). SI Mfg total: &euro;139.657.</strong> Italia 48% (&euro;64k), Francia 29% (&euro;39k), Alemania 22% (&euro;30k). Nuevos mercados BE+NL+PL+SE+IE: &euro;13.670. Inversi&oacute;n ads &euro;6.977, ROAS 7,03x.',
   global_ads:'Gasto EU total &euro;6.977 / Ventas ads &euro;49.024 / ROAS 7,03x. <strong>Italia: ROAS 7,51x, Spend &euro;4.501 (+48% vs may).</strong> Francia: ROAS 5,45x, Spend &euro;896 (22 d&iacute;as sin ads). Alemania: ROAS 6,54x, Spend &euro;1.580 (+17% vs may). Nota: ref. vs mayo (junio distorsionado por Prime Day).'
 };
 const JUL_ADS_CONCLUSIONS={
