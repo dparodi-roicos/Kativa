@@ -597,55 +597,56 @@ function renderSummary(){
 function renderGlobalKPIs(){
   const el=document.getElementById('global-kpis');
   const mkts=['FR','IT','DE'];
-  let totalOR,totalORpy,gYoY,ytdNote;
-  if(selM===-1){
-    totalOR=mkts.reduce((a,mkt)=>a+ytdSum(D[mkt].or,LAST_M),0)+YTD_DATA.NL.or+ytdSum(D.BE.or,LAST_M)+ytdSum(D.PL.or,LAST_M);
-    totalORpy=mkts.reduce((a,mkt)=>a+ytdSum(D[mkt].or_py,LAST_M),0);
-    gYoY=null;
-    ytdNote='Ene–Jul 2026';
-  } else {
-    totalOR=mkts.reduce((a,mkt)=>a+D[mkt].or[selM],0)+D.NL.or[selM]+D.BE.or[selM]+D.PL.or[selM];
-    totalORpy=mkts.reduce((a,mkt)=>a+D[mkt].or_py[selM],0);
-    gYoY=null;
-    ytdNote='Ene–'+MONTHS[selM];
-  }
   const m2=selM===-1?5:selM;
+  // OR y SR solo FR+IT+DE (mercados con datos completos MerchantSpring)
+  const or3=mkts.reduce((a,mkt)=>a+(selM===-1?ytdSum(D[mkt].or,LAST_M):D[mkt].or[selM]),0);
+  const si3=mkts.reduce((a,mkt)=>a+(selM===-1?ytdSum(D[mkt].si,LAST_M):D[mkt].si[selM===-1?LAST_M:selM]),0);
+  // Mercados adicionales NL+BE+PL
+  const orExtra=selM===-1?YTD_DATA.NL.or+ytdSum(D.BE.or,LAST_M)+ytdSum(D.PL.or,LAST_M):D.NL.or[selM]+D.BE.or[selM]+D.PL.or[selM];
+  const siExtra=selM===-1?YTD_DATA.NL.si+ytdSum(D.BE.si,LAST_M)+ytdSum(D.PL.si,LAST_M):D.NL.si[selM]+D.BE.si[selM]+D.PL.si[selM];
+  const orPanEU=or3+orExtra;
+  const siPanEU=si3+siExtra;
+  // Ads (solo FR+IT+DE)
   const totalSpend=mkts.reduce((a,mkt)=>a+(selM===-1?D[mkt].spend.reduce((s,v)=>s+v,0):D[mkt].spend[m2]),0);
   const totalAdSales=mkts.reduce((a,mkt)=>a+(selM===-1?D[mkt].adsales.reduce((s,v)=>s+v,0):D[mkt].adsales[m2]),0);
   const blACOS=totalAdSales>0?(totalSpend/totalAdSales*100):0;
-  const blTACOS=totalOR>0?(totalSpend/totalOR*100):0;
+  const blTACOS=or3>0?(totalSpend/or3*100):0;
   const blROAS=totalSpend>0?(totalAdSales/totalSpend):0;
-  let html='';
-  const orLabel=selM===-1?'Ordered Revenue YTD Ene–Jul':'Ordered Revenue '+MONTHS[selM]+' 2026';
-  const totalSI=mkts.reduce((a,mkt)=>a+(selM===-1?ytdSum(D[mkt].si,LAST_M):D[mkt].si[m2]),0)+(selM===-1?YTD_DATA.NL.si+ytdSum(D.BE.si,LAST_M)+ytdSum(D.PL.si,LAST_M):D.NL.si[m2]+D.BE.si[m2]+D.PL.si[m2]);
-  const prevM2=m2>0?m2-1:null;
-  const totalORprev=prevM2!==null?mkts.reduce((a,mkt)=>a+D[mkt].or[prevM2],0):null;
-  const totalSIprev=prevM2!==null?mkts.reduce((a,mkt)=>a+D[mkt].si[prevM2],0):null;
+  // MoM previo
+  const prevM2=selM>0?selM-1:null;
+  const or3prev=prevM2!==null?mkts.reduce((a,mkt)=>a+D[mkt].or[prevM2],0):null;
+  const si3prev=prevM2!==null?mkts.reduce((a,mkt)=>a+D[mkt].si[prevM2],0):null;
+  const orExtraprev=prevM2!==null?D.NL.or[prevM2]+D.BE.or[prevM2]+D.PL.or[prevM2]:null;
+  const siExtraprev=prevM2!==null?D.NL.si[prevM2]+D.BE.si[prevM2]+D.PL.si[prevM2]:null;
+  const orPanprev=or3prev!==null?or3prev+orExtraprev:null;
+  const siPanprev=si3prev!==null?si3prev+siExtraprev:null;
   const totalAdSprev=prevM2!==null?mkts.reduce((a,mkt)=>a+D[mkt].adsales[prevM2],0):null;
-  const orMoM=selM!==-1&&totalORprev>0?(totalOR-totalORprev)/totalORprev*100:null;
-  const siMoM=selM!==-1&&totalSIprev>0?(totalSI-totalSIprev)/totalSIprev*100:null;
-  const adsMoM=selM!==-1&&totalAdSprev>0?(totalAdSales-totalAdSprev)/totalAdSprev*100:null;
   const totalSpendPrev=prevM2!==null?mkts.reduce((a,mkt)=>a+D[mkt].spend[prevM2],0):null;
+  const or3MoM=selM>0&&or3prev>0?(or3-or3prev)/or3prev*100:null;
+  const si3MoM=selM>0&&si3prev>0?(si3-si3prev)/si3prev*100:null;
+  const orPanMoM=selM>0&&orPanprev>0?(orPanEU-orPanprev)/orPanprev*100:null;
+  const siPanMoM=selM>0&&siPanprev>0?(siPanEU-siPanprev)/siPanprev*100:null;
+  const adsMoM=selM!==-1&&totalAdSprev>0?(totalAdSales-totalAdSprev)/totalAdSprev*100:null;
   const spendMoM=selM!==-1&&totalSpendPrev>0?(totalSpend-totalSpendPrev)/totalSpendPrev*100:null;
   const blACOSprev=totalAdSprev>0&&totalSpendPrev>0?(totalSpendPrev/totalAdSprev*100):0;
   const blROASprev=totalSpendPrev>0&&totalAdSprev>0?totalAdSprev/totalSpendPrev:0;
-  const blTACOSprev=totalORprev>0&&totalSpendPrev>0?(totalSpendPrev/totalORprev*100):0;
+  const blTACOSprev=or3prev>0&&totalSpendPrev>0?(totalSpendPrev/or3prev*100):0;
   const acosMoM=selM!==-1&&blACOSprev>0?(blACOS-blACOSprev)/blACOSprev*100:null;
   const roasMoM=selM!==-1&&blROASprev>0?(blROAS-blROASprev)/blROASprev*100:null;
   const tacosMoM=selM!==-1&&blTACOSprev>0?(blTACOS-blTACOSprev)/blTACOSprev*100:null;
-  html+=kpiHTML(orLabel,fmtEur(totalOR),orMoM,gYoY);
-  html+=kpiHTML('Shipped Revenue EU',fmtEur(totalSI),siMoM,null,'Vista Manufacturing');
+  const periodLbl=selM===-1?'YTD Ene–Jul':MONTHS[selM]+' 2026';
+  let html='';
+  html+=kpiHTML('OR '+periodLbl+' (FR+IT+DE)',fmtEur(or3),or3MoM,null,'Mercados analizados');
+  html+=kpiHTML('SR '+periodLbl+' (FR+IT+DE)',fmtEur(si3),si3MoM,null,'Vista Manufacturing');
   html+=kpiHTML('Ventas Ads EU',fmtEur(totalAdSales),adsMoM,null);
   html+=kpiHTML('Gasto Publicidad',fmtEur(totalSpend),spendMoM,null,'EU blended');
   html+=kpiHTML('ACOS Blended',blACOS.toFixed(1)+'%',acosMoM,null);
   html+=kpiHTML('ROAS Blended',blROAS.toFixed(1)+'x',roasMoM,null);
   html+=kpiHTML('TACoS Blended',blTACOS.toFixed(1)+'%',tacosMoM,null);
-  if(selM!==-1){
-    const ytdTotal=mkts.reduce((a,mkt)=>a+ytdSum(D[mkt].or,m2),0)+ytdSum(D.NL.or,m2);
-    html+=kpiHTML('Acumulado Ene–'+MONTHS[selM]+' (FR+IT+DE+NL)',fmtEur(ytdTotal),null,null,'acum. hasta '+MONTHS[m2]);
-  }
+  html+=kpiHTML('OR Pan-EU (+ NL+BE+PL)',fmtEur(orPanEU),orPanMoM,null,'FR+IT+DE+NL+BE+PL');
+  html+=kpiHTML('SR Pan-EU (+ NL+BE+PL)',fmtEur(siPanEU),siPanMoM,null,'Shipped global');
   el.innerHTML=html;
-  document.getElementById('global-conclusions').innerHTML=selM===6?JUL_CONCLUSIONS.global:selM===5?JUN_CONCLUSIONS.global:(selM===4||selM===-1)?MAY_CONCLUSIONS.global:`Ordered Revenue EU: <strong>${fmtEur(totalOR)}</strong> en ${MONTHS[m2]} 2026.${gYoY!=null?' YoY: '+fmtPct(gYoY)+'.':''} ACOS: ${blACOS.toFixed(1)}%.`;
+  document.getElementById('global-conclusions').innerHTML=selM===6?JUL_CONCLUSIONS.global:selM===5?JUN_CONCLUSIONS.global:(selM===4||selM===-1)?MAY_CONCLUSIONS.global:`Ordered Revenue EU: <strong>${fmtEur(or3)}</strong> en ${MONTHS[m2]} 2026. ACOS: ${blACOS.toFixed(1)}%.`;
   document.getElementById('global-ads-conclusions').innerHTML=selM===6?JUL_CONCLUSIONS.global_ads:selM===5?JUN_CONCLUSIONS.global_ads:(selM===4||selM===-1)?MAY_CONCLUSIONS.global_ads:`Publicidad EU: gasto ${fmtEur(totalSpend)}, ventas ${fmtEur(totalAdSales)}, ACOS ${blACOS.toFixed(1)}%.`;
 }
 
@@ -870,6 +871,10 @@ function renderYTDProgress(){
     const yy=(mkt==='FR')&&py>0?(ytd-py)/py*100:null;
     html+=`<div style="margin-bottom:16px"><div style="font-weight:700;font-size:13px;margin-bottom:6px">${MKT_NAMES[mkt]} &mdash; YTD Ene&ndash;Jul 2026: ${fmtEur(ytd)} ${yy!=null?'(<span class="'+(yy>=0?'pos':'neg')+'">'+fmtPct(yy)+' YoY</span>)':''}</div><div class="kpi-grid" style="margin-bottom:8px"><div class="kpi-card"><div class="kpi-lbl">YTD 2026</div><div class="kpi-val">${fmtEur(ytd)}</div></div><div class="kpi-card"><div class="kpi-lbl">YTD 2025</div><div class="kpi-val">${fmtEur(py)}</div></div><div class="kpi-card"><div class="kpi-lbl">Gasto Ads YTD</div><div class="kpi-val">${fmtEur(ytdSum(D[mkt].spend,4))}</div></div><div class="kpi-card"><div class="kpi-lbl">ACOS May</div><div class="kpi-val">${D[mkt].acos[4].toFixed(1)}%</div></div></div></div>`;
   });
+  // Card 4: Otros mercados NL+BE+PL (sin YoY ni ads — datos solo OR/SR)
+  const extraOR=ytdSum(D.NL.or,LAST_M)+ytdSum(D.BE.or,LAST_M)+ytdSum(D.PL.or,LAST_M);
+  const extraSI=ytdSum(D.NL.si,LAST_M)+ytdSum(D.BE.si,LAST_M)+ytdSum(D.PL.si,LAST_M);
+  html+=`<div style="margin-bottom:16px"><div style="font-weight:700;font-size:13px;margin-bottom:6px">Otros mercados (NL+BE+PL) &mdash; YTD Ene&ndash;Jul 2026: OR ${fmtEur(extraOR)}</div><div class="kpi-grid" style="margin-bottom:8px"><div class="kpi-card"><div class="kpi-lbl">OR YTD 2026</div><div class="kpi-val">${fmtEur(extraOR)}</div></div><div class="kpi-card"><div class="kpi-lbl">SR YTD 2026</div><div class="kpi-val">${fmtEur(extraSI)}</div></div><div class="kpi-card" style="opacity:.5"><div class="kpi-lbl">YTD 2025</div><div class="kpi-val">N/D</div></div><div class="kpi-card" style="opacity:.5"><div class="kpi-lbl">Publicidad</div><div class="kpi-val">N/D</div></div></div></div>`;
   el.innerHTML=html;
 }
 
