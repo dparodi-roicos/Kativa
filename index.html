@@ -842,7 +842,7 @@ function renderYTDProgress(){
   // Card 4: Otros mercados NL+BE+PL (sin YoY ni ads — datos solo OR/SR)
   const extraOR=ytdSum(D.NL.or,LAST_M)+ytdSum(D.BE.or,LAST_M)+ytdSum(D.PL.or,LAST_M);
   const extraSI=ytdSum(D.NL.si,LAST_M)+ytdSum(D.BE.si,LAST_M)+ytdSum(D.PL.si,LAST_M);
-  html+=`<div style="margin-bottom:16px"><div style="font-weight:700;font-size:13px;margin-bottom:6px">Otros mercados (NL+BE+PL) &mdash; YTD Ene&ndash;Jul 2026: OR ${fmtEur(extraOR)}</div><div class="kpi-grid" style="margin-bottom:8px"><div class="kpi-card"><div class="kpi-lbl">OR YTD 2026</div><div class="kpi-val">${fmtEur(extraOR)}</div></div><div class="kpi-card"><div class="kpi-lbl">SR YTD 2026</div><div class="kpi-val">${fmtEur(extraSI)}</div></div><div class="kpi-card" style="opacity:.5"><div class="kpi-lbl">YTD 2025</div><div class="kpi-val">N/D</div></div><div class="kpi-card" style="opacity:.5"><div class="kpi-lbl">Publicidad</div><div class="kpi-val">N/D</div></div></div></div>`;
+  html+=`<div style="margin-bottom:16px"><div style="font-weight:700;font-size:13px;margin-bottom:6px">Otros mercados (NL+BE+PL) &mdash; YTD Ene&ndash;Jul 2026: ${fmtEur(extraOR)} OR / ${fmtEur(extraSI)} SR</div><div class="kpi-grid" style="margin-bottom:8px"><div class="kpi-card"><div class="kpi-lbl">YTD 2026</div><div class="kpi-val">${fmtEur(extraOR)}</div></div><div class="kpi-card" style="opacity:.5"><div class="kpi-lbl">YTD 2025</div><div class="kpi-val">N/A</div></div><div class="kpi-card" style="opacity:.5"><div class="kpi-lbl">Gasto Ads YTD</div><div class="kpi-val">N/A</div></div><div class="kpi-card" style="opacity:.5"><div class="kpi-lbl">ACOS May</div><div class="kpi-val">N/A</div></div></div></div>`;
   el.innerHTML=html;
 }
 
