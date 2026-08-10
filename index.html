@@ -190,7 +190,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
     <div class="section"><div class="sec-title">Ordered Revenue vs Shipped Revenue Manufacturing &mdash; 2026 vs 2025</div><div class="chart-wrap"><canvas id="chart-fr-or"></canvas></div><div class="conclusions" id="fr-si-concl" style="margin-top:10px"></div><div class="timing-note">&#9432; <strong>OR vs SR Mfg:</strong> Ordered Revenue = d&iacute;a del pedido &bull; Shipped Revenue Mfg = d&iacute;a del env&iacute;o (D+1 a D+3). En meses de alta demanda, pedidos de los &uacute;ltimos d&iacute;as del mes se env&iacute;an en el siguiente &rarr; SR Mfg puede superar al OR puntualmente. No es una anomal&iacute;a, es el desfase natural del ciclo de fulfillment de Amazon.</div></div>
     <div class="section"><div class="sec-title">Publicidad &mdash; Gasto y Ventas</div><div class="chart-wrap"><canvas id="chart-fr-ads"></canvas></div><div class="conclusions" id="fr-ads-chart-concl" style="margin-top:10px"></div></div>
   </div>
-  <div class="section"><div class="sec-title" id="fr-po-title">&#x1F4C8; Evoluci&oacute;n SI &mdash; Francia</div>
+  <div class="section"><div class="sec-title" id="fr-po-title">&#x1F4C8; Evoluci&oacute;n SR &mdash; Francia</div>
     <div class="two-col">
       <div><div class="chart-wrap" style="height:260px"><canvas id="chart-fr-si"></canvas></div></div>
       <div id="fr-po-table" style="overflow-x:auto"></div>
@@ -210,7 +210,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
     <div class="section"><div class="sec-title">Ordered Revenue vs Shipped Revenue Manufacturing &mdash; 2026</div><div class="chart-wrap"><canvas id="chart-it-or"></canvas></div><div class="conclusions" id="it-si-concl" style="margin-top:10px"></div><div class="timing-note">&#9432; <strong>OR vs SR Mfg:</strong> Ordered Revenue = d&iacute;a del pedido &bull; Shipped Revenue Mfg = d&iacute;a del env&iacute;o (D+1 a D+3). En meses de alta demanda, pedidos de los &uacute;ltimos d&iacute;as del mes se env&iacute;an en el siguiente &rarr; SR Mfg puede superar al OR puntualmente. No es una anomal&iacute;a, es el desfase natural del ciclo de fulfillment de Amazon.</div></div>
     <div class="section"><div class="sec-title">Publicidad &mdash; Gasto y Ventas</div><div class="chart-wrap"><canvas id="chart-it-ads"></canvas></div><div class="conclusions" id="it-ads-chart-concl" style="margin-top:10px"></div></div>
   </div>
-  <div class="section"><div class="sec-title" id="it-po-title">&#x1F4C8; Evoluci&oacute;n SI &mdash; Italia</div>
+  <div class="section"><div class="sec-title" id="it-po-title">&#x1F4C8; Evoluci&oacute;n SR &mdash; Italia</div>
     <div class="two-col">
       <div><div class="chart-wrap" style="height:260px"><canvas id="chart-it-si"></canvas></div></div>
       <div id="it-po-table" style="overflow-x:auto"></div>
@@ -230,7 +230,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
     <div class="section"><div class="sec-title">Ordered Revenue vs Shipped Revenue Sourcing &mdash; 2026</div><div class="chart-wrap"><canvas id="chart-de-or"></canvas></div><div class="conclusions" id="de-si-concl" style="margin-top:10px"></div></div>
     <div class="section"><div class="sec-title">Publicidad &mdash; Gasto y Ventas</div><div class="chart-wrap"><canvas id="chart-de-ads"></canvas></div><div class="conclusions" id="de-ads-chart-concl" style="margin-top:10px"></div></div>
   </div>
-  <div class="section"><div class="sec-title" id="de-po-title">&#x1F4C8; Evoluci&oacute;n SI &mdash; Alemania</div>
+  <div class="section"><div class="sec-title" id="de-po-title">&#x1F4C8; Evoluci&oacute;n SR &mdash; Alemania</div>
     <div class="two-col">
       <div><div class="chart-wrap" style="height:260px"><canvas id="chart-de-si"></canvas></div></div>
       <div id="de-po-table" style="overflow-x:auto"></div>
@@ -264,7 +264,7 @@ const D={
   FR:{or:[19760,20584,29209,29257,28015,35576,36308],or_py:[13373,13657,16585,16503,21826,38419,41804],si:[19090,17559,22742,9512,16370,8420,37294],si_py:[13042,13230,15184,15572,21505,36841,43642],gv:[18545,18774,25459,23254,23645,32070,29274],spend:[2233,2538,2353,1851,2400,2651,896],adsales:[8334,10712,13158,12933,14846,17862,4879],acos:[26.8,23.7,17.9,14.3,16.2,14.8,18.3],tacos:[11.3,12.3,8.1,6.3,8.6,7.5,2.5],pasos:['Pasar Post Alisado a modalidad manual','Escalar linea alisado con mayor inversion en ads','Desarrollar bundles con referencias complementarias','Mantener Curly y Reparadores en standby hasta estabilizar stock','Expandir SBV en todos los ad groups']},
   IT:{or:[17442,33308,49521,48042,43780,63137,67248],or_py:[2668,3324,3100,2058,2451,4232,6759],si:[6772,22020,29394,33917,14801,25239,67504],si_py:[0,0,0,0,0,0,6642],gv:[16740,28597,46543,44570,47551,56737,57964],spend:[412,2053,2149,2090,3038,3900,4501],adsales:[2927,17639,19548,17119,22465,32887,33810],acos:[14.1,11.6,11.0,12.2,13.5,11.9,13.3],tacos:[2.4,6.2,4.3,4.4,6.9,6.2,6.7],pasos:['Reducir concentracion en ASIN heroe B0CB1KQ8Q4','Escalar SBV manteniendo ACOS menor 20%','Monitorizar devoluciones por categoria']},
   DE:{or:[9323,15876,20848,21892,21521,28097,31756],or_py:[769,2197,2357,3663,6345,9695,10703],si:[996,2068,11654,11989,12568,9888,31375],si_py:[0,0,0,0,0,0,11079],gv:[6473,10755,16915,15201,17437,20437,20215],spend:[251,1175,1302,1106,1354,1416,1580],adsales:[1438,6516,9040,8408,9058,11708,10335],acos:[17.4,18.0,14.4,13.2,14.9,12.1,15.3],tacos:[2.7,7.4,6.2,5.1,6.3,5.0,5.0],pasos:['Escalar inversion solo cuando OOS este por debajo del 15%','Lanzar Post Alisado como segunda linea en DE','Consolidar SBV como formato estrella de awareness','Reducir dependencia del ASIN heroe']},
-  NL:{or:[831,1429,2083,2352,2018,4000,4222],si:[797,1551,1981,2162,1937,3993,4260]},
+  NL:{or:[831,1429,2083,2352,2018,4000,3947],si:[797,1551,1981,2162,1937,3993,4077]},
   BE:{or:[1144,1254,2346,3225,3359,6984,6517],si:[1227,1186,2333,3080,3069,6813,6849]},
   PL:{or:[136,62,91,146,170,204,168],si:[124,74,91,146,158,180,193]}
 };
@@ -273,7 +273,7 @@ const YTD_DATA={
   FR:{or:198709,or_py:162167,or_units:14049,or_units_py:11872},
   IT:{or:322478,or_py:24592,or_units:19341,or_units_py:1608},
   DE:{or:149313,or_py:35729,or_units:10561,or_units_py:4306},
-  NL:{or:16935,si:16681}
+  NL:{or:16660,si:16498}
 };
 const INV_DATA={
   FR:{sellableUnits:2700,sellableCost:15574,unhealthyUnits:45,aged90Units:295,oosRate:9.1},
@@ -604,18 +604,16 @@ function renderGlobalKPIs(){
   const tacosMoM=selM!==-1&&blTACOSprev>0?(blTACOS-blTACOSprev)/blTACOSprev*100:null;
   const periodLbl=selM===-1?'YTD Ene–Jul':MONTHS[selM]+' 2026';
   let html='';
-  html+=kpiHTML('OR '+periodLbl+' (FR+IT+DE)',fmtEur(or3),or3MoM,null,'Mercados analizados');
-  html+=kpiHTML('SR '+periodLbl+' (FR+IT+DE)',fmtEur(si3),si3MoM,null,'Vista Manufacturing');
+  html+=kpiHTML('OR '+periodLbl+' (FR+IT+DE+NL+BE+PL)',fmtEur(orPanEU),orPanMoM,null,'Todos los mercados EU');
+  html+=kpiHTML('SR '+periodLbl+' (FR+IT+DE+NL+BE+PL)',fmtEur(siPanEU),siPanMoM,null,'Vista Manufacturing todos mercados');
   html+=kpiHTML('Ventas Ads EU',fmtEur(totalAdSales),adsMoM,null);
   html+=kpiHTML('Gasto Publicidad',fmtEur(totalSpend),spendMoM,null,'EU blended');
   html+=kpiHTML('ACOS Blended',blACOS.toFixed(1)+'%',acosMoM,null);
   html+=kpiHTML('ROAS Blended',blROAS.toFixed(1)+'x',roasMoM,null);
   html+=kpiHTML('TACoS Blended',blTACOS.toFixed(1)+'%',tacosMoM,null);
-  html+=kpiHTML('OR Pan-EU (+ NL+BE+PL)',fmtEur(orPanEU),orPanMoM,null,'FR+IT+DE+NL+BE+PL');
-  html+=kpiHTML('SR Pan-EU (+ NL+BE+PL)',fmtEur(siPanEU),siPanMoM,null,'Shipped global');
   el.innerHTML=html;
-  document.getElementById('global-conclusions').innerHTML=selM===6?JUL_CONCLUSIONS.global:selM===5?JUN_CONCLUSIONS.global:(selM===4||selM===-1)?MAY_CONCLUSIONS.global:`Ordered Revenue EU: <strong>${fmtEur(or3)}</strong> en ${MONTHS[m2]} 2026. ACOS: ${blACOS.toFixed(1)}%.`;
-  document.getElementById('global-ads-conclusions').innerHTML=selM===6?JUL_CONCLUSIONS.global_ads:selM===5?JUN_CONCLUSIONS.global_ads:(selM===4||selM===-1)?MAY_CONCLUSIONS.global_ads:`Publicidad EU: gasto ${fmtEur(totalSpend)}, ventas ${fmtEur(totalAdSales)}, ACOS ${blACOS.toFixed(1)}%.`;
+  document.getElementById('global-conclusions').innerHTML=selM===-1?JUL_CONCLUSIONS.global:selM===6?JUL_CONCLUSIONS.global:selM===5?JUN_CONCLUSIONS.global:selM===4?MAY_CONCLUSIONS.global:`Ordered Revenue EU: <strong>${fmtEur(orPanEU)}</strong> en ${MONTHS[m2]} 2026. ACOS: ${blACOS.toFixed(1)}%.`;
+  document.getElementById('global-ads-conclusions').innerHTML=selM===-1?JUL_CONCLUSIONS.global_ads:selM===6?JUL_CONCLUSIONS.global_ads:selM===5?JUN_CONCLUSIONS.global_ads:selM===4?MAY_CONCLUSIONS.global_ads:`Publicidad EU: gasto ${fmtEur(totalSpend)}, ventas ${fmtEur(totalAdSales)}, ACOS ${blACOS.toFixed(1)}%.`;
 }
 
 function renderGlobalTable(){
@@ -624,19 +622,16 @@ function renderGlobalTable(){
   const periodLbl=isYTD?'YTD Ene–Jul 2026':MONTHS[selM]+' 2026';
   let totalOR=0;
   const mktData=mkts.map(function(mkt){
-    var or,si,orYoy;
+    var or,si;
     if(isYTD){
       or=ytdSum(D[mkt].or,LAST_M);
       si=ytdSum(D[mkt].si,LAST_M);
-      var orPy=ytdSum(D[mkt].or_py,LAST_M);
-      orYoy=(mkt==='FR'&&orPy>0)?(or-orPy)/orPy*100:null;
     }else{
       or=D[mkt].or[selM];
       si=D[mkt].si[selM];
-      orYoy=mkt==='FR'?yoy(D[mkt].or,D[mkt].or_py,selM):null;
     }
     totalOR+=or;
-    return{mkt,or,si,orYoy};
+    return{mkt,or,si};
   });
   // Add NL row
   var nlOR=isYTD?YTD_DATA.NL.or:D.NL.or[selM];
@@ -650,21 +645,22 @@ function renderGlobalTable(){
   var beplOR=beOR+plOR;
   var beplSI=beSI+plSI;
   totalOR+=beplOR;
+  const prevM=!isYTD&&selM>0?selM-1:null;
+  function mStr(cur,prev){if(prevM===null||!prev||prev<=0)return'<span class="chg-nd">N/A</span>';var p=(cur-prev)/prev*100;return'<span class="'+(p>=0?'pos':'neg')+'">'+fmtPct(p)+'</span>';}
   let rows='';
   mktData.forEach(function(r){
     const pct=totalOR>0?(r.or/totalOR*100).toFixed(1):0;
-    const yoyTxt=r.mkt==='FR'?(r.orYoy!=null?fmtPct(r.orYoy):'N/D'):'&mdash;';
-    const yoyCls=r.mkt==='FR'&&r.orYoy!=null?(r.orYoy>=0?'pos':'neg'):'nd';
-    rows+=`<tr><td>${MKT_NAMES[r.mkt]}</td><td>${fmtEur(r.or)}</td><td>${fmtEur(r.si)}</td><td>${pct}%</td><td class="${yoyCls}">${yoyTxt}</td></tr>`;
+    const mom=mStr(r.or,prevM!==null?D[r.mkt].or[prevM]:null);
+    rows+=`<tr><td>${MKT_NAMES[r.mkt]}</td><td>${fmtEur(r.or)}</td><td>${fmtEur(r.si)}</td><td>${pct}%</td><td>${mom}</td></tr>`;
   });
   const nlPct=totalOR>0?(nlOR/totalOR*100).toFixed(1):0;
-  rows+=`<tr><td>Pa&iacute;ses Bajos (NL)</td><td>${fmtEur(nlOR)}</td><td>${fmtEur(nlSI)}</td><td>${nlPct}%</td><td class="nd">&mdash;</td></tr>`;
+  rows+=`<tr><td>Pa&iacute;ses Bajos (NL)</td><td>${fmtEur(nlOR)}</td><td>${fmtEur(nlSI)}</td><td>${nlPct}%</td><td>${mStr(nlOR,prevM!==null?D.NL.or[prevM]:null)}</td></tr>`;
   const bePct=totalOR>0?(beOR/totalOR*100).toFixed(1):0;
   const plPct=totalOR>0?(plOR/totalOR*100).toFixed(1):0;
-  rows+=`<tr><td>B&eacute;lgica (BE)</td><td>${fmtEur(beOR)}</td><td>${fmtEur(beSI)}</td><td>${bePct}%</td><td class="nd">&mdash;</td></tr>`;
-  rows+=`<tr><td>Polonia (PL)</td><td>${fmtEur(plOR)}</td><td>${fmtEur(plSI)}</td><td>${plPct}%</td><td class="nd">&mdash;</td></tr>`;
+  rows+=`<tr><td>B&eacute;lgica (BE)</td><td>${fmtEur(beOR)}</td><td>${fmtEur(beSI)}</td><td>${bePct}%</td><td>${mStr(beOR,prevM!==null?D.BE.or[prevM]:null)}</td></tr>`;
+  rows+=`<tr><td>Polonia (PL)</td><td>${fmtEur(plOR)}</td><td>${fmtEur(plSI)}</td><td>${plPct}%</td><td>${mStr(plOR,prevM!==null?D.PL.or[prevM]:null)}</td></tr>`;
   const totalSI=(isYTD?mkts.reduce((a,mkt)=>a+ytdSum(D[mkt].si,LAST_M),0):mkts.reduce((a,mkt)=>a+D[mkt].si[selM],0))+nlSI+beplSI;
-  document.getElementById('global-table-wrap').innerHTML=`<p style="font-size:10px;color:var(--gray);margin-bottom:8px">Per&iacute;odo: ${periodLbl} &bull; Mercados: FR + IT + DE + NL + BE + PL</p><table class="tbl"><thead><tr><th>Mercado</th><th>Ordered Revenue (OR)</th><th>Shipped Revenue (Mfg)</th><th>% Total</th><th>YoY</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td>Total</td><td>${fmtEur(totalOR)}</td><td>${fmtEur(totalSI)}</td><td>100%</td><td class="nd">&mdash;</td></tr></tfoot></table><p class="note">YoY disponible solo para Francia. BE+PL: datos mensuales de Vendor Central Manufacturing Retail.</p>`;
+  document.getElementById('global-table-wrap').innerHTML=`<p style="font-size:10px;color:var(--gray);margin-bottom:8px">Per&iacute;odo: ${periodLbl} &bull; Mercados: FR + IT + DE + NL + BE + PL</p><table class="tbl"><thead><tr><th>Mercado</th><th>Ordered Revenue (OR)</th><th>Shipped Revenue (Mfg)</th><th>% Total</th><th>MoM OR</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td>Total</td><td>${fmtEur(totalOR)}</td><td>${fmtEur(totalSI)}</td><td>100%</td><td class="nd">&mdash;</td></tr></tfoot></table><p class="note">BE+PL: datos mensuales de Vendor Central Manufacturing Retail.</p>`;
 }
 
 function renderGlobalCatView(){
@@ -1431,8 +1427,8 @@ function renderPOSection(mkt,chartId,tableId,titleId,showYoY){
   if(showYoY===undefined) showYoY=true;
   var siData=D[mkt].si,siPy=D[mkt].si_py,orData=D[mkt].or;
   var chartColors=MONTHS.map(function(_,i){return selM===-1?'var(--orange)':i===selM?'var(--orange)':'rgba(230,126,34,0.35)';});
-  var datasets=[{label:'SI 2026 (€)',data:siData,backgroundColor:chartColors,borderRadius:4}];
-  if(showYoY) datasets.push({label:'SI 2025 (€)',data:siPy,backgroundColor:'rgba(189,195,199,0.6)',borderRadius:4});
+  var datasets=[{label:'SR 2026 (€)',data:siData,backgroundColor:chartColors,borderRadius:4}];
+  if(showYoY) datasets.push({label:'SR 2025 (€)',data:siPy,backgroundColor:'rgba(189,195,199,0.6)',borderRadius:4});
   mkChart(chartId,{type:'bar',data:{labels:MONTHS,datasets:datasets},options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{position:'top',labels:{font:{size:11}}}},
     scales:{y:{ticks:{callback:function(v){return'€'+(v/1000).toFixed(0)+'k';}}}}}});
@@ -1457,9 +1453,9 @@ function renderPOSection(mkt,chartId,tableId,titleId,showYoY){
   var ytdRatio=totOR>0?(totSI/totOR*100).toFixed(1)+'%':'N/D';
   var ytdYoyStr=ytdYoy!==null?'<span class="'+pctClass(ytdYoy)+'">'+fmtPct(ytdYoy,1)+'</span>':'<span class="chg-nd">N/D</span>';
   if(showYoY){
-    el.innerHTML='<table class="tbl" style="font-size:12px;width:100%"><thead><tr><th>Mes</th><th>SI 2026</th><th>SI 2025</th><th>YoY</th><th>MoM</th><th>Ordered Revenue OR</th><th>Ratio SI/OR</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr style="background:var(--orange-xl);font-weight:700"><td>YTD Ene&ndash;Jul</td><td>'+fmtEur(totSI)+'</td><td style="color:#888">'+fmtEur(totSIPY)+'</td><td>'+ytdYoyStr+'</td><td><span class="chg-nd">N/A</span></td><td style="color:#555">'+fmtEur(totOR)+'</td><td>'+ytdRatio+'</td></tr></tfoot></table>';
+    el.innerHTML='<table class="tbl" style="font-size:12px;width:100%"><thead><tr><th>Mes</th><th>SR 2026</th><th>SR 2025</th><th>YoY</th><th>MoM</th><th>Ordered Revenue OR</th><th>Ratio SR/OR</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr style="background:var(--orange-xl);font-weight:700"><td>YTD Ene&ndash;Jul</td><td>'+fmtEur(totSI)+'</td><td style="color:#888">'+fmtEur(totSIPY)+'</td><td>'+ytdYoyStr+'</td><td><span class="chg-nd">N/A</span></td><td style="color:#555">'+fmtEur(totOR)+'</td><td>'+ytdRatio+'</td></tr></tfoot></table>';
   } else {
-    el.innerHTML='<table class="tbl" style="font-size:12px;width:100%"><thead><tr><th>Mes</th><th>SI 2026</th><th>MoM</th><th>Ordered Revenue OR</th><th>Ratio SI/OR</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr style="background:var(--orange-xl);font-weight:700"><td>YTD Ene&ndash;Jul</td><td>'+fmtEur(totSI)+'</td><td><span class="chg-nd">N/A</span></td><td style="color:#555">'+fmtEur(totOR)+'</td><td>'+ytdRatio+'</td></tr></tfoot></table>';
+    el.innerHTML='<table class="tbl" style="font-size:12px;width:100%"><thead><tr><th>Mes</th><th>SR 2026</th><th>MoM</th><th>Ordered Revenue OR</th><th>Ratio SR/OR</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr style="background:var(--orange-xl);font-weight:700"><td>YTD Ene&ndash;Jul</td><td>'+fmtEur(totSI)+'</td><td><span class="chg-nd">N/A</span></td><td style="color:#555">'+fmtEur(totOR)+'</td><td>'+ytdRatio+'</td></tr></tfoot></table>';
   }
 }
 
@@ -1644,7 +1640,7 @@ function renderAll(){
     var invTitleEl=document.getElementById(mkl+'-inv-title');
     if(invTitleEl)invTitleEl.textContent='Inventario — '+MKT_NAMES[mk]+' — Jun 2026';
     var poTitleEl=document.getElementById(mkl+'-po-title');
-    if(poTitleEl)poTitleEl.textContent=mk==='IT'?'📈 Mercados donde se destina mercancía desde almacenes Pan-EU':'📈 Evolución SI — '+MKT_NAMES[mk];
+    if(poTitleEl)poTitleEl.textContent=mk==='IT'?'📈 Mercados donde se destina mercancía desde almacenes Pan-EU':'📈 Evolución SR — '+MKT_NAMES[mk];
   });
   renderGlobalCatConcl();
   renderStratConcl('FR','fr-strat-concl');
