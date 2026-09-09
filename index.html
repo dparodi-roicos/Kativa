@@ -245,19 +245,8 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--da
 </div>
 <!-- FORECAST -->
 <div class="tab-pane" id="tab-forecast">
-  <div class="section"><div class="sec-title">Progreso YTD Sell Out / Ordered Revenue (Ene&ndash;Ago 2026) <span style="background:#E8691A;color:#fff;font-size:10px;padding:2px 8px;border-radius:3px;font-weight:700;letter-spacing:.5px;vertical-align:middle">SELL OUT (OR)</span></div><div id="ytd-progress"></div><p class="note">* Ordered Revenue = ventas del consumidor final (sell out). YTD calculado desde datos MerchantSpring. Objetivos anuales: ingresar en simulador inferior.</p></div>
-  <div class="section"><div class="sec-title">Simulador Objetivo Anual &mdash; Sell Out (OR)</div>
-    <div class="sim-grid">
-      <div class="sim-card"><h4>Francia</h4><div class="sim-field"><label>Objetivo Anual (&euro;)</label><input type="number" id="sim-fr-obj" value="300000" oninput="calcSim()"></div><div class="sim-field"><label>Meses restantes</label><input type="number" id="sim-fr-rem" value="4" oninput="calcSim()"></div><div class="sim-result" id="sim-fr-result"></div></div>
-      <div class="sim-card"><h4>Italia</h4><div class="sim-field"><label>Objetivo Anual (&euro;)</label><input type="number" id="sim-it-obj" value="500000" oninput="calcSim()"></div><div class="sim-field"><label>Meses restantes</label><input type="number" id="sim-it-rem" value="4" oninput="calcSim()"></div><div class="sim-result" id="sim-it-result"></div></div>
-      <div class="sim-card"><h4>Alemania</h4><div class="sim-field"><label>Objetivo Anual (&euro;)</label><input type="number" id="sim-de-obj" value="200000" oninput="calcSim()"></div><div class="sim-field"><label>Meses restantes</label><input type="number" id="sim-de-rem" value="4" oninput="calcSim()"></div><div class="sim-result" id="sim-de-result"></div></div>
-    </div>
-  </div>
+  <div class="section"><div class="sec-title">Progreso YTD Sell Out / Ordered Revenue (Ene&ndash;Ago 2026) <span style="background:#E8691A;color:#fff;font-size:10px;padding:2px 8px;border-radius:3px;font-weight:700;letter-spacing:.5px;vertical-align:middle">SELL OUT (OR)</span></div><div id="ytd-progress"></div><p class="note">* Ordered Revenue = ventas del consumidor final (sell out). YTD calculado desde datos MerchantSpring.</p></div>
   <div class="section"><div class="sec-title">Forecast Sell-In (POs) &mdash; Objetivo &euro;1.700.000 Anual <span style="background:#3b6fd4;color:#fff;font-size:10px;padding:2px 8px;border-radius:3px;font-weight:700;letter-spacing:.5px;vertical-align:middle">SELL IN (POs)</span></div><div id="po-forecast"></div></div>
-  <div class="section" style="border-left:4px solid #E8691A;padding-left:16px">
-    <div class="sec-title" style="font-size:14px">&#128293; Estrategia Q4 2026 &mdash; Black Friday &amp; Temporada Festiva</div>
-    <p class="note" style="font-size:13px;margin-top:8px">Se prevé incremento de inversión en ads para Black Friday y la temporada de fiestas (nov&ndash;dic 2026). Presupuesto base actual: <strong>&euro;8.000/mes</strong> (FR+IT+DE). El cliente ha confirmado que se planificará una inversión publicitaria mayor para capitalizar la demanda estacional del Q4.</p>
-  </div>
 </div>
 
 <script>
@@ -266,18 +255,18 @@ const MKT_NAMES={FR:'Francia',IT:'Italia',DE:'Alemania'};
 const MONTHS=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago'];
 const LAST_M=MONTHS.length-1;
 const D={
-  FR:{or:[19760,20584,29209,29257,28015,35576,37851,39585],or_py:[13373,13657,16585,16503,21826,38419,41804,10203],si:[19090,17559,22742,9512,16370,8420,37294,42320],si_py:[13042,13230,15184,15572,21505,36841,43642,5112],gv:[18545,18774,25459,23254,23645,32070,30360,32496],spend:[2233,2538,2353,1851,2400,2651,896,2947],adsales:[8334,10712,13158,12933,14846,17862,4879,21148],acos:[26.8,23.7,17.9,14.3,16.2,14.8,18.3,13.9],tacos:[11.3,12.3,8.1,6.3,8.6,7.5,2.5,7.4],pasos:['Pasar Post Alisado a modalidad manual','Escalar linea alisado con mayor inversion en ads','Desarrollar bundles con referencias complementarias','Mantener Curly y Reparadores en standby hasta estabilizar stock','Expandir SBV en todos los ad groups']},
-  IT:{or:[17442,33308,49521,48042,43780,63137,69803,55638],or_py:[2668,3324,3100,2058,2451,4232,6759,2720],si:[6772,22020,29394,33917,14801,25239,70106,54095],si_py:[0,0,0,0,0,0,6642,0],gv:[16740,28597,46543,44570,47551,56737,59884,53821],spend:[412,2053,2149,2090,3038,3900,4501,3798],adsales:[2927,17639,19548,17119,22465,32887,33810,29050],acos:[14.1,11.6,11.0,12.2,13.5,11.9,13.3,13.1],tacos:[2.4,6.2,4.3,4.4,6.9,6.2,6.7,6.8],pasos:['Reducir concentracion en ASIN heroe B0CB1KQ8Q4','Escalar SBV manteniendo ACOS menor 20%','Monitorizar devoluciones por categoria']},
-  DE:{or:[9323,15876,20848,21892,21521,28097,32973,26978],or_py:[769,2197,2357,3663,6345,9695,10703,7905],si:[996,2068,11654,11989,12568,9888,32832,35190],si_py:[0,0,0,0,0,0,11079,0],gv:[6473,10755,16915,15201,17437,20437,20859,18098],spend:[251,1175,1302,1106,1354,1416,1580,1204],adsales:[1438,6516,9040,8408,9058,11708,10335,8336],acos:[17.4,18.0,14.4,13.2,14.9,12.1,15.3,14.5],tacos:[2.7,7.4,6.2,5.1,6.3,5.0,5.0,4.5],pasos:['Escalar inversion solo cuando OOS este por debajo del 15%','Lanzar Post Alisado como segunda linea en DE','Consolidar SBV como formato estrella de awareness','Reducir dependencia del ASIN heroe']},
+  FR:{or:[19760,20584,29209,29257,28015,35576,37851,41157],or_py:[13373,13657,16585,16503,21826,38419,41804,10203],si:[19090,17559,22742,9512,16370,8420,37294,42320],si_py:[13042,13230,15184,15572,21505,36841,43642,5112],gv:[18545,18774,25459,23254,23645,32070,30360,32496],spend:[2233,2538,2353,1851,2400,2651,896,2947],adsales:[8334,10712,13158,12933,14846,17862,4879,21148],acos:[26.8,23.7,17.9,14.3,16.2,14.8,18.3,13.9],tacos:[11.3,12.3,8.1,6.3,8.6,7.5,2.5,7.2],pasos:['Pasar Post Alisado a modalidad manual','Escalar linea alisado con mayor inversion en ads','Desarrollar bundles con referencias complementarias','Mantener Curly y Reparadores en standby hasta estabilizar stock','Expandir SBV en todos los ad groups']},
+  IT:{or:[17442,33308,49521,48042,43780,63137,69803,47593],or_py:[2668,3324,3100,2058,2451,4232,6759,2720],si:[6772,22020,29394,33917,14801,25239,70106,54095],si_py:[0,0,0,0,0,0,6642,0],gv:[16740,28597,46543,44570,47551,56737,59884,53821],spend:[412,2053,2149,2090,3038,3900,4501,3798],adsales:[2927,17639,19548,17119,22465,32887,33810,29050],acos:[14.1,11.6,11.0,12.2,13.5,11.9,13.3,13.1],tacos:[2.4,6.2,4.3,4.4,6.9,6.2,6.7,8.0],pasos:['Reducir concentracion en ASIN heroe B0CB1KQ8Q4','Escalar SBV manteniendo ACOS menor 20%','Monitorizar devoluciones por categoria']},
+  DE:{or:[9323,15876,20848,21892,21521,28097,32973,17184],or_py:[769,2197,2357,3663,6345,9695,10703,7905],si:[996,2068,11654,11989,12568,9888,32832,35190],si_py:[0,0,0,0,0,0,11079,0],gv:[6473,10755,16915,15201,17437,20437,20859,18098],spend:[251,1175,1302,1106,1354,1416,1580,1204],adsales:[1438,6516,9040,8408,9058,11708,10335,8336],acos:[17.4,18.0,14.4,13.2,14.9,12.1,15.3,14.5],tacos:[2.7,7.4,6.2,5.1,6.3,5.0,5.0,7.0],pasos:['Escalar inversion solo cuando OOS este por debajo del 15%','Lanzar Post Alisado como segunda linea en DE','Consolidar SBV como formato estrella de awareness','Reducir dependencia del ASIN heroe']},
   NL:{or:[831,1429,2083,2352,2018,4000,3947,4225],si:[797,1551,1981,2162,1937,3993,4077,4291]},
   BE:{or:[1144,1254,2346,3225,3359,6984,6517,5946],si:[1227,1186,2333,3080,3069,6813,6849,5942]},
   PL:{or:[136,62,91,146,170,204,168,181],si:[124,74,91,146,158,180,193,180]}
 };
 
 const YTD_DATA={
-  FR:{or:239837,or_py:172370,or_units:17227,or_units_py:12626},
-  IT:{or:380671,or_py:27312,or_units:23501,or_units_py:1808},
-  DE:{or:177508,or_py:43634,or_units:12597,or_units_py:4888},
+  FR:{or:241409,or_py:172370,or_units:17227,or_units_py:12626},
+  IT:{or:372626,or_py:27312,or_units:23501,or_units_py:1808},
+  DE:{or:167714,or_py:43634,or_units:12597,or_units_py:4888},
   NL:{or:20885,si:20789}
 };
 const INV_DATA={
@@ -325,16 +314,16 @@ const JUL_ADS_CONCLUSIONS={
   DE:'<strong>ROAS 6,54x &middot; ACOS 15,3%.</strong> Gasto &euro;1.580 (+17% vs may), ventas ads &euro;10.335 (+14%). TACoS 5,0%. Reparadores +538% ROAS 6,45x. Categor&iacute;a en contracci&oacute;n &minus;13% YoY.'
 };
 const AGO_CONCLUSIONS={
-  FR:'<strong>Francia &euro;39.585 Ordered Revenue Ago26 (+5% MoM, +288% YoY)</strong>. Shipped Revenue Mfg: &euro;42.320. GV 32.496 (+7% vs Jul). ROAS 7,18x, ACOS 13,9%, TACoS 7,4%. Gasto ads &euro;2.947 (restauraci&oacute;n completa tras incidencia Jul).',
-  IT:'<strong>Italia &euro;55.638 Ordered Revenue Ago26 (&minus;20% MoM, +1.946% YoY)</strong>. Shipped Revenue Mfg: &euro;54.095. GV 53.821. ROAS 7,65x, ACOS 13,1%, TACoS 6,8%. Gasto ads &euro;3.798 (&minus;16% vs Jul), ventas ads &euro;29.050 (&minus;14%).',
-  DE:'<strong>Alemania &euro;26.978 Ordered Revenue Ago26 (&minus;18% MoM, +241% YoY)</strong>. Shipped Revenue Mfg: &euro;35.190. GV 18.098. ROAS 6,93x, ACOS 14,5%, TACoS 4,5%. Gasto ads &euro;1.204 (&minus;24% vs Jul), ventas ads &euro;8.336.',
-  global:'<strong>Portfolio FR+IT+DE+NL: &euro;126.426 OR Ago26 (&minus;9% MoM vs &euro;139.534 Jul). BE+PL sin datos Ago26.</strong> Italia 44% (&euro;56k), Francia 31% (&euro;40k), Alemania 21% (&euro;27k), NL 3% (&euro;4k). Gasto ads EU &euro;7.949, ventas ads &euro;58.534, ROAS 7,36x.',
-  global_ads:'Gasto EU total &euro;7.949 / Ventas ads &euro;58.534 / ROAS 7,36x / TACoS blended 6,5%. <strong>Italia: ROAS 7,65x, Spend &euro;3.798.</strong> Francia: ROAS 7,18x, Spend &euro;2.947 (restauraci&oacute;n post-incidencia Jul). Alemania: ROAS 6,93x, Spend &euro;1.204.'
+  FR:'<strong>Francia &euro;41.157 Ordered Revenue Ago26 (+9% MoM, +303% YoY)</strong>. Shipped Revenue Mfg: &euro;42.320. GV 32.496 (+7% vs Jul). ROAS 7,18x, ACOS 13,9%, TACoS 7,2%. Gasto ads &euro;2.947 (restauraci&oacute;n completa tras incidencia Jul).',
+  IT:'<strong>Italia &euro;47.593 Ordered Revenue Ago26 (&minus;32% MoM, +1.649% YoY)</strong>. Shipped Revenue Mfg: &euro;54.095. GV 53.821. ROAS 7,65x, ACOS 13,1%, TACoS 8,0%. Gasto ads &euro;3.798 (&minus;16% vs Jul), ventas ads &euro;29.050 (&minus;14%).',
+  DE:'<strong>Alemania &euro;17.184 Ordered Revenue Ago26 (&minus;48% MoM, +117% YoY)</strong>. Shipped Revenue Mfg: &euro;35.190. GV 18.098. ROAS 6,93x, ACOS 14,5%, TACoS 7,0%. Gasto ads &euro;1.204 (&minus;24% vs Jul), ventas ads &euro;8.336.',
+  global:'<strong>Portfolio FR+IT+DE+NL: &euro;110.159 OR Ago26 (&minus;24% MoM vs &euro;144.574 Jul). BE+PL sin datos Ago26.</strong> Italia 43% (&euro;48k), Francia 37% (&euro;41k), Alemania 16% (&euro;17k), NL 4% (&euro;4k). Gasto ads EU &euro;7.949, ventas ads &euro;58.534, ROAS 7,36x.',
+  global_ads:'Gasto EU total &euro;7.949 / Ventas ads &euro;58.534 / ROAS 7,36x / TACoS blended 7,2%. <strong>Italia: ROAS 7,65x, Spend &euro;3.798.</strong> Francia: ROAS 7,18x, Spend &euro;2.947 (restauraci&oacute;n post-incidencia Jul). Alemania: ROAS 6,93x, Spend &euro;1.204.'
 };
 const AGO_ADS_CONCLUSIONS={
-  FR:'<strong>ROAS 7,18x &middot; ACOS 13,9%.</strong> Gasto &euro;2.947 (+229% vs Jul &ndash; restauraci&oacute;n completa de ads), ventas ads &euro;21.148 (+333%). TACoS 7,4%. Mejor ACOS de la historia del mercado FR.',
-  IT:'<strong>ROAS 7,65x &middot; ACOS 13,1%.</strong> Gasto &euro;3.798 (&minus;16% vs Jul), ventas ads &euro;29.050 (&minus;14%). TACoS 6,8%. ROAS m&aacute;s alto del a&ntilde;o en IT.',
-  DE:'<strong>ROAS 6,93x &middot; ACOS 14,5%.</strong> Gasto &euro;1.204 (&minus;24% vs Jul), ventas ads &euro;8.336 (&minus;19%). TACoS 4,5%.'
+  FR:'<strong>ROAS 7,18x &middot; ACOS 13,9%.</strong> Gasto &euro;2.947 (+229% vs Jul &ndash; restauraci&oacute;n completa de ads), ventas ads &euro;21.148 (+333%). TACoS 7,2%. Mejor ACOS de la historia del mercado FR.',
+  IT:'<strong>ROAS 7,65x &middot; ACOS 13,1%.</strong> Gasto &euro;3.798 (&minus;16% vs Jul), ventas ads &euro;29.050 (&minus;14%). TACoS 8,0%. ROAS m&aacute;s alto del a&ntilde;o en IT.',
+  DE:'<strong>ROAS 6,93x &middot; ACOS 14,5%.</strong> Gasto &euro;1.204 (&minus;24% vs Jul), ventas ads &euro;8.336 (&minus;19%). TACoS 7,0%.'
 };
 const JUN_ADS_CONCLUSIONS={
   FR:'<strong>ACOS 14,8%, ROAS 6,7x.</strong> Gasto &euro;2.651, ventas ads &euro;17.862. TACoS 7,5%. B0CB1KQ8Q4 concentra el mayor volumen de ventas publicitarias.',
@@ -850,12 +839,12 @@ function renderYTDProgress(){
   ['FR','IT','DE'].forEach(mkt=>{
     const ytd=ytdSum(D[mkt].or,LAST_M),py=ytdSum(D[mkt].or_py,LAST_M);
     const yy=(mkt==='FR')&&py>0?(ytd-py)/py*100:null;
-    html+=`<div style="margin-bottom:16px"><div style="font-weight:700;font-size:13px;margin-bottom:6px">${MKT_NAMES[mkt]} &mdash; YTD Ene&ndash;Ago 2026: ${fmtEur(ytd)} ${yy!=null?'(<span class="'+(yy>=0?'pos':'neg')+'">'+fmtPct(yy)+' YoY</span>)':''}</div><div class="kpi-grid" style="margin-bottom:8px"><div class="kpi-card"><div class="kpi-lbl">YTD 2026</div><div class="kpi-val">${fmtEur(ytd)}</div></div><div class="kpi-card"><div class="kpi-lbl">YTD 2025</div><div class="kpi-val">${fmtEur(py)}</div></div><div class="kpi-card"><div class="kpi-lbl">Gasto Ads YTD</div><div class="kpi-val">${fmtEur(ytdSum(D[mkt].spend,4))}</div></div><div class="kpi-card"><div class="kpi-lbl">ACOS May</div><div class="kpi-val">${D[mkt].acos[4].toFixed(1)}%</div></div></div></div>`;
+    html+=`<div style="margin-bottom:16px"><div style="font-weight:700;font-size:13px;margin-bottom:6px">${MKT_NAMES[mkt]} &mdash; YTD Ene&ndash;Ago 2026: ${fmtEur(ytd)} ${yy!=null?'(<span class="'+(yy>=0?'pos':'neg')+'">'+fmtPct(yy)+' YoY</span>)':''}</div><div class="kpi-grid" style="margin-bottom:8px"><div class="kpi-card"><div class="kpi-lbl">YTD 2026</div><div class="kpi-val">${fmtEur(ytd)}</div></div><div class="kpi-card"><div class="kpi-lbl">YTD 2025</div><div class="kpi-val">${fmtEur(py)}</div></div><div class="kpi-card"><div class="kpi-lbl">Gasto Ads YTD</div><div class="kpi-val">${fmtEur(ytdSum(D[mkt].spend,LAST_M))}</div></div><div class="kpi-card"><div class="kpi-lbl">Ventas Ads YTD</div><div class="kpi-val">${fmtEur(ytdSum(D[mkt].adsales,LAST_M))}</div></div></div></div>`;
   });
   // Card 4: Otros mercados NL+BE+PL (sin YoY ni ads — datos solo OR/SR)
   const extraOR=ytdSum(D.NL.or,LAST_M)+ytdSum(D.BE.or,LAST_M)+ytdSum(D.PL.or,LAST_M);
   const extraSI=ytdSum(D.NL.si,LAST_M)+ytdSum(D.BE.si,LAST_M)+ytdSum(D.PL.si,LAST_M);
-  html+=`<div style="margin-bottom:16px"><div style="font-weight:700;font-size:13px;margin-bottom:6px">Otros mercados (NL+BE+PL) &mdash; YTD Ene&ndash;Ago 2026: ${fmtEur(extraOR)} OR / ${fmtEur(extraSI)} SR</div><div class="kpi-grid" style="margin-bottom:8px"><div class="kpi-card"><div class="kpi-lbl">YTD 2026</div><div class="kpi-val">${fmtEur(extraOR)}</div></div><div class="kpi-card" style="opacity:.5"><div class="kpi-lbl">YTD 2025</div><div class="kpi-val">N/A</div></div><div class="kpi-card" style="opacity:.5"><div class="kpi-lbl">Gasto Ads YTD</div><div class="kpi-val">N/A</div></div><div class="kpi-card" style="opacity:.5"><div class="kpi-lbl">ACOS May</div><div class="kpi-val">N/A</div></div></div></div>`;
+  html+=`<div style="margin-bottom:16px"><div style="font-weight:700;font-size:13px;margin-bottom:6px">Otros mercados (NL+BE+PL) &mdash; YTD Ene&ndash;Ago 2026: ${fmtEur(extraOR)} OR / ${fmtEur(extraSI)} SR</div><div class="kpi-grid" style="margin-bottom:8px"><div class="kpi-card"><div class="kpi-lbl">YTD 2026</div><div class="kpi-val">${fmtEur(extraOR)}</div></div><div class="kpi-card" style="opacity:.5"><div class="kpi-lbl">YTD 2025</div><div class="kpi-val">N/A</div></div><div class="kpi-card" style="opacity:.5"><div class="kpi-lbl">Gasto Ads YTD</div><div class="kpi-val">N/A</div></div><div class="kpi-card" style="opacity:.5"><div class="kpi-lbl">Ventas Ads YTD</div><div class="kpi-val">N/A</div></div></div></div>`;
   el.innerHTML=html;
 }
 
