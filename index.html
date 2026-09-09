@@ -255,18 +255,18 @@ const MKT_NAMES={FR:'Francia',IT:'Italia',DE:'Alemania'};
 const MONTHS=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago'];
 const LAST_M=MONTHS.length-1;
 const D={
-  FR:{or:[19760,20584,29209,29257,28015,35576,37851,41157],or_py:[13373,13657,16585,16503,21826,38419,41804,10203],si:[19090,17559,22742,9512,16370,8420,37294,42320],si_py:[13042,13230,15184,15572,21505,36841,43642,5112],gv:[18545,18774,25459,23254,23645,32070,30360,32496],spend:[2233,2538,2353,1851,2400,2651,896,2947],adsales:[8334,10712,13158,12933,14846,17862,4879,21148],acos:[26.8,23.7,17.9,14.3,16.2,14.8,18.3,13.9],tacos:[11.3,12.3,8.1,6.3,8.6,7.5,2.5,7.2],pasos:['Pasar Post Alisado a modalidad manual','Escalar linea alisado con mayor inversion en ads','Desarrollar bundles con referencias complementarias','Mantener Curly y Reparadores en standby hasta estabilizar stock','Expandir SBV en todos los ad groups']},
-  IT:{or:[17442,33308,49521,48042,43780,63137,69803,47593],or_py:[2668,3324,3100,2058,2451,4232,6759,2720],si:[6772,22020,29394,33917,14801,25239,70106,54095],si_py:[0,0,0,0,0,0,6642,0],gv:[16740,28597,46543,44570,47551,56737,59884,53821],spend:[412,2053,2149,2090,3038,3900,4501,3798],adsales:[2927,17639,19548,17119,22465,32887,33810,29050],acos:[14.1,11.6,11.0,12.2,13.5,11.9,13.3,13.1],tacos:[2.4,6.2,4.3,4.4,6.9,6.2,6.7,8.0],pasos:['Reducir concentracion en ASIN heroe B0CB1KQ8Q4','Escalar SBV manteniendo ACOS menor 20%','Monitorizar devoluciones por categoria']},
-  DE:{or:[9323,15876,20848,21892,21521,28097,32973,17184],or_py:[769,2197,2357,3663,6345,9695,10703,7905],si:[996,2068,11654,11989,12568,9888,32832,35190],si_py:[0,0,0,0,0,0,11079,0],gv:[6473,10755,16915,15201,17437,20437,20859,18098],spend:[251,1175,1302,1106,1354,1416,1580,1204],adsales:[1438,6516,9040,8408,9058,11708,10335,8336],acos:[17.4,18.0,14.4,13.2,14.9,12.1,15.3,14.5],tacos:[2.7,7.4,6.2,5.1,6.3,5.0,5.0,7.0],pasos:['Escalar inversion solo cuando OOS este por debajo del 15%','Lanzar Post Alisado como segunda linea en DE','Consolidar SBV como formato estrella de awareness','Reducir dependencia del ASIN heroe']},
+  FR:{or:[19760,20584,29209,29257,28015,35576,37851,36210],or_py:[13373,13657,16585,16503,21826,38419,41804,10203],si:[19090,17559,22742,9512,16370,8420,37294,42320],si_py:[13042,13230,15184,15572,21505,36841,43642,5112],gv:[18545,18774,25459,23254,23645,32070,30360,32496],spend:[2233,2538,2353,1851,2400,2651,896,2947],adsales:[8334,10712,13158,12933,14846,17862,4879,21148],acos:[26.8,23.7,17.9,14.3,16.2,14.8,18.3,13.9],tacos:[11.3,12.3,8.1,6.3,8.6,7.5,2.5,8.1],pasos:['Pasar Post Alisado a modalidad manual','Escalar linea alisado con mayor inversion en ads','Desarrollar bundles con referencias complementarias','Mantener Curly y Reparadores en standby hasta estabilizar stock','Expandir SBV en todos los ad groups']},
+  IT:{or:[17442,33308,49521,48042,43780,63137,69803,52834],or_py:[2668,3324,3100,2058,2451,4232,6759,2720],si:[6772,22020,29394,33917,14801,25239,70106,54095],si_py:[0,0,0,0,0,0,6642,0],gv:[16740,28597,46543,44570,47551,56737,59884,53821],spend:[412,2053,2149,2090,3038,3900,4501,3798],adsales:[2927,17639,19548,17119,22465,32887,33810,29050],acos:[14.1,11.6,11.0,12.2,13.5,11.9,13.3,13.1],tacos:[2.4,6.2,4.3,4.4,6.9,6.2,6.7,7.2],pasos:['Reducir concentracion en ASIN heroe B0CB1KQ8Q4','Escalar SBV manteniendo ACOS menor 20%','Monitorizar devoluciones por categoria']},
+  DE:{or:[9323,15876,20848,21892,21521,28097,32973,18229],or_py:[769,2197,2357,3663,6345,9695,10703,7905],si:[996,2068,11654,11989,12568,9888,32832,35190],si_py:[0,0,0,0,0,0,11079,0],gv:[6473,10755,16915,15201,17437,20437,20859,18098],spend:[251,1175,1302,1106,1354,1416,1580,1204],adsales:[1438,6516,9040,8408,9058,11708,10335,8336],acos:[17.4,18.0,14.4,13.2,14.9,12.1,15.3,14.5],tacos:[2.7,7.4,6.2,5.1,6.3,5.0,5.0,6.6],pasos:['Escalar inversion solo cuando OOS este por debajo del 15%','Lanzar Post Alisado como segunda linea en DE','Consolidar SBV como formato estrella de awareness','Reducir dependencia del ASIN heroe']},
   NL:{or:[831,1429,2083,2352,2018,4000,3947,4225],si:[797,1551,1981,2162,1937,3993,4077,4291]},
   BE:{or:[1144,1254,2346,3225,3359,6984,6517,5946],si:[1227,1186,2333,3080,3069,6813,6849,5942]},
   PL:{or:[136,62,91,146,170,204,168,181],si:[124,74,91,146,158,180,193,180]}
 };
 
 const YTD_DATA={
-  FR:{or:241409,or_py:172370,or_units:17227,or_units_py:12626},
-  IT:{or:372626,or_py:27312,or_units:23501,or_units_py:1808},
-  DE:{or:167714,or_py:43634,or_units:12597,or_units_py:4888},
+  FR:{or:236462,or_py:172370,or_units:17227,or_units_py:12626},
+  IT:{or:377867,or_py:27312,or_units:23501,or_units_py:1808},
+  DE:{or:168759,or_py:43634,or_units:12597,or_units_py:4888},
   NL:{or:20885,si:20789}
 };
 const INV_DATA={
@@ -314,16 +314,16 @@ const JUL_ADS_CONCLUSIONS={
   DE:'<strong>ROAS 6,54x &middot; ACOS 15,3%.</strong> Gasto &euro;1.580 (+17% vs may), ventas ads &euro;10.335 (+14%). TACoS 5,0%. Reparadores +538% ROAS 6,45x. Categor&iacute;a en contracci&oacute;n &minus;13% YoY.'
 };
 const AGO_CONCLUSIONS={
-  FR:'<strong>Francia &euro;41.157 Ordered Revenue Ago26 (+9% MoM, +303% YoY)</strong>. Shipped Revenue Mfg: &euro;42.320. GV 32.496 (+7% vs Jul). ROAS 7,18x, ACOS 13,9%, TACoS 7,2%. Gasto ads &euro;2.947 (restauraci&oacute;n completa tras incidencia Jul).',
-  IT:'<strong>Italia &euro;47.593 Ordered Revenue Ago26 (&minus;32% MoM, +1.649% YoY)</strong>. Shipped Revenue Mfg: &euro;54.095. GV 53.821. ROAS 7,65x, ACOS 13,1%, TACoS 8,0%. Gasto ads &euro;3.798 (&minus;16% vs Jul), ventas ads &euro;29.050 (&minus;14%).',
-  DE:'<strong>Alemania &euro;17.184 Ordered Revenue Ago26 (&minus;48% MoM, +117% YoY)</strong>. Shipped Revenue Mfg: &euro;35.190. GV 18.098. ROAS 6,93x, ACOS 14,5%, TACoS 7,0%. Gasto ads &euro;1.204 (&minus;24% vs Jul), ventas ads &euro;8.336.',
-  global:'<strong>Portfolio FR+IT+DE+NL: &euro;110.159 OR Ago26 (&minus;24% MoM vs &euro;144.574 Jul). BE+PL sin datos Ago26.</strong> Italia 43% (&euro;48k), Francia 37% (&euro;41k), Alemania 16% (&euro;17k), NL 4% (&euro;4k). Gasto ads EU &euro;7.949, ventas ads &euro;58.534, ROAS 7,36x.',
-  global_ads:'Gasto EU total &euro;7.949 / Ventas ads &euro;58.534 / ROAS 7,36x / TACoS blended 7,2%. <strong>Italia: ROAS 7,65x, Spend &euro;3.798.</strong> Francia: ROAS 7,18x, Spend &euro;2.947 (restauraci&oacute;n post-incidencia Jul). Alemania: ROAS 6,93x, Spend &euro;1.204.'
+  FR:'<strong>Francia &euro;36.210 Ordered Revenue Ago26 (&minus;4% MoM, +255% YoY)</strong>. Shipped Revenue Mfg: &euro;42.320. GV 32.496 (+7% vs Jul). ROAS 7,18x, ACOS 13,9%, TACoS 8,1%. Gasto ads &euro;2.947 (restauraci&oacute;n completa tras incidencia Jul).',
+  IT:'<strong>Italia &euro;52.834 Ordered Revenue Ago26 (&minus;24% MoM, +1.842% YoY)</strong>. Shipped Revenue Mfg: &euro;54.095. GV 53.821. ROAS 7,65x, ACOS 13,1%, TACoS 7,2%. Gasto ads &euro;3.798 (&minus;16% vs Jul), ventas ads &euro;29.050 (&minus;14%).',
+  DE:'<strong>Alemania &euro;18.229 Ordered Revenue Ago26 (&minus;45% MoM, +131% YoY)</strong>. Shipped Revenue Mfg: &euro;35.190. GV 18.098. ROAS 6,93x, ACOS 14,5%, TACoS 6,6%. Gasto ads &euro;1.204 (&minus;24% vs Jul), ventas ads &euro;8.336.',
+  global:'<strong>Portfolio FR+IT+DE+NL: &euro;111.498 OR Ago26 (&minus;23% MoM vs &euro;144.574 Jul). BE+PL sin datos Ago26.</strong> Italia 47% (&euro;53k), Francia 33% (&euro;36k), Alemania 16% (&euro;18k), NL 4% (&euro;4k). Gasto ads EU &euro;7.949, ventas ads &euro;58.534, ROAS 7,36x.',
+  global_ads:'Gasto EU total &euro;7.949 / Ventas ads &euro;58.534 / ROAS 7,36x / TACoS blended 7,1%. <strong>Italia: ROAS 7,65x, Spend &euro;3.798.</strong> Francia: ROAS 7,18x, Spend &euro;2.947 (restauraci&oacute;n post-incidencia Jul). Alemania: ROAS 6,93x, Spend &euro;1.204.'
 };
 const AGO_ADS_CONCLUSIONS={
-  FR:'<strong>ROAS 7,18x &middot; ACOS 13,9%.</strong> Gasto &euro;2.947 (+229% vs Jul &ndash; restauraci&oacute;n completa de ads), ventas ads &euro;21.148 (+333%). TACoS 7,2%. Mejor ACOS de la historia del mercado FR.',
-  IT:'<strong>ROAS 7,65x &middot; ACOS 13,1%.</strong> Gasto &euro;3.798 (&minus;16% vs Jul), ventas ads &euro;29.050 (&minus;14%). TACoS 8,0%. ROAS m&aacute;s alto del a&ntilde;o en IT.',
-  DE:'<strong>ROAS 6,93x &middot; ACOS 14,5%.</strong> Gasto &euro;1.204 (&minus;24% vs Jul), ventas ads &euro;8.336 (&minus;19%). TACoS 7,0%.'
+  FR:'<strong>ROAS 7,18x &middot; ACOS 13,9%.</strong> Gasto &euro;2.947 (+229% vs Jul &ndash; restauraci&oacute;n completa de ads), ventas ads &euro;21.148 (+333%). TACoS 8,1%. Mejor ACOS de la historia del mercado FR.',
+  IT:'<strong>ROAS 7,65x &middot; ACOS 13,1%.</strong> Gasto &euro;3.798 (&minus;16% vs Jul), ventas ads &euro;29.050 (&minus;14%). TACoS 7,2%. ROAS m&aacute;s alto del a&ntilde;o en IT.',
+  DE:'<strong>ROAS 6,93x &middot; ACOS 14,5%.</strong> Gasto &euro;1.204 (&minus;24% vs Jul), ventas ads &euro;8.336 (&minus;19%). TACoS 6,6%.'
 };
 const JUN_ADS_CONCLUSIONS={
   FR:'<strong>ACOS 14,8%, ROAS 6,7x.</strong> Gasto &euro;2.651, ventas ads &euro;17.862. TACoS 7,5%. B0CB1KQ8Q4 concentra el mayor volumen de ventas publicitarias.',
